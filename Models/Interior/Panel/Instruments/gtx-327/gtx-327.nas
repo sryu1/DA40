@@ -38,7 +38,8 @@ var Annun = {
 };
 
 setlistener("/sim/signals/fdm-initialized", func {
-	system.init();
+	# GTX-327 is only available on conventional cockpits. The FG1000 has it's own transponder
+	if (! (props.globals.getNode("/options/g1000", 0).getBoolValue())) system.init();
 });
 
 var system = {

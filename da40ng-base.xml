@@ -81,11 +81,14 @@
 			<path>Systems/da40-instrumentation.xml</path>
 		</instrumentation>
 		<menubar include="Aircraft/DA40/gui/dialogs/da40-menu.xml" />
+		<menubar>
+			<path>Aircraft/DA40/gui/dialogs/da40-menu.xml</path>
+		</menubar>
 		<sound>
-			<path archive="y">Sounds/da40-sound.xml</path>
+			<path archive="y">Aircraft/Da40/Sounds/da40-sound.xml</path>
 		</sound>
 		<systems>
-			<path>Systems/da40-systems.xml</path>
+			<path>Aircraft/Da40/Systems/da40-systems.xml</path>
 			<property-rule n="100">
 				<name>visual_effects_rules</name>
 				<path>Systems/effects.xml</path>
