@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--	This simulates the electrical attitude indicator RCA 26EK
+	References:	https://kellymfg.com/images/RCA26-EK_Information.pdf
+			https://www.kellymfg.com/images/RCA26%20AK%20BK%20EK%20operation%20manual%201403%20rev%20C.pdf
+			-->
+<PropertyList>
+	
+	<path>ai.ac</path>
+	
+	<effect>
+		<inherits-from>Effects/model-transparent</inherits-from>
+		<object-name>ai.glass</object-name>
+	</effect>
+	
+	<animation>
+		<type>material</type>
+		<object-name>ai.horizon</object-name>
+		<object-name>ai.ac_symbol</object-name>
+		<object-name>ai.off_flag</object-name>
+		<object-name>ai.roll</object-name>
+		<emission>
+			<red>   0.07 </red>
+			<green> 0.04 </green>
+			<blue>  0.04 </blue>
+			<factor-prop>systems/electrical/outputs/instrument-lights</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>ai.cage_knob</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>0</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/attitude-indicator/caged-flag</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>instrumentation/attitude-indicator/caged-flag</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>ai.cage_knob</object-name>
+		<property>instrumentation/attitude-indicator/cage-knob-pos</property>
+		<factor>0.015</factor>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>ai.knob</object-name>
+		<property>instrumentation/attitude-indicator/horizon-offset-deg</property>
+		<factor>0.005</factor>
+		<axis>
+			<x> 1 </x>
+			<y> 0 </y>
+			<z> 0 </z>
+		</axis>
+		<center>
+			<z-m>-0.030243</z-m>
+		</center>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/attitude-indicator/horizon-offset-deg</property>
+				<min>-10</min>
+				<max>10</max>
+				<factor>0.5</factor>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>ai.roll</object-name>
+		<object-name>ai.horizon</object-name>
+		<property>/instrumentation/attitude-indicator/indicated-roll-deg</property>
+		<factor>-1</factor>
+		<axis>
+			<x> -1 </x>
+			<y>  0 </y>
+			<z>  0 </z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>translate</type>
+		<object-name>ai.horizon</object-name>
+		<property>/instrumentation/attitude-indicator/indicated-pitch-deg</property>
+		<factor>-0.0005505</factor>
+		<min-m>-0.01369</min-m>
+		<max-m>0.01369</max-m>
+		<axis>
+			<x> 0 </x>
+			<y> 0 </y>
+			<z> 1 </z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>translate</type>
+		<object-name>ai.ac_symbol</object-name>
+		<property>instrumentation/attitude-indicator/horizon-offset-deg</property>
+		<factor>0.0005505</factor>
+		<min-m>-0.01369</min-m>
+		<max-m>0.01369</max-m>
+		<axis>
+			<x>0.0</x>
+			<y>0.0</y>
+			<z>1.0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>ai.off_flag</object-name>
+		<property>fdm/jsbsim/systems/indicators/ai-off-flag</property>
+		<factor>51.01</factor>
+		<center>
+			<y-m>0.021806</y-m>
+			<z-m>0.030113</z-m>
+		</center>
+		<axis>
+			<x>  1 </x>
+			<y>  0 </y>
+			<z>  0 </z>
+		</axis>
+	</animation>
+	
+</PropertyList>
+
+

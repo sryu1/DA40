@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList include="da40ng-base.xml">
+
+	<sim>
+	
+		<description>Diamond DA40 NG G1000 (JSBSim)</description>
+		<variant-of>da40ng-jsb-conventional</variant-of>
+
+		<tags>
+			<tag n="11">glass-cockpit</tag>
+		</tags>
+		<systems>
+			<autopilot n="0">
+				<path>Aircraft/Instruments-3d/FG1000/GFC700.xml</path>
+			</autopilot>
+		</systems>
+	
+	</sim>
+	
+	<options>
+		<g1000 type="bool">1</g1000>
+	</options>
+</PropertyList>

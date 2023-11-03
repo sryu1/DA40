@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+
+<system name="da40-engine">
+	
+	<channel name="Gearbox Temperature">
+		<!-- Concept:
+			Gearbox temperature depends on RPM -> friction
+		-->
+		<fcs_function>
+			<function>
+				<table>
+					<independentVar lookup="row">propulsion/engine[0]/propeller-rpm</independentVar>
+					<independentVar lookup="column">/environment/temperature-degc</independentVar>
+					<independentVar lookup="table">velocities/vc-kts</independentVar>
+					<tableData breakPoint="0">
+							-100	0	100
+						0	-100	0	100
+						800	-50	40	120
+						2300	50	100	160
+					</tableData>
+					<tableData breakPoint="200">
+							-100	0	100
+						0	-100	0	100
+						800	-80	10	110
+						2300	0	80	150
+					</tableData>
+				</table>
+			</function>
+			<output>propulsion/engine[0]/gearbox-temperature-target</output>
+		</fcs_function>
+		<actuator>
+			<input> propulsion/engine[0]/gearbox-temperature-target </input>
+			<rate_limit> 1.5 </rate_limit>
+			<output>propulsion/engine[0]/gearbox-temp-c</output>
+			<output>/engines/engine[0]/gearbox-temperature-degc</output>
+		</actuator>
+	</channel>
+	
+	<channel name="Engine Temperature">
+		<!-- Concept:
+				Engine temperature is dependent on ambient temperature and manifold pressure
+				Engine is cooled by oil which is cooled by coolant as well as air
+		-->
+		<fcs_function>
+			<function>
+				<difference>
+					<sum>
+						<product>
+							<property>propulsion/engine[0]/map-inhg</property>
+							<value>1.2</value>
+						</product>
+						<value>59</value>
+					</sum>
+					<property>propulsion/engine[0]/engine-temp-c</property>
+				</difference>
+			</function>
+			<output>propulsion/engine[0]/engine-heating</output>
+		</fcs_function>		
+		<summer>
+			<input>propulsion/engine[0]/engine-heating</input>
+			<input>-propulsion/engine[0]/oil-heating</input>
+			<output>propulsion/engine[0]/delta-et-running</output>
+		</summer>
+		<switch name="propulsion/engine[0]/delta-et">
+			<default value="0"/>
+			<test value="propulsion/engine[0]/delta-et-running">
+				propulsion/engine[0]/set-running eq 1
+			</test>
+			<test value="-0.2">
+				propulsion/engine[0]/engine-temp-c gt /environment/temperature-degc
+				propulsion/engine[0]/set-running eq 0
+			</test>
+			<test value="0.2">
+				propulsion/engine[0]/engine-temp-c le /environment/temperature-degc
+				propulsion/engine[0]/set-running eq 0
+			</test>
+		</switch>
+		<integrator>
+			<input>propulsion/engine[0]/delta-et</input>
+			<c1>1</c1>
+			<output>propulsion/engine[0]/engine-temp-c</output>
+		</integrator>
+		
+	</channel>
+	
+	<property value="1.0">propulsion/engine[0]/coolant-level-norm</property>
+	
+	<channel name="Coolant Temperature">
+		<!-- Coolant is
+				heated by:	oil
+				cooled by:	air
+		-->
+		<fcs_function>
+			<function>
+				<product>
+					<difference>
+						<property>propulsion/engine[0]/coolant-temp-c</property>
+						<property>/environment/temperature-degc</property>
+					</difference>
+					<value>0.01</value>
+					<sum>
+						<product>
+							<property>velocities/vc-kts</property>
+							<value>-0.1</value>
+						</product>
+						<value>-1.0</value>
+					</sum>
+				</product>
+			</function>
+			<output>propulsion/engine[0]/coolant-cooling</output>
+		</fcs_function>
+		<fcs_function>
+			<function>
+				<product>
+					<property>propulsion/engine[0]/oil-cooling</property>
+					<property>propulsion/engine[0]/coolant-level-norm</property>
+					<value>-1.5</value>
+				</product>
+			</function>
+			<output>propulsion/engine[0]/coolant-heating</output>
+		</fcs_function>			
+		<summer>
+			<input>propulsion/engine[0]/coolant-heating</input>
+			<input>propulsion/engine[0]/coolant-cooling</input>
+			<output>propulsion/engine[0]/delta-ct-running</output>
+		</summer>
+		<switch name="propulsion/engine[0]/delta-ct">
+			<default value="0"/>
+			<test value="propulsion/engine[0]/delta-ct-running">
+				propulsion/engine[0]/set-running eq 1
+			</test>
+			<test value="-0.2">
+				propulsion/engine[0]/coolant-temp-c gt /environment/temperature-degc
+				propulsion/engine[0]/set-running eq 0
+			</test>
+			<test value="0.2">
+				propulsion/engine[0]/coolant-temp-c le /environment/temperature-degc
+				propulsion/engine[0]/set-running eq 0
+			</test>
+		</switch>
+		<integrator>
+			<input>propulsion/engine[0]/delta-ct</input>
+			<c1>0.8</c1>
+			<output>propulsion/engine[0]/coolant-temp-c</output>
+			<output>/engines/engine[0]/coolant-temperature-degc</output>
+		</integrator>
+	</channel>
+	
+	<channel name="Oil Temperature">
+		<!-- Oil is
+				heated by:	engine
+				cooled by:	coolant
+		-->
+		<fcs_function>
+			<function>
+				<product>
+					<difference>
+						<property>propulsion/engine[0]/coolant-temp-c</property>
+						<property>propulsion/engine[0]/oil-temp-c</property>
+					</difference>
+					<value>0.3</value>
+				</product>
+			</function>
+			<output>propulsion/engine[0]/oil-cooling</output>
+		</fcs_function>
+		<fcs_function>
+			<function>
+				<product>
+					<difference>
+						<property>propulsion/engine[0]/engine-temp-c</property>
+						<property>propulsion/engine[0]/oil-temp-c</property>
+					</difference>
+					<value>0.9</value>
+				</product>
+			</function>
+			<output>propulsion/engine[0]/oil-heating</output>
+		</fcs_function>
+		<summer name="propulsion/engine[0]/delta-ot-running">
+			<input>propulsion/engine[0]/oil-heating</input>
+			<input>propulsion/engine[0]/oil-cooling</input>
+		</summer>
+		<switch name="propulsion/engine[0]/delta-ot">
+			<default value="0"/>
+			<test value="propulsion/engine[0]/delta-ot-running">
+				propulsion/engine[0]/oil-temp-c lt propulsion/engine[0]/engine-temp-c
+				propulsion/engine[0]/set-running eq 1
+			</test>
+			<test value="-0.5">
+				propulsion/engine[0]/oil-temp-c gt /environment/temperature-degc
+				propulsion/engine[0]/set-running eq 0
+			</test>
+			<test value="0.5">
+				propulsion/engine[0]/oil-temp-c le /environment/temperature-degc
+				propulsion/engine[0]/set-running eq 0
+			</test>
+		</switch>
+		<integrator>
+			<input>propulsion/engine[0]/delta-ot</input>
+			<c1>1</c1>
+			<output>propulsion/engine[0]/oil-temp-c</output>
+			<output>/engines/engine[0]/oil-temperature-degc</output>
+		</integrator>
+	</channel>
+	
+	<channel name="Oil Pressure">
+		<fcs_function>
+			<function>
+				<product>
+					<property>propulsion/engine[0]/oil-pressure-psi</property>
+					<value>0.058</value>
+				</product>
+			</function>
+			<output>propulsion/engine[0]/oil-press-bar</output>
+			<output>/engines/engine[0]/oil-pressure-bar</output>
+		</fcs_function>
+	</channel>
+				
+</system>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--	Turn Coordinator, based on Falcon Gauge TC02E-3L-2 (see docs/instruments.md)
+-->
+<PropertyList>
+	<path>tc.ac</path>
+	
+	<!--	Illumination	-->
+	<animation>
+		<type>material</type>
+		<object-name>tc.base</object-name>
+		<object-name>tc.airplane</object-name>
+		<object-name>tc.ball</object-name>
+		<object-name>tc.flag</object-name>
+		<emission>
+			<red>   0.05 </red>
+			<green> 0.02 </green>
+			<blue>  0.02 </blue>
+			<factor-prop>systems/electrical/outputs/instrument-lights</factor-prop>
+		</emission>
+	</animation>
+	<!--	Glass	-->
+	<effect>
+		<inherits-from>../../../../Effects/interior/instrument-glass</inherits-from>
+		<object-name>tc.glass</object-name>
+	</effect>
+	<!--	Ball	-->
+	<animation>
+		<type>rotate</type>
+		<object-name>tc.ball</object-name>
+		<property>instrumentation/slip-skid-ball/indicated-slip-skid</property>
+		<interpolation>
+			<entry><ind>-1</ind><dep> 15</dep></entry>
+			<entry><ind> 1</ind><dep>-15</dep></entry>
+		</interpolation>
+		<center>
+			<z-m>0.06</z-m>
+		</center>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<!--	Turn (Airplane Symbol)	-->
+	<animation>
+		<type>rotate</type>
+		<object-name>tc.airplane</object-name>
+		<property>instrumentation/turn-indicator/indicated-turn-rate</property>
+		<factor>-6.667</factor><!--	20 deg at 2 min per turn = 3 deg/s turn rate	-->
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<!--	OFF Flag	-->
+	<animation>
+		<type>textranslate</type>
+		<object-name>tc.flag</object-name>
+		<property>instrumentation/turn-indicator/spin</property>
+		<interpolation>
+			<entry>
+				<ind>0.94</ind>
+				<dep>0.0566</dep>
+			</entry>
+			<entry>
+				<ind>0.95</ind>
+				<dep>0.0</dep>
+			</entry>
+		</interpolation>
+		<axis>
+			<y>1</y>
+		</axis>
+	</animation>
+</PropertyList>
+ 

@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<PropertyList>
+	<path>da40.ac</path>
+	<nasal>
+		<load>
+			var livery_update = aircraft.livery_update.new("Aircraft/DA40/Models/Liveries", 10);
+			
+			var rplayer = cmdarg();
+			
+			# Set up property aliases for animations
+			rplayer.getNode("engines/engine[0]/cranking",		1).alias(rplayer.getNode("sim/multiplay/generic/int[0]")	);
+			rplayer.getNode("sim/model/lights/landing-light",	1).alias(rplayer.getNode("sim/multiplay/generic/int[1]")	);
+			rplayer.getNode("sim/model/lights/taxi-light",		1).alias(rplayer.getNode("sim/multiplay/generic/int[2]")	);
+			rplayer.getNode("sim/model/lights/nav-light",		1).alias(rplayer.getNode("sim/multiplay/generic/int[3]")	);
+			rplayer.getNode("sim/model/lights/strobe/state",	1).alias(rplayer.getNode("sim/multiplay/generic/int[4]")	);
+			rplayer.getNode("engines/engine[0]/running",		1).alias(rplayer.getNode("sim/multiplay/generic/int[5]")	);
+			rplayer.getNode("gear/gear[0]/wow",			1).alias(rplayer.getNode("sim/multiplay/generic/int[6]")	);
+			rplayer.getNode("gear/gear[1]/wow",			1).alias(rplayer.getNode("sim/multiplay/generic/int[7]")	);
+			rplayer.getNode("gear/gear[2]/wow",			1).alias(rplayer.getNode("sim/multiplay/generic/int[8]")	);
+				
+			rplayer.getNode("controls/flight/elevator-trim",	1).alias(rplayer.getNode("sim/multiplay/generic/float[0]")	);
+			rplayer.getNode("gear/gear[0]/steering-norm",		1).alias(rplayer.getNode("sim/multiplay/generic/float[1]")	);
+			rplayer.getNode("gear/gear[0]/rollspeed-ms",		1).alias(rplayer.getNode("sim/multiplay/generic/float[2]")	);
+			rplayer.getNode("gear/gear[1]/rollspeed-ms",		1).alias(rplayer.getNode("sim/multiplay/generic/float[3]")	);
+			rplayer.getNode("gear/gear[2]/rollspeed-ms",		1).alias(rplayer.getNode("sim/multiplay/generic/float[4]")	);
+			rplayer.getNode("da40/canopy-norm",			1).alias(rplayer.getNode("sim/multiplay/generic/float[5]")	);
+			rplayer.getNode("da40/door-left-norm",			1).alias(rplayer.getNode("sim/multiplay/generic/float[6]")	);
+			rplayer.getNode("engines/engine[0]/mp-osi",		1).alias(rplayer.getNode("sim/multiplay/generic/float[7]")	);
+			rplayer.getNode("velocities/groundspeed-kt",		1).alias(rplayer.getNode("sim/multiplay/generic/float[8]")	);
+			
+		</load>
+		<unload>
+			livery_update.stop();
+			
+			rplayer.getNode("engines/engine[0]/cranking",		1).unalias();
+			rplayer.getNode("sim/model/lights/landing-light",	1).unalias();
+			rplayer.getNode("sim/model/lights/taxi-light",		1).unalias();
+			rplayer.getNode("sim/model/lights/nav-light",		1).unalias();
+			rplayer.getNode("sim/model/lights/strobe/state",	1).unalias();
+			rplayer.getNode("engines/engine[0]/running",		1).unalias();
+			rplayer.getNode("gear/gear[0]/wow",			1).unalias();
+			rplayer.getNode("gear/gear[1]/wow",			1).unalias();
+			rplayer.getNode("gear/gear[2]/wow",			1).unalias();
+				
+			rplayer.getNode("controls/flight/elevator-trim",	1).unalias();
+			rplayer.getNode("gear/gear[0]/steering-norm",		1).unalias();
+			rplayer.getNode("gear/gear[0]/rollspeed-ms",		1).unalias();
+			rplayer.getNode("gear/gear[1]/rollspeed-ms",		1).unalias();
+			rplayer.getNode("gear/gear[2]/rollspeed-ms",		1).unalias();
+			rplayer.getNode("da40/canopy-norm",			1).unalias();
+			rplayer.getNode("da40/door-left-norm",			1).unalias();
+			rplayer.getNode("engines/engine[0]/mp-osi",		1).unalias();
+			rplayer.getNode("velocities/groundspeed-kt",		1).unalias();
+		</unload>
+	</nasal>
+	<!--	#########	-->
+	<!--	 EFFECTS 	-->
+	<!--	#########	-->
+	<effect>
+		<inherits-from>Effects/fuselage-reflect</inherits-from>
+		<object-name>fuselage</object-name>
+		<object-name>wings</object-name>
+		<object-name>aileron.L</object-name>
+		<object-name>aileron.R</object-name>
+		<object-name>flap.L</object-name>
+		<object-name>flap.R</object-name>
+		<object-name>elevator</object-name>
+		<object-name>elevator.trim.tab</object-name>
+		<object-name>rudder</object-name>
+		<object-name>hstab</object-name>
+		<object-name>canopy.F</object-name>
+		<object-name>door.R</object-name>
+		<object-name>gear.F</object-name>
+		<object-name>gear.F.2</object-name>
+		<object-name>wheelfairingF</object-name>
+		<object-name>wheelF</object-name>
+		<object-name>gearL</object-name>
+		<object-name>wheelfairingL</object-name>
+		<object-name>wheelL</object-name>
+		<object-name>gearR</object-name>
+		<object-name>wheelfairingR</object-name>
+		<object-name>wheelR</object-name>
+		<object-name>spinner</object-name>
+		<object-name>prop</object-name>
+	</effect>
+	<effect>
+		<inherits-from>Effects/model-transparent</inherits-from>
+		<object-name>propdisc</object-name>
+		<object-name>window.F</object-name>
+		<object-name>window.L</object-name>
+		<object-name>window.R</object-name>
+	</effect>
+	<!-- Tyresmoke --> 
+	<model>
+		<path>Aircraft/Generic/Effects/tyre-smoke-nose.xml</path>
+		<name>tyre-smoke-n</name>
+		<offsets>
+			<x-m> -2.919 </x-m>
+			<y-m>  0.000 </y-m>
+			<z-m> -1.109 </z-m>
+		</offsets>
+	</model>
+		
+	<model>
+		<path>Aircraft/Generic/Effects/tyre-smoke-port.xml</path>
+		<name>tyre-smoke-p</name>
+		<offsets>
+			<x-m> -1.222 </x-m>
+			<y-m> -0.962 </y-m>
+			<z-m> -1.109 </z-m>
+		</offsets>
+	</model>
+		
+	<model>
+		<path>Aircraft/Generic/Effects/tyre-smoke-stbd.xml</path>
+		<name>tyre-smoke-s</name>
+		<offsets>
+			<x-m> -1.222 </x-m>
+			<y-m> 0.962 </y-m>
+			<z-m> -1.109 </z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/Generic/Effects/rain-nose.xml</path>
+		<name>rain-splash-n</name>
+		<offsets>
+			<x-m> -2.919 </x-m>
+			<y-m>  0.000 </y-m>
+			<z-m> -1.109 </z-m>
+		</offsets>
+	</model>
+		
+	<model>
+		<path>Aircraft/Generic/Effects/rain-port.xml</path>
+		<name>rain-splash-p</name>
+		<offsets>
+			<x-m> -1.222 </x-m>
+			<y-m> -0.962 </y-m>
+			<z-m> -1.109 </z-m>
+		</offsets>
+	</model>
+		
+	<model>
+		<path>Aircraft/Generic/Effects/rain-stbd.xml</path>
+		<name>rain-splash-s</name>
+		<offsets>
+			<x-m> -1.222 </x-m>
+			<y-m> 0.962 </y-m>
+			<z-m> -1.109 </z-m>
+		</offsets>
+	</model>
+	
+	
+	<!--	########	-->
+	<!--	 MODELS 	-->
+	<!--	########	-->
+	
+	<!--	Interior	-->
+	<model>
+		<usage>interior</usage>
+		<path>Interior/interior.xml</path>
+	</model>
+	
+	
+	<!--	############	-->
+	<!--	 ANIMATIONS 	-->
+	<!--	############	-->
+	
+	<!--	Engine	-->
+	<animation>
+		<name>propeller</name>
+		<object-name>propdisc</object-name>
+		<object-name>prop</object-name>
+		<object-name>bol</object-name>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>propdisc</object-name>
+		<condition>
+			<greater-than>
+				<property>engines/engine[0]/rpm</property>
+				<value>750</value>
+			</greater-than>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>prop</object-name>
+		<condition>
+			<less-than>
+				<property>engines/engine[0]/rpm</property>
+				<value>750</value>
+			</less-than>
+		</condition>
+	</animation>
+	<animation>
+		<type>spin</type>
+		<object-name>propeller</object-name>
+		<property>engines/engine[0]/rpm</property>
+		<factor> 1 </factor>
+		<center>
+			<z-m>  0.225324</z-m>
+		</center>
+		<axis>
+			<x> -1 </x>
+			<y>  0 </y>
+			<z>  0 </z>
+		</axis>
+	</animation>
+	<!--	FLIGHT CONTROL SURFACES	-->
+	<!--	Elevator	-->
+	<animation>
+		<type>rotate</type>
+		<object-name>elevator</object-name>
+		<object-name>elevator.trim.tab</object-name>
+		<property>surface-positions/elevator-pos-norm</property>
+		<factor>21</factor>
+		<!--Max elevator deflection: 21°-->
+		<center>
+			<x-m>3.735 </x-m>
+			<y-m> 0.00000 </y-m>
+			<z-m>1.31315</z-m>
+		</center>
+		<axis>
+			<x> 0 </x>
+			<y> 1 </y>
+			<z> 0 </z>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>elevator.trim.tab</object-name>
+		<property>controls/flight/elevator-trim</property>
+		<factor>-39</factor>
+		<!--Max elevator trim tab deflection: 39°(?)-->
+		<center>
+			<x-m>3.97486 </x-m>
+			<y-m> 0.00000 </y-m>
+			<z-m>1.32153</z-m>
+		</center>
+		<axis>
+			<x> 0 </x>
+			<y> 1 </y>
+			<z> 0 </z>
+		</axis>
+	</animation>
+	<!--Rudder -->
+	<animation>
+		<type>rotate</type>
+		<object-name>rudder</object-name>
+		<property>surface-positions/rudder-pos-norm</property>
+		<factor>26</factor>
+		<!--Max Rudder deflection: 26°-->
+		<axis>
+			<x1-m> 3.2865 </x1-m>
+			<y1-m> 0.00000 </y1-m>
+			<z1-m> 0.131055 </z1-m>
+			<x2-m> 3.58234 </x2-m>
+			<y2-m> 0.00000 </y2-m>
+			<z2-m> 1.12744 </z2-m>
+		</axis>
+	</animation>
+	<!-- Ailerons -->
+	<animation>
+		<type>rotate</type>
+		<object-name>aileron.L</object-name>
+		<property>surface-positions/left-aileron-pos-norm</property>
+		<factor>-20</factor>
+		<!--Max aileron deflection: 20°-->
+		<axis>
+			<x1-m> -0.969622 </x1-m>
+			<y1-m> -4.01238 </y1-m>
+			<z1-m> 0.035996 </z1-m>
+			<x2-m> -1.04477 </x2-m>
+			<y2-m> -5.61582 </y2-m>
+			<z2-m> 0.175616 </z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>aileron.R</object-name>
+		<property>surface-positions/right-aileron-pos-norm</property>
+		<factor>20</factor>
+		<!--Max aileron deflection: 20°-->
+		<axis>
+			<x1-m> -0.969622 </x1-m>
+			<y1-m> 4.01238 </y1-m>
+			<z1-m> 0.035996 </z1-m>
+			<x2-m> -1.04477 </x2-m>
+			<y2-m> 5.61582 </y2-m>
+			<z2-m> 0.175616 </z2-m>
+		</axis>
+	</animation>
+	<!-- Flaps -->
+	<animation>
+		<type>rotate</type>
+		<object-name>flap.L</object-name>
+		<property>surface-positions/flap-pos-norm</property>
+		<factor>-42</factor>
+		<!--Max flap deflection: 42°-->
+		<axis>
+			<x1-m> -0.969622 </x1-m>
+			<y1-m> -4.01238 </y1-m>
+			<z1-m> 0.035996 </z1-m>
+			<x2-m> -1.04477 </x2-m>
+			<y2-m> -5.61582 </y2-m>
+			<z2-m> 0.175616 </z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>flap.R</object-name>
+		<property>surface-positions/flap-pos-norm</property>
+		<factor>42</factor>
+		<!--Max flap deflection: 42°-->
+		<axis>
+			<x1-m> -0.969622 </x1-m>
+			<y1-m> 4.01238 </y1-m>
+			<z1-m> 0.035996 </z1-m>
+			<x2-m> -1.04477 </x2-m>
+			<y2-m> 5.61582 </y2-m>
+			<z2-m> 0.175616 </z2-m>
+		</axis>
+	</animation>
+	
+	<!--	LANDING GEAR	-->
+	<!--	Compression	-->
+	<animation>
+		<name>gear.complete.F</name>
+		<object-name>gear.F</object-name>
+		<object-name>gear.F.2</object-name>
+		<object-name>wheelF</object-name>
+		<object-name>wheelfairingF</object-name>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>gear.complete.F</object-name>
+		<property>gear/gear[0]/compression-norm</property>
+		<factor>16</factor>
+		<center>
+			<x-m> -2.64659 </x-m>
+			<z-m> -0.284859 </z-m>
+		</center>
+		<axis>
+			<x> 0 </x>
+			<y> 1 </y>
+			<z> 0 </z>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>wheelfairingF</object-name>
+		<object-name>wheelF</object-name>
+		<property>gear/gear[0]/compression-norm</property>
+		<factor>-16</factor>
+		<center>
+			<x-m> -3.32821 </x-m>
+			<z-m> -0.694738 </z-m>
+		</center>
+		<axis>
+			<x> 0 </x>
+			<y> 1 </y>
+			<z> 0 </z>
+		</axis>
+	</animation>
+	<animation>
+		<name>gear.complete.L</name>
+		<object-name>gearL</object-name>
+		<object-name>wheelL</object-name>
+		<object-name>wheelfairingL</object-name>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>gear.complete.L</object-name>
+		<property>gear/gear[1]/compression-norm</property>
+		<interpolation>
+			<entry>
+				<ind> 0.00 </ind>
+				<dep>  6 </dep>
+			</entry>
+			<entry>
+				<ind> 0.2053 </ind>
+				<dep>  0 </dep>
+			</entry>
+			<entry>
+				<ind> 1.00 </ind>
+				<dep> -21 </dep>
+			</entry>
+		</interpolation>
+		<center>
+			<y-m>-0.865143</y-m>
+			<z-m> -0.280226 </z-m>
+		</center>
+		<axis>
+			<x> 1 </x>
+			<y> 0 </y>
+			<z> 0 </z>
+		</axis>
+	</animation>
+	<animation>
+		<name>gear.complete.R</name>
+		<object-name>gearR</object-name>
+		<object-name>wheelR</object-name>
+		<object-name>wheelfairingR</object-name>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>gear.complete.R</object-name>
+		<property>gear/gear[2]/compression-norm</property>
+		<interpolation>
+			<entry>
+				<ind> 0.00 </ind>
+				<dep>  -6 </dep>
+			</entry>
+			<entry>
+				<ind> 0.2053 </ind>
+				<dep>  0 </dep>
+			</entry>
+			<entry>
+				<ind> 1.00 </ind>
+				<dep> 21 </dep>
+			</entry>
+		</interpolation>
+		<center>
+			<y-m>0.865143</y-m>
+			<z-m> -0.280226 </z-m>
+		</center>
+		<axis>
+			<x> 1 </x>
+			<y> 0 </y>
+			<z> 0 </z>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>wheelF</object-name>
+		<object-name>wheelfairingF</object-name>
+		<property>gear/gear[0]/steering-norm</property>
+		<factor> 360 </factor>
+		<center>
+			<x-m> -3.32821 </x-m>
+			<y-m> -0.078441 </y-m>
+			<z-m> -0.694738 </z-m>
+		</center>
+		<axis>
+			<x>  0 </x>
+			<y>  0 </y>
+			<z> -1 </z>
+		</axis>
+	</animation>
+	<!-- Rotation des roues lors du roulage -->
+	<animation>
+		<type>spin</type>
+		<object-name>wheelF</object-name>
+		<property>gear/gear[0]/rollspeed-ms</property>
+		<factor> 30 </factor>
+		<center>
+			<x-m> -3.11197 </x-m>
+			<z-m> -0.824345 </z-m>
+		</center>
+		<axis>
+			<x>  0 </x>
+			<y> -1 </y>
+			<z>  0 </z>
+		</axis>
+	</animation>
+	<animation>
+		<type>spin</type>
+		<object-name>wheelL</object-name>
+		<property>gear/gear[1]/rollspeed-ms</property>
+		<factor> 30 </factor>
+		<center>
+			<x-m> -1.33521 </x-m>
+			<z-m> -0.719738 </z-m>
+		</center>
+		<axis>
+			<x>  0 </x>
+			<y> -1 </y>
+			<z>  0 </z>
+		</axis>
+	</animation>
+	<animation>
+		<type>spin</type>
+		<object-name>wheelR</object-name>
+		<property>gear/gear[2]/rollspeed-ms</property>
+		<factor> 30 </factor>
+		<center>
+			<x-m> -1.33521 </x-m>
+			<z-m> -0.719738 </z-m>
+		</center>
+		<axis>
+			<x>  0 </x>
+			<y> -1 </y>
+			<z>  0 </z>
+		</axis>
+	</animation>
+	<!-- Canopy Front -->
+	<animation>
+		<type>pick</type>
+		<object-name>canopy.F</object-name>
+		<visible>true</visible>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>da40/canopy-cmd</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>canopy.F</object-name>
+		<object-name>window.F</object-name>
+		<property>da40/canopy-norm</property>
+		<interpolation>
+			<entry>
+				<ind> 0 </ind>
+				<dep>   0 </dep>
+			</entry>
+			<entry>
+				<ind> 1 </ind>
+				<dep> -50 </dep>
+			</entry>
+		</interpolation>
+		<center>
+			<x-m> -2.67007 </x-m>
+			<y-m>  0.00000 </y-m>
+			<z-m> 0.460298 </z-m>
+		</center>
+		<axis>
+			<x> 0 </x>
+			<y> 1 </y>
+			<z> 0 </z>
+		</axis>
+	</animation>
+	<!-- Rear Door -->
+	<animation>
+		<type>pick</type>
+		<object-name>door.R</object-name>
+		<visible>true</visible>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>da40/door-left-cmd</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>window.L</object-name>
+		<object-name>door.R</object-name>
+		<property>da40/door-left-norm</property>
+		<interpolation>
+			<entry>
+				<ind> 0 </ind>
+				<dep>   0 </dep>
+			</entry>
+			<entry>
+				<ind> 1 </ind>
+				<dep> -65 </dep>
+			</entry>
+		</interpolation>
+		<axis>
+			<x1-m>-1.12832 </x1-m>
+			<y1-m>0.009967 </y1-m>
+			<z1-m>  0.851564 </z1-m>
+			<x2-m> -0.524687 </x2-m>
+			<y2-m> -0.071008 </y2-m>
+			<z2-m> 0.792257 </z2-m>
+		</axis>
+	</animation>
+	
+	<!--	########	-->
+	<!--	 LIGHTS 	-->
+	<!--	########	-->
+	<model>
+		<name>lights</name>
+		<path>lights.xml</path>
+	</model>
+</PropertyList>

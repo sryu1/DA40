@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+	<name>interior-glass</name>
+	<inherits-from>Effects/glass</inherits-from>
+	<parameters>
+		<texture n="2">
+			<image>Models/Effects/interior/mask-interior-glass-front.png</image>
+			<type>2d</type>
+			<filter>linear-mipmap-linear</filter>
+			<wrap-s>clamp</wrap-s>
+			<wrap-t>clamp</wrap-t>
+			<internal-format>normalized</internal-format>
+		</texture>
+		<use-mask type="int">1</use-mask>
+		<overlay-alpha type="float"><use>/environment/aircraft-effects/frost-level</use></overlay-alpha>
+		<overlay-color type="vec3d" n="0">1.0 1.0 1.0</overlay-color>
+		<overlay-glare type="float">0.5</overlay-glare>
+		<frost-level>0</frost-level>
+		<use-overlay>1</use-overlay>
+		<texture n="3">
+			<type>cubemap</type>
+			<images>
+				<positive-x>Models/Effects/cubemaps/interior_reflection/0004.png</positive-x>
+				<negative-x>Models/Effects/cubemaps/interior_reflection/0002.png</negative-x>
+				<positive-y>Models/Effects/cubemaps/interior_reflection/0001.png</positive-y>
+				<negative-y>Models/Effects/cubemaps/interior_reflection/0003.png</negative-y>
+				<positive-z>Models/Effects/cubemaps/interior_reflection/0006.png</positive-z>
+				<negative-z>Models/Effects/cubemaps/interior_reflection/0005.png</negative-z>
+			</images>
+		</texture>
+		<use-reflection-lightmap type="int">1</use-reflection-lightmap>
+		<texture n="4">
+			<type>cubemap</type>
+			<images>
+				<positive-x>Models/Effects/cubemaps/interior_reflection_lightmap/0004.png</positive-x>
+				<negative-x>Models/Effects/cubemaps/interior_reflection_lightmap/0002.png</negative-x>
+				<positive-y>Models/Effects/cubemaps/interior_reflection_lightmap/0001.png</positive-y>
+				<negative-y>Models/Effects/cubemaps/interior_reflection_lightmap/0003.png</negative-y>
+				<positive-z>Models/Effects/cubemaps/interior_reflection_lightmap/0006.png</positive-z>
+				<negative-z>Models/Effects/cubemaps/interior_reflection_lightmap/0005.png</negative-z>
+			</images>
+		</texture>
+		<reflection-strength type="float">0.75</reflection-strength>
+		<rain-enabled>1</rain-enabled>
+		<use-reflection type="int">1</use-reflection>
+	</parameters>
+</PropertyList>

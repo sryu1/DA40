@@ -1,0 +1,350 @@
+<?xml version="1.0"?>
+<flight_control name="FCS: DA40NG">
+	<channel name="Pitch">
+		<fcs_function name="fcs/pitch-trim-force-norm">
+			<function><!--Airflow needed for trim tab to be effective-->
+				<product>
+					<table>
+						<independentVar lookup="row">velocities/vc-kts</independentVar>
+						<tableData>
+							0  	0.0
+							45	1.0
+						</tableData>
+					</table>
+					<property>fcs/pitch-trim-cmd-norm</property>
+				</product>
+			</function>
+		</fcs_function>
+		<summer name="Pitch Trim Sum">
+			<input>fcs/elevator-cmd-norm</input>
+			<input>fcs/pitch-trim-force-norm</input>
+			<clipto>
+				<min> -1 </min>
+				<max>  1 </max>
+			</clipto>
+		</summer>
+		<aerosurface_scale name="Elevator Control">
+			<input>fcs/pitch-trim-sum</input>
+			<range>
+				<min> -0.367 </min>
+				<!--21° up-->
+				<max>  0.297 </max>
+				<!--17° down-->
+			</range>
+			<output>fcs/elevator-pos-rad</output>
+		</aerosurface_scale>
+		<aerosurface_scale name="Elevator Normalization">
+			<input>fcs/elevator-pos-rad</input>
+			<domain>
+				<min> -0.367 </min>
+				<max>  0.367 </max>
+			</domain>
+			<range>
+				<min> -1 </min>
+				<max>  1 </max>
+			</range>
+			<output>fcs/elevator-pos-norm</output>
+		</aerosurface_scale>
+	</channel>
+	<channel name="Roll">
+		<summer name="Roll Trim Sum">
+			<input>fcs/aileron-cmd-norm</input>
+			<input>fcs/roll-trim-cmd-norm</input>
+			<clipto>
+				<min> -1 </min>
+				<max>  1 </max>
+			</clipto>
+		</summer>
+		<aerosurface_scale name="Left Aileron Control">
+			<input>fcs/roll-trim-sum</input>
+			<range>
+				<min> -0.349 </min>
+				<!--20° up-->
+				<max>  0.227 </max>
+				<!--13° down-->
+			</range>
+			<output>fcs/left-aileron-pos-rad</output>
+		</aerosurface_scale>
+		<aerosurface_scale name="Right Aileron Control">
+			<input>-fcs/roll-trim-sum</input>
+			<range>
+				<min> -0.349 </min>
+				<!--20° up-->
+				<max>  0.227 </max>
+				<!--13° down-->
+			</range>
+			<output>fcs/right-aileron-pos-rad</output>
+		</aerosurface_scale>
+		<aerosurface_scale name="Left Aileron Normalization">
+			<input>fcs/left-aileron-pos-rad</input>
+			<domain>
+				<min> -0.349 </min>
+				<max>  0.349 </max>
+			</domain>
+			<range>
+				<min> -1 </min>
+				<max>  1 </max>
+			</range>
+			<output>fcs/left-aileron-pos-norm</output>
+		</aerosurface_scale>
+		<aerosurface_scale name="Right Aileron Normalization">
+			<input>fcs/right-aileron-pos-rad</input>
+			<domain>
+				<min> -0.349 </min>
+				<max>  0.349 </max>
+			</domain>
+			<range>
+				<min> -1 </min>
+				<max>  1 </max>
+			</range>
+			<output>fcs/right-aileron-pos-norm</output>
+		</aerosurface_scale>
+	</channel>
+	<channel name="Yaw">
+		<fcs_function name="Rudder Command Sum">
+			<function>
+				<sum>
+					<property>fcs/rudder-cmd-norm</property>
+					<value>0.038</value> <!--fixed-->
+				</sum>
+			</function>
+		</fcs_function>
+		<aerosurface_scale name="Rudder Control">
+			<input>fcs/rudder-command-sum</input>
+			<range>
+				<min> -0.454 </min>
+				<!--Right 26°-->
+				<max>  0.419 </max>
+				<!--Left 24°-->
+			</range>
+			<output>fcs/rudder-pos-rad</output>
+		</aerosurface_scale>
+		<aerosurface_scale name="Rudder Normalization">
+			<input>fcs/rudder-pos-rad</input>
+			<domain>
+				<min> -0.454 </min>
+				<max>  0.454 </max>
+			</domain>
+			<range>
+				<min>  -1 </min>
+				<max>  1 </max>
+			</range>
+			<output>fcs/rudder-pos-norm</output>
+		</aerosurface_scale>
+	</channel>
+	<channel name="Flaps">
+		<kinematic name="Flaps Control">
+			<input>/controls/flight/flaps-int</input>
+			<traverse>
+				<setting>
+					<position>  0 </position>
+					<time>      0 </time>
+				</setting>
+				<setting>
+					<position> 15 </position>
+					<time>      4 </time>
+				</setting>
+				<setting>
+					<position> 30 </position>
+					<time>      3 </time>
+				</setting>
+			</traverse>
+			<output>fcs/flap-pos-deg</output>
+		</kinematic>
+		
+		<aerosurface_scale name="Flap Normalization">
+			<input>fcs/flap-pos-deg</input>
+			<domain>
+				<min>  0 </min>
+				<max> 30 </max>
+			</domain>
+			<range>
+				<min> 0 </min>
+				<max> 1 </max>
+			</range>
+			<output>fcs/flap-pos-norm</output>
+		</aerosurface_scale>
+	</channel>
+	<channel name="Landing Gear">
+		<switch name="fcs/gear-no-wow">
+			<default value="1"/>
+			<test logic="AND" value="0">
+				gear/unit[1]/WOW eq 1
+				gear/unit[2]/WOW eq 1
+			</test>
+		</switch>
+		
+		
+		
+	</channel>
+	
+	<!--from c172p-->
+	<channel name="stallhorn">
+		
+		<fcs_function name="sounds/stall-horn-volume">
+			<function>
+				<log10>
+					<product>
+						<sum>
+							<property>aero/alpha-deg</property>
+							<table>
+								<independentVar>fcs/flap-pos-deg</independentVar>
+								<!-- 85 % of max alpha at 0 deg flap -->
+								<tableData>
+									0.0    -11.6364
+									10.0    -10.1364
+									30.0     -9.6364
+								</tableData>
+							</table>
+							<value>0.5</value>
+						</sum>
+						<value>2.0</value>
+					</product>
+				</log10>
+			</function>
+			<clipto>
+				<min>0.0</min>
+				<max>1.0</max>
+			</clipto>
+		</fcs_function>
+		
+		<fcs_function name="sounds/stall-horn-pitch">
+			<function>
+				<sum>
+					<product>
+						<table>
+							<independentVar lookup="row">aero/alpha-deg</independentVar>
+							<independentVar lookup="column">fcs/flap-pos-deg</independentVar>
+							
+							<!-- Normalized pitch range. 0.0 is minimum,
+							1.0 is maximum.
+							-->
+							<tableData>
+								0.0    10.0   20.0   30.0
+								9.5000    0.0    0.0    0.0    0.0
+								9.5428    0.0    0.0    0.0    0.5
+								10.0000    0.0    0.0    0.0    0.5
+								10.0428    0.0    0.0    0.5    0.5
+								10.5000    0.0    0.0    0.5    0.5
+								10.5428    0.0    0.5    0.5    1.0
+								11.0000    0.0    0.5    0.5    1.0
+								11.0428    0.5    0.5    1.0    1.0
+								11.5000    0.5    0.5    1.0    1.0
+								11.5428    0.5    1.0    1.0    1.0
+								12.0000    0.5    1.0    1.0    1.0
+								12.0428    1.0    1.0    1.0    1.0
+							</tableData>
+						</table>
+						
+						<!-- Difference between maximum and minimum -->
+						<difference>
+							<value>1.1</value>
+							<value>0.9</value>
+						</difference>
+					</product>
+					
+					<!-- Minimum pitch -->
+					<value>0.9</value>
+				</sum>
+			</function>
+			<clipto>
+				<min>0.9</min>
+				<max>1.1</max>
+			</clipto>
+		</fcs_function>
+	</channel>
+	
+	
+	<channel name="Powerplant Controls">
+		<fcs_function name="functions/throttle-pos-norm">
+			<function>
+				<table>
+					<independentVar>/controls/engines/engine[0]/throttle</independentVar>
+					<tableData> <!--Throttle property sets load (power %)-->
+						0.00	0.0
+						0.45	0.69 <!--74.25hp-->
+						0.6	0.74 <!--99hp-->
+						0.75	0.80 <!--123.5hp-->
+						0.92	0.856<!--151.8hp-->
+						1	1						
+					</tableData>
+				</table>
+			</function>
+			<output>fcs/throttle-cmd-norm</output>
+			<output>fcs/throttle-pos-norm</output>
+		</fcs_function>
+		<fcs_function name="functions/advance-pos-norm">
+			<function>
+				<table>
+					<independentVar>fcs/throttle-pos-norm</independentVar>
+					<tableData> <!--Set propeller speed according to load lever: http://support.diamond-air.at/fileadmin/uploads/files/after_sales_support/DA40%20New%20Generation/Airplane_Flight_Manual/Basic_Manual/60115e-DA40-NG-AFM-r3-complete.pdf page 7-25-->
+						0.00	0.7 <!--2150 RPM-->
+						0.20	0.0 <!--1800 RPM-->
+						0.92	0.6 <!--2100 RPM-->
+						1.00	1.0 <!--2300 RPM-->
+					</tableData>
+				</table>
+			</function>
+			<output>fcs/advance-cmd-norm</output>
+			<output>fcs/advance-pos-norm</output>
+		</fcs_function>
+		<fcs_function name="functions/mixture-pos-norm">
+			<function>
+				<table>
+					<independentVar>/position/altitude-ft</independentVar>
+					<tableData> 
+						0	1
+						15000	0.65
+						25000	0.4
+					</tableData>
+				</table>
+			</function>
+			<output>fcs/mixture-cmd-norm</output>
+			<output>fcs/mixture-pos-norm</output>
+		</fcs_function>
+		
+	</channel>
+	<channel name="General">
+		
+		<fcs_function name="/da40/canopy-input">
+			<function>
+				<min>
+					<property>/da40/canopy-cmd</property>
+					<table>
+						<independentVar lookup="row">velocities/vc-kts</independentVar>
+						<tableData>
+							30  1.00
+							40  0.05
+						</tableData>
+					</table>
+				</min>
+			</function>
+		</fcs_function>
+		
+		<lag_filter name="/da40/canopy-norm">
+			<input>/da40/canopy-input</input>
+			<c1>4.0</c1>
+		</lag_filter>
+		
+		<fcs_function name="/da40/door-left-input">
+			<function>
+				<min>
+					<property>/da40/door-left-cmd</property>
+					<table>
+						<independentVar lookup="row">velocities/vc-kts</independentVar>
+						<tableData>
+							30  1.00
+							40  0.05
+						</tableData>
+					</table>
+				</min>
+			</function>
+		</fcs_function>
+		
+		<lag_filter name="/da40/door-left-norm">
+			<input>/da40/door-left-input</input>
+			<c1>4.0</c1>
+		</lag_filter>
+		
+	</channel>
+</flight_control>

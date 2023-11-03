@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+	<path>interior.ac</path>
+	<!--	EFFECTS	-->
+	<effect>
+		<inherits-from>../Effects/interior/interior-glass</inherits-from>
+		<parameters>
+			<texture n="2">
+				<image>Models/Effects/interior/mask-interior-glass-front.png</image>
+			</texture>
+		</parameters>
+		<object-name>window.F.int</object-name>
+	</effect>
+	<effect>
+		<inherits-from>../Effects/interior/interior-glass</inherits-from>
+		<object-name>window.L.int</object-name>
+		<object-name>window.R.int</object-name>
+	</effect>
+	<effect>
+		<inherits-from>../Effects/interior/interior</inherits-from>
+		<object-name>interior</object-name>
+	</effect>
+	<!--	MODELS	-->
+	<!--	Instrument Panel	-->
+	<model>
+		<path>Panel/panel.xml</path>
+		<condition>
+			<not>
+				<property>options/g1000</property>
+			</not>
+		</condition>
+		<offsets>
+			<x-m> -2.20 </x-m>
+			<y-m>  0.00 </y-m>
+			<z-m>  0.39 </z-m>
+		</offsets>
+	</model>
+	<model>
+		<path>Panel/panel-g1000.xml</path>
+		<condition>
+			<property>options/g1000</property>
+		</condition>
+		<offsets>
+			<x-m> -2.20 </x-m>
+			<y-m>  0.00 </y-m>
+			<z-m>  0.39 </z-m>
+		</offsets>
+	</model>
+	<!-- Canopy Front -->
+	<animation>
+		<type>rotate</type>
+		<object-name>window.F.int</object-name>
+		<property>da40/canopy-norm</property>
+		<interpolation>
+			<entry>
+				<ind> 0 </ind>
+				<dep>   0 </dep>
+			</entry>
+			<entry>
+				<ind> 1 </ind>
+				<dep> -50 </dep>
+			</entry>
+		</interpolation>
+		<center>
+			<x-m> -2.67007 </x-m>
+			<y-m>  0.00000 </y-m>
+			<z-m> 0.460298 </z-m>
+		</center>
+		<axis>
+			<x> 0 </x>
+			<y> 1 </y>
+			<z> 0 </z>
+		</axis>
+	</animation>
+	<!-- Rear Door -->
+	<animation>
+		<type>rotate</type>
+		<object-name>window.L.int</object-name>
+		<property>da40/door-left-norm</property>
+		<interpolation>
+			<entry>
+				<ind> 0 </ind>
+				<dep>   0 </dep>
+			</entry>
+			<entry>
+				<ind> 1 </ind>
+				<dep> -65 </dep>
+			</entry>
+		</interpolation>
+		<axis>
+			<x1-m>-1.12832 </x1-m>
+			<y1-m>0.009967 </y1-m>
+			<z1-m>  0.851564 </z1-m>
+			<x2-m> -0.524687 </x2-m>
+			<y2-m> -0.071008 </y2-m>
+			<z2-m> 0.792257 </z2-m>
+		</axis>
+	</animation>
+</PropertyList>

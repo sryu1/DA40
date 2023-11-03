@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<PropertyList>
+	
+	<path>green-navlight.ac</path>
+	<nopreview/>
+	
+	<effect>
+		<inherits-from>Aircraft/DA40/Models/Lights/ALS_lights/navlight</inherits-from>
+		<parameters>
+			<light_color_base_r type="float">0</light_color_base_r>
+			<light_color_base_g type="float">0.5</light_color_base_g>
+			<light_color_base_b type="float">0</light_color_base_b>
+			<light_color_center_r type="float">0.7</light_color_center_r>
+			<light_color_center_g type="float">1.0</light_color_center_g>
+			<light_color_center_b type="float">0.7</light_color_center_b>
+			<pointing_x type="float">1.0</pointing_x>
+			<pointing_y type="float">-0.97629600712</pointing_y>
+		</parameters>
+		<object-name>green-navlight</object-name>
+	</effect>
+	
+	<animation>
+		<type>scale</type>
+		<x-offset>0.15</x-offset>
+		<y-offset>0.15</y-offset>
+		<z-offset>0.15</z-offset>
+	</animation>
+	
+	<animation>
+		<type>dist-scale</type>
+		<object-name>green-navlight</object-name>
+		<interpolation>
+			<entry>
+				<ind>0</ind>
+				<dep>1</dep>
+			</entry>
+			<entry>
+				<ind>300</ind>
+				<dep>4</dep>
+			</entry>
+			<entry>
+				<ind>1500</ind>
+				<dep>8</dep>
+			</entry>
+		</interpolation>
+	</animation>
+	
+	
+</PropertyList>

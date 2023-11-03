@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList include="da40ng-base.xml">
+
+	<sim>
+	
+		<description>Diamond DA40 NG Conventional Panel (JSBSim)</description>
+
+		<systems>
+			<autopilot n="0">
+				<name>NAV-selector</name>
+				<path>Models/Interior/Panel/Instruments/kap140/nav-selector.xml</path>
+			</autopilot>
+			<autopilot n="1">
+				<name>KAP140-autopilot</name>
+				<path>Systems/kap140-autopilot.xml</path>
+			</autopilot>
+			<property-rule n="101">
+				<name>KAP140-control</name>
+				<path>Models/Interior/Panel/Instruments/kap140/kap140-proprules.xml</path>
+			</property-rule>
+			<property-rule n="102">
+				<name>KI206 Rules</name>
+				<path>Models/Interior/Panel/Instruments/ki206/ki206-property-rules.xml</path>
+			</property-rule>
+		</systems>
+		<aircraft-data>
+			<path n="0">/options/ifr-conventional</path>
+		</aircraft-data>
+	</sim>
+	
+	<autopilot include="Models/Interior/Panel/Instruments/kap140/kap140-properties.xml"/>
+	<input>
+		<keyboard>
+			<!-- KAP140 disconnect begin -->
+			<key n="68">
+				<name>D</name>
+				<desc>Autopilot Disconnect</desc>
+				<desc>KAP140 disconnect</desc>
+				<binding>
+					<command>property-assign</command>
+					<property>autopilot/kap140/settings/ap-disc</property>
+					<value>1</value>
+				</binding>
+			</key>
+			<!-- KAP140 disconnect end -->
+			<!-- CWS begin -->
+			<key n="99">
+				<name>c</name>
+				<desc>Control Wheel Steering (CWS)</desc>
+				<binding>
+					<command>property-assign</command>
+					<property>autopilot/kap140/settings/cws</property>
+					<value>1</value>
+				</binding>
+				<mod-up>
+					<binding>
+						<command>property-assign</command>
+						<property>autopilot/kap140/settings/cws</property>
+						<value>0</value>
+					</binding>
+				</mod-up>
+			</key>
+			<!-- CWS end -->
+		</keyboard>
+	</input>
+	<instrumentation include="Models/Interior/Panel/Instruments/kap140/nav-selector-properties.xml">
+		<comm n="0">
+			<channel-mode-selector type="int">0</channel-mode-selector>
+		</comm>
+		<comm n="1">
+			<channel-mode-selector type="int">0</channel-mode-selector>
+		</comm>
+	</instrumentation>
+	
+	<options>
+		<g1000 type="bool">0</g1000>
+		<ifr-conventional type="bool">0</ifr-conventional>
+	</options>
+	<nasal>
+		<!--	Use "libraries" namespace to stay consistent with c172p, the origin of the KX165 instrument	-->
+		<libraries>
+			<file>Nasal/kx165a.nas</file>
+		</libraries>
+		<whitewire_annun>
+			<file>Nasal/whitewire_annun.nas</file>
+		</whitewire_annun>
+	</nasal>
+</PropertyList>

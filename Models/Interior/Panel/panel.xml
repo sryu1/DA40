@@ -1,0 +1,1274 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<PropertyList>
+	<path>panel.ac</path>
+	<effect>
+		<inherits-from>../../Effects/interior/interior</inherits-from>
+		<object-name>panel</object-name>
+	</effect>
+	<animation>
+		<type>material</type>
+		<object-name>panel</object-name>
+		<emission>
+			<factor-prop>systems/electrical/outputs/flood-lights</factor-prop>
+			<red>   0.008 </red>
+			<green> 0.004 </green>
+			<blue>  0.004 </blue>
+		</emission>
+	</animation>
+	
+	<!--	Panel Cover	-->
+	<animation>
+		<type>rotate</type>
+		<object-name>panel.cover</object-name>
+		<object-name>compass</object-name>
+		<property>da40/canopy-norm</property>
+		<factor>-50</factor>
+		<center>
+			<x-m> -0.47007  </x-m>
+			<y-m>  0.0      </y-m>
+			<z-m>  0.070298 </z-m>
+		</center>
+		<axis>
+			<x> 0 </x>
+			<y> 1 </y>
+			<z> 0 </z>
+		</axis>
+	</animation>
+	<!-- AIR -->
+	<model>
+		<path>air_vent.xml</path>
+		<overlay>
+			<params>
+				<heading-prop>environment/air-vent[0]/heading-deg</heading-prop>
+				<pitch-prop>environment/air-vent[0]/pitch-deg</pitch-prop>
+			</params>
+		</overlay>
+		<offsets>
+			<x-m>  0.003298 </x-m>
+			<y-m>  -0.449621 </y-m>
+			<z-m> -0.127670 </z-m>
+		</offsets>
+	</model>
+	<model>
+		<path>air_vent.xml</path>
+		<overlay>
+			<params>
+				<heading-prop>environment/air-vent[1]/heading-deg</heading-prop>
+				<pitch-prop>environment/air-vent[1]/pitch-deg</pitch-prop>
+			</params>
+		</overlay>
+		<offsets>
+			<x-m>  0.003298 </x-m>
+			<y-m>  0.449621 </y-m>
+			<z-m> -0.127670 </z-m>
+		</offsets>
+	</model>
+	<!-- ASI -->
+	<model>
+		<path>Instruments/asi/asi.xml</path>
+		<offsets>
+			<x-m>  0.000 </x-m>
+			<y-m> -0.356 </y-m>
+			<z-m>  0.046833 </z-m>
+		</offsets>
+	</model>
+	<!-- AI -->
+	<model>
+		<path>Instruments/ai/ai.xml</path>
+		<offsets>
+			<x-m>  0.000 </x-m>
+			<y-m> -0.256 </y-m>
+			<z-m>  0.046833</z-m>
+		</offsets>
+	</model>
+	<!-- ALT -->
+	<model>
+		<path>Instruments/alt/alt.xml</path>
+		<offsets>
+			<x-m>  0.000 </x-m>
+			<y-m> -0.159 </y-m>
+			<z-m>  0.046833</z-m>
+		</offsets>
+	</model>
+	<!-- TURN COORDINATOR -->
+	<model>
+		<path>Instruments/tc/tc.xml</path>
+		<offsets>
+			<x-m>  0.000 </x-m>
+			<y-m> -0.356 </y-m>
+			<z-m> -0.052167 </z-m>
+		</offsets>
+	</model>
+	<!-- Directional Gyro -->
+	<model>
+		<path>Instruments/dg/dg.xml</path>
+		<offsets>
+			<x-m>  0.000 </x-m>
+			<y-m> -0.256 </y-m>
+			<z-m> -0.052167 </z-m>
+		</offsets>
+	</model>
+	<!-- VSI -->
+	<model>
+		<path>Instruments/vsi/vsi.xml</path>
+		<offsets>
+			<x-m>  0.000 </x-m>
+			<y-m> -0.159 </y-m>
+			<z-m> -0.052167 </z-m>
+		</offsets>
+	</model>
+	
+	
+	<!-- Main Engine Display -->
+	<model>
+		<path>Instruments/engine/MED.xml</path>
+		<offsets>
+			<x-m>  0.000 </x-m>
+			<y-m> 0.141059 </y-m>
+			<z-m> -0.000609</z-m>
+		</offsets>
+	</model>
+	<!-- Secondary Engine Display -->
+	<model>
+		<path>Instruments/engine/SED.xml</path>
+		<offsets>
+			<x-m>  0.000 </x-m>
+			<y-m> 0.238585 </y-m>
+			<z-m> -0.000609</z-m>
+		</offsets>
+	</model>
+	<!-- Second ALT for IFR -->
+	<model>
+		<path>Instruments/alt/alt.xml</path>
+		<condition>
+			<property>options/ifr-conventional</property>
+		</condition>
+		<offsets>
+			<x-m>  0.000 </x-m>
+			<y-m> 0.339306 </y-m>
+			<z-m> -0.000609</z-m>
+		</offsets>
+	</model>
+	<!-- NAV1 Indicator -->
+	<model>
+		<path>Instruments/ki206/ki206.xml</path>
+		<offsets>
+			<x-m>  0.000 </x-m>
+			<y-m> 0.141059 </y-m>
+			<z-m> 0.1</z-m>
+		</offsets>
+	</model>
+	<!-- NAV2 Indicator for IFR -->
+	<model>
+		<path>Instruments/ki206/ki206.xml</path>
+		<overlay>
+			<params>
+				<nav-flag>instrumentation/ki206[1]/nav-flag</nav-flag>
+				<gs-flag>instrumentation/ki206[1]/gs-flag</gs-flag>
+				<tofrom-flag>instrumentation/ki206[1]/tofrom-flag</tofrom-flag>
+				<radial>instrumentation/nav[1]/radials/selected-deg</radial>
+				<hdg-needle>instrumentation/nav[1]/heading-needle-deflection-norm</hdg-needle>
+				<gs-needle>instrumentation/nav[1]/gs-needle-deflection-norm</gs-needle>
+			</params>
+		</overlay>
+		<condition>
+			<property>options/ifr-conventional</property>
+		</condition>
+		<offsets>
+			<x-m>  0.000 </x-m>
+			<y-m> 0.141059 </y-m>
+			<z-m> -0.1</z-m>
+		</offsets>
+	</model>
+	<!-- Compass -->
+	<model>
+		<name>compass</name>
+		<path>Instruments/compass/compass.xml</path>
+		<offsets>
+			<x-m>  0.0   </x-m>
+			<y-m>  0.0   </y-m>
+			<z-m>  0.223 </z-m>
+			<pitch-deg>-8</pitch-deg>
+		</offsets>
+	</model>
+	<!-- Davtron M803 -->
+	<model>
+		<path>Instruments/M803/m803.xml</path>
+		<offsets>
+			<x-m>  0.005 </x-m>
+			<y-m> 0.429903 </y-m>
+			<z-m> -0.004042 </z-m>
+		</offsets>
+	</model>
+	<!--Radio Stack-->
+	<!-- KX165 -->
+	<model>
+		<path>Instruments/kx165/kx165-1.xml</path>
+		<offsets>
+			<x-m>  0.003 </x-m>
+			<y-m> -0.005817 </y-m>
+			<z-m>  0.067 </z-m>
+		</offsets>
+	</model>
+	<!-- KAP140 by Sascha Reiszner -->
+	<model>
+		<path>Instruments/kap140/kap140.xml</path>
+		<offsets>
+			<x-m> -0.001 </x-m>
+			<y-m> -0.005817 </y-m>
+			<z-m> -0.020 </z-m>
+		</offsets>
+	</model>
+	<!-- GTX327 Transponder by Joshua Davidson -->
+	<!--<model>
+		<path>Instruments/gtx-327/gtx-327.xml</path>
+		<offsets>
+			<x-m> -0.006 </x-m>
+			<y-m> -0.005817 </y-m>
+			<z-m> -0.062 </z-m>
+		</offsets>
+	</model>-->
+	<!-- Second KX165 (COM2/NAV2) for IFR use -->
+	<model>
+		<condition>
+			<property>options/ifr-conventional</property>
+		</condition>
+		<path>Instruments/kx165/kx165-2.xml</path>
+		<offsets>
+			<x-m>  0.003 </x-m>
+			<y-m> -0.005817 </y-m>
+			<z-m>  -0.122 </z-m>
+		</offsets>
+	</model>
+	<!-- Hobbs --><!--
+	<model>
+		<path>Instruments/hobbs/hobbs.xml</path>
+		<offsets>
+			<x-m>  0.000 </x-m>
+			<y-m>  0.283 </y-m>
+			<z-m> -0.147 </z-m>
+		</offsets>
+	</model>-->
+	<!-- Warnings -->
+	<model>
+		<path>Instruments/annunciator-panel/annunciator-panel.xml</path>
+		<offsets>
+			<x-m> 0.003 </x-m>
+			<y-m> 0.026 </y-m>
+			<z-m> 0.117 </z-m>
+		</offsets>
+	</model>
+	<animation>
+		<type>material</type>
+		<object-name>key</object-name>
+		<object-name>master.inner</object-name>
+		<object-name>switch.engine_master</object-name>
+		<object-name>switch.avionic_master</object-name>
+		<object-name>switch.strobe</object-name>
+		<object-name>switch.landing</object-name>
+		<object-name>switch.taxi</object-name>
+		<object-name>switch.position</object-name>
+		<object-name>switch.pitot</object-name>
+		<object-name>knob.dim.instrument</object-name>
+		<object-name>knob.dim.flood</object-name>
+		<object-name>placards</object-name>
+		<object-name>switch.fuel_trans</object-name>
+		<object-name>switch.ess_bus</object-name>
+		<emission>
+			<factor-prop>systems/electrical/outputs/flood-lights</factor-prop>
+			<red>   0.035 </red>
+			<green> 0.018 </green>
+			<blue>  0.018 </blue>
+		</emission>
+	</animation>
+	<!--Master Key-->
+	<animation>
+		<type>pick</type>
+		<object-name>key</object-name>
+		<object-name>master.inner</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/electric/electric-master</property>
+				<value>1</value>
+				<value>2</value>
+				<value>0</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<condition>
+						<equals>
+							<property>controls/electric/electric-master</property>
+							<value>2</value>
+						</equals>
+					</condition>
+					<command>property-assign</command>
+					<property>controls/electric/electric-master</property>
+					<value>1</value>
+				</binding>
+			</mod-up>
+		</action>
+		<action>
+			<button>1</button>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/electric/electric-master</property>
+				<value>0</value>
+				<value>2</value>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<condition>
+						<equals>
+							<property>controls/electric/electric-master</property>
+							<value>2</value>
+						</equals>
+					</condition>
+					<command>property-assign</command>
+					<property>controls/electric/electric-master</property>
+					<value>1</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>key</object-name>
+		<object-name>master.inner</object-name>
+		<property>controls/electric/electric-master</property>
+		<factor>  -50 </factor>
+		<axis>
+			<x> 1 </x>
+			<y> 0 </y>
+			<z>  0 </z>
+		</axis>
+		<center>
+			<y-m>-0.264333 </y-m>
+			<z-m>-0.148242</z-m>
+		</center>
+	</animation>
+	<!--	SWITCHES	-->
+	<!-- Engine Master -->
+	<animation>
+		<type>pick</type>
+		<object-name>switch.engine_master</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/electric/engine-master</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>switch.engine_master</object-name>
+		<property>controls/electric/engine-master</property>
+		<factor> -35 </factor>
+		<offset-deg> 17.5 </offset-deg>
+		<axis>
+			<y> 1 </y>
+		</axis>
+		<center>
+			<x-m> 0.001382 </x-m>
+			<z-m> -0.145109</z-m>
+		</center>
+	</animation>
+	<!-- Essential Bus -->
+	<animation>
+		<type>pick</type>
+		<object-name>switch.ess_bus</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/electric/essential-bus</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>switch.ess_bus</object-name>
+		<property>controls/electric/essential-bus</property>
+		<factor> -35 </factor>
+		<offset-deg> 17.5 </offset-deg>
+		<axis>
+			<y> 1 </y>
+		</axis>
+		<center>
+			<x-m> 0.001382 </x-m>
+			<z-m> -0.145109</z-m>
+		</center>
+	</animation>
+	<!-- Avionic Master -->
+	<animation>
+		<type>pick</type>
+		<object-name>switch.avionic_master</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/electric/avionic-master</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>switch.avionic_master</object-name>
+		<property>controls/electric/avionic-master</property>
+		<factor> -35 </factor>
+		<offset-deg> 17.5 </offset-deg>
+		<axis>
+			<y> 1 </y>
+		</axis>
+		<center>
+			<x-m> 0.001382 </x-m>
+			<z-m> -0.145109</z-m>
+		</center>
+	</animation>
+	<!--	Pitot Heat	-->
+	<animation>
+		<type>pick</type>
+		<object-name>switch.pitot</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/anti-ice/pitot-heat</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>switch.pitot</object-name>
+		<property>controls/anti-ice/pitot-heat</property>
+		<factor> -35 </factor>
+		<offset-deg> 17.5 </offset-deg>
+		<axis>
+			<y> 1 </y>
+		</axis>
+		<center>
+			<x-m> 0.001382 </x-m>
+			<z-m> -0.145109</z-m>
+		</center>
+	</animation>
+	<!-- Lights -->
+	<!-- Strobe -->
+	<animation>
+		<type>pick</type>
+		<object-name>switch.strobe</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/lighting/strobe</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>switch.strobe</object-name>
+		<property>controls/lighting/strobe</property>
+		<factor> -35 </factor>
+		<offset-deg> 17.5 </offset-deg>
+		<axis>
+			<y> 1 </y>
+		</axis>
+		<center>
+			<x-m> 0.001382 </x-m>
+			<z-m> -0.145109</z-m>
+		</center>
+	</animation>
+	<!-- Landing -->
+	<animation>
+		<type>pick</type>
+		<object-name>switch.landing</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/lighting/landing-lights</property>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>sim/sound/switch</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>switch.landing</object-name>
+		<property>controls/lighting/landing-lights</property>
+		<factor> -35 </factor>
+		<offset-deg> 17.5 </offset-deg>
+		<axis>
+			<y> 1 </y>
+		</axis>
+		<center>
+			<x-m> 0.001382 </x-m>
+			<z-m> -0.145109</z-m>
+		</center>
+	</animation>
+	<!-- Taxi -->
+	<animation>
+		<type>pick</type>
+		<object-name>switch.taxi</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/lighting/taxi-light</property>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>sim/sound/switch</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>switch.taxi</object-name>
+		<property>controls/lighting/taxi-light</property>
+		<factor> -35 </factor>
+		<offset-deg> 17.5 </offset-deg>
+		<axis>
+			<y> 1 </y>
+		</axis>
+		<center>
+			<x-m> 0.001382 </x-m>
+			<z-m> -0.145109</z-m>
+		</center>
+	</animation>
+	<!-- Position -->
+	<animation>
+		<type>pick</type>
+		<object-name>switch.position</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/lighting/nav-lights</property>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>sim/sound/switch</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>switch.position</object-name>
+		<property>controls/lighting/nav-lights</property>
+		<factor> -35 </factor>
+		<offset-deg> 17.5 </offset-deg>
+		<axis>
+			<y> 1 </y>
+		</axis>
+		<center>
+			<x-m> 0.001382 </x-m>
+			<z-m> -0.145109</z-m>
+		</center>
+	</animation>
+	<!--	PANEL LIGHTS	-->
+	<animation>
+		<type>knob</type>
+		<object-name>knob.dim.instrument</object-name>
+		<property>controls/lighting/instrument-lights</property>
+		<factor>-250</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<y-m>-0.425225</y-m>
+			<z-m> 0.024366</z-m>
+		</center>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/lighting/instrument-lights</property>
+				<factor>0.05</factor>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>knob</type>
+		<object-name>knob.dim.flood</object-name>
+		<property>controls/lighting/flood-lights</property>
+		<factor>-250</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<y-m>-0.425225</y-m>
+			<z-m> -0.009577</z-m>
+		</center>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/lighting/flood-lights</property>
+				<factor>0.05</factor>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+	<!--	FLAPS	-->
+	<animation>
+		<type>knob</type>
+		<object-name>switch.flaps</object-name>
+		<property>controls/flight/flaps</property>
+		<factor>45</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.000684</x-m>
+			<z-m>-0.104944</z-m>
+		</center>
+		<action>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/flight/flaps</property>
+				<value>0.0</value>
+				<value>0.375</value>
+				<value>1.0</value>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>light.flaps.up</object-name>
+		<ambient>
+			<red>0.5</red>
+			<green>1.0</green>
+			<blue>0.5</blue>
+			<factor-prop>sim/model/lights/flaps/up</factor-prop>
+		</ambient>
+		<emission>
+			<red>0.5</red>
+			<green>1.0</green>
+			<blue>0.5</blue>
+			<factor-prop>sim/model/lights/flaps/up</factor-prop>
+		</emission>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>light.flaps.to</object-name>
+		<ambient>
+			<red>0.67</red>
+			<green>0.67</green>
+			<blue>0.67</blue>
+			<factor-prop>sim/model/lights/flaps/to</factor-prop>
+		</ambient>
+		<emission>
+			<red>0.67</red>
+			<green>0.67</green>
+			<blue>0.67</blue>
+			<factor-prop>sim/model/lights/flaps/to</factor-prop>
+		</emission>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>light.flaps.ldg</object-name>
+		<ambient>
+			<red>0.67</red>
+			<green>0.67</green>
+			<blue>0.67</blue>
+			<factor-prop>sim/model/lights/flaps/ldg</factor-prop>
+		</ambient>
+		<emission>
+			<red>0.67</red>
+			<green>0.67</green>
+			<blue>0.67</blue>
+			<factor-prop>sim/model/lights/flaps/ldg</factor-prop>
+		</emission>
+	</animation>
+	<!--	Circuit Breakers	-->
+	<!--	ECU Bus	-->
+	<animation>
+		<type>slider</type>
+		<object-name>cb.eecu_a</object-name>
+		<property>controls/circuit-breakers/ecu-a</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/ecu-a</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>slider</type>
+		<object-name>cb.eecu_b</object-name>
+		<property>controls/circuit-breakers/ecu-b</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/ecu-b</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>slider</type>
+		<object-name>cb.fuel_pump_a</object-name>
+		<property>controls/circuit-breakers/ecu-fuel-pump-a</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/ecu-fuel-pump-a</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>slider</type>
+		<object-name>cb.fuel_pump_b</object-name>
+		<property>controls/circuit-breakers/ecu-fuel-pump-b</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/ecu-fuel-pump-b</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<!--	Main Bus	-->
+	<animation>
+		<type>slider</type>
+		<object-name>cb.pwr</object-name>
+		<property>controls/circuit-breakers/main-bus-power</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/main-bus-power</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>slider</type>
+		<object-name>cb.main_tie</object-name>
+		<property>controls/circuit-breakers/main-tie</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/main-tie</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>slider</type>
+		<object-name>cb.fan_oat</object-name>
+		<property>controls/circuit-breakers/fan-oat</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/fan-oat</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>slider</type>
+		<object-name>cb.t_b</object-name>
+		<property>controls/circuit-breakers/turn-coordinator</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/turn-coordinator</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>slider</type>
+		<object-name>cb.dg</object-name>
+		<property>controls/circuit-breakers/DG</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/DG</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>slider</type>
+		<object-name>cb.inst_lt</object-name>
+		<property>controls/circuit-breakers/instrument-lights</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/instrument-lights</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>slider</type>
+		<object-name>cb.taxi_map</object-name>
+		<property>controls/circuit-breakers/taxi-map-lights</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/taxi-map-lights</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>slider</type>
+		<object-name>cb.position</object-name>
+		<property>controls/circuit-breakers/navigation-lights</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/navigation-lights</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>slider</type>
+		<object-name>cb.strobe</object-name>
+		<property>controls/circuit-breakers/strobe-lights</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/strobe-lights</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>slider</type>
+		<object-name>cb.start</object-name>
+		<property>controls/circuit-breakers/main-bus-start</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/main-bus-start</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>slider</type>
+		<object-name>cb.xfer_pump</object-name>
+		<property>controls/circuit-breakers/xfer-pump</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/xfer-pump</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<!--	Avionic Bus	-->
+	<animation>
+		<type>slider</type>
+		<object-name>cb.gps</object-name>
+		<property>controls/circuit-breakers/gps</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/gps</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>slider</type>
+		<object-name>cb.audio</object-name>
+		<property>controls/circuit-breakers/audio</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/audio</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>slider</type>
+		<object-name>cb.com</object-name>
+		<property>controls/circuit-breakers/comm[0]</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/comm[0]</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>slider</type>
+		<object-name>cb.nav</object-name>
+		<property>controls/circuit-breakers/nav[0]</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/nav[0]</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>slider</type>
+		<object-name>cb.xpdr</object-name>
+		<property>controls/circuit-breakers/transponder</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/transponder</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<!--	Essential Bus	-->
+	<animation>
+		<type>slider</type>
+		<object-name>cb.av_bus</object-name>
+		<property>controls/circuit-breakers/avionic-bus</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/avionic-bus</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>slider</type>
+		<object-name>cb.flaps</object-name>
+		<property>controls/circuit-breakers/flaps</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/flaps</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>slider</type>
+		<object-name>cb.horizon</object-name>
+		<property>controls/circuit-breakers/horizon</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/horizon</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>slider</type>
+		<object-name>cb.annun</object-name>
+		<property>controls/circuit-breakers/annun</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/annun</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>slider</type>
+		<object-name>cb.inst_1</object-name>
+		<property>controls/circuit-breakers/engine-instruments</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/engine-instruments</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>slider</type>
+		<object-name>cb.pitot</object-name>
+		<property>controls/circuit-breakers/pitot-heat</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/pitot-heat</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>slider</type>
+		<object-name>cb.landing</object-name>
+		<property>controls/circuit-breakers/landing-lights</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/landing-lights</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>slider</type>
+		<object-name>cb.flood</object-name>
+		<property>controls/circuit-breakers/flood-lights</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/flood-lights</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>slider</type>
+		<object-name>cb.ess_tie</object-name>
+		<property>controls/circuit-breakers/essential-tie</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/essential-tie</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>slider</type>
+		<object-name>cb.master_control</object-name>
+		<property>controls/circuit-breakers/master-control</property>
+		<factor>-0.007</factor>
+		<offset-m>0.007</offset-m>
+		<axis>
+			<x>1</x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/circuit-breakers/master-control</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+</PropertyList>

@@ -1,0 +1,237 @@
+<?xml version="1.0"?>
+<system name="Diamond DA40-NG: Electrical">
+	<!--	required properties	-->
+	<property value="0.0">/systems/electrical/outputs/landing-lights</property>
+	<property value="0.0">/systems/electrical/outputs/starter</property>
+	<property value="0.0">/systems/electrical/outputs/strobe-lights</property>
+	<property value="0.0">/systems/electrical/outputs/taxi-map-lights</property>
+	<property value="0.0">/systems/electrical/outputs/flaps</property>
+	<property value="0.0">/systems/electrical/bus/ecu-bus-volts</property>
+	
+	<channel name="Lights">
+		
+		<switch name="/sim/model/lights/strobe-lights">
+			<default value="0.0"/>
+			<test value="1.0">
+				/systems/electrical/outputs/strobe-lights ge 10.0
+			</test>
+		</switch>
+		<switch name="/sim/model/lights/nav-lights">
+			<default value="0.0"/>
+			<test value="1.0">
+				/systems/electrical/outputs/navigation-lights ge 10.0
+			</test>
+		</switch>
+		<switch name="/sim/model/lights/landing-light">
+			<default value="0.0"/>
+			<test value="1.0">
+				/systems/electrical/outputs/landing-lights ge 10.0
+			</test>
+		</switch>
+		<switch name="/sim/model/lights/taxi-light">
+			<default value="0.0"/>
+			<test value="1.0">
+				/systems/electrical/outputs/taxi-map-lights ge 10.0
+			</test>
+		</switch>
+		
+		<switch name="/sim/model/lights/flaps/up">
+			<default value="0.0" />
+			<test value="1.0" logic="AND">
+				/systems/electrical/outputs/flaps ge 10.0
+				/surface-positions/flap-pos-norm lt 0.374
+			</test>
+		</switch>
+		
+		<switch name="/sim/model/lights/flaps/to">
+			<default value="0.0" />
+			<test value="1.0" logic="AND">
+				/systems/electrical/outputs/flaps ge 10.0
+				/surface-positions/flap-pos-norm gt 0.01
+				/surface-positions/flap-pos-norm lt 0.99
+			</test>
+		</switch>
+		
+		<switch name="/sim/model/lights/flaps/ldg">
+			<default value="0.0" />
+			<test value="1.0" logic="AND">
+				/systems/electrical/outputs/flaps ge 10.0
+				/surface-positions/flap-pos-norm gt 0.376
+			</test>
+		</switch>
+		
+	</channel>
+	<channel name="Flight Instruments">
+		<!--	the Artificial Horizon is powered by an electrical gyro, which isn't supported so we fake suction based on electrical current	-->
+		<pure_gain>
+			<input>/systems/electrical/outputs/horizon</input>
+			<gain>0.1786</gain> <!-- 5 / 28 -->
+			<clamp>
+				<min>0.0</min>
+				<max>5.0</max>
+			</clamp>
+			<output>/systems/electrical/outputs/horizon-gyro-hack</output>
+		</pure_gain>
+		<switch name="systems/indicators/ai-off-flag-raw">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/outputs/horizon ge 10
+			</test>
+		</switch>
+		<lag_filter>
+			<input>systems/indicators/ai-off-flag-raw</input>
+			<c1>5.0</c1>
+			<output>systems/indicators/ai-off-flag</output>
+		</lag_filter>
+	</channel>
+	<channel name="Engine Electric">
+		<switch>
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/outputs/starter ge 15.0
+			</test>
+			<output>propulsion/starter_cmd</output>
+		</switch>
+		<!--	Fake Magnetos (diesel engines don't have an ignition system)	-->
+		<switch>
+			<default value="0"/>
+			<test value="3" logic="AND">
+				/systems/electrical/bus/ecu-bus-volts ge 20.0
+				/controls/electric/engine-master eq 1
+			</test>
+			<output>/controls/engines/engine[0]/magnetos</output>
+		</switch>
+	</channel>
+	<channel name="Annunciator Panel">
+		<switch name="/instrumentation/annunciator-panel/lights/caution" >
+			<default value="0"/>
+			<test value="1">
+				/instrumentation/annunciator-panel/lights/caution-state eq 1
+			</test>
+			<test value="1" logic="AND">
+				/instrumentation/annunciator-panel/lights/caution-state eq 2
+				/instrumentation/annunciator-panel/lights/flash-property/state eq 1
+			</test>
+		</switch>
+		<switch name="/instrumentation/annunciator-panel/lights/warning" >
+			<default value="0"/>
+			<test value="1">
+				/instrumentation/annunciator-panel/lights/warning-state eq 1
+			</test>
+			<test value="1" logic="AND">
+				/instrumentation/annunciator-panel/lights/warning-state eq 2
+				/instrumentation/annunciator-panel/lights/flash-property/state eq 1
+			</test>
+		</switch>
+		<switch name="/instrumentation/annunciator-panel/lights/start" >
+			<default value="0"/>
+			<test value="1">
+				/instrumentation/annunciator-panel/lights/start-state eq 1
+			</test>
+			<test value="1" logic="AND">
+				/instrumentation/annunciator-panel/lights/start-state eq 2
+				/instrumentation/annunciator-panel/lights/flash-property/state eq 1
+			</test>
+		</switch>
+		<switch name="/instrumentation/annunciator-panel/lights/doors" >
+			<default value="0"/>
+			<test value="1">
+				/instrumentation/annunciator-panel/lights/doors-state eq 1
+			</test>
+			<test value="1" logic="AND">
+				/instrumentation/annunciator-panel/lights/doors-state eq 2
+				/instrumentation/annunciator-panel/lights/flash-property/state eq 1
+			</test>
+		</switch>
+		<switch name="/instrumentation/annunciator-panel/lights/low-volts" >
+			<default value="0"/>
+			<test value="1">
+				/instrumentation/annunciator-panel/lights/low-volts-state eq 1
+			</test>
+			<test value="1" logic="AND">
+				/instrumentation/annunciator-panel/lights/low-volts-state eq 2
+				/instrumentation/annunciator-panel/lights/flash-property/state eq 1
+			</test>
+		</switch>
+		<switch name="/instrumentation/annunciator-panel/lights/alternator" >
+			<default value="0"/>
+			<test value="1">
+				/instrumentation/annunciator-panel/lights/alternator-state eq 1
+			</test>
+			<test value="1" logic="AND">
+				/instrumentation/annunciator-panel/lights/alternator-state eq 2
+				/instrumentation/annunciator-panel/lights/flash-property/state eq 1
+			</test>
+		</switch>
+		<switch name="/instrumentation/annunciator-panel/lights/ecu-a" >
+			<default value="0"/>
+			<test value="1">
+				/instrumentation/annunciator-panel/lights/ecu-a-state eq 1
+			</test>
+			<test value="1" logic="AND">
+				/instrumentation/annunciator-panel/lights/ecu-a-state eq 2
+				/instrumentation/annunciator-panel/lights/flash-property/state eq 1
+			</test>
+		</switch>
+		<switch name="/instrumentation/annunciator-panel/lights/ecu-b" >
+			<default value="0"/>
+			<test value="1">
+				/instrumentation/annunciator-panel/lights/ecu-b-state eq 1
+			</test>
+			<test value="1" logic="AND">
+				/instrumentation/annunciator-panel/lights/ecu-b-state eq 2
+				/instrumentation/annunciator-panel/lights/flash-property/state eq 1
+			</test>
+		</switch>
+		<switch name="/instrumentation/annunciator-panel/lights/fuel-trans" >
+			<default value="0"/>
+			<test value="1">
+				/instrumentation/annunciator-panel/lights/fuel-trans-state eq 1
+			</test>
+			<test value="1" logic="AND">
+				/instrumentation/annunciator-panel/lights/fuel-trans-state eq 2
+				/instrumentation/annunciator-panel/lights/flash-property/state eq 1
+			</test>
+		</switch>
+		<switch name="/instrumentation/annunciator-panel/lights/pitot" >
+			<default value="0"/>
+			<test value="1">
+				/instrumentation/annunciator-panel/lights/pitot-state eq 1
+			</test>
+			<test value="1" logic="AND">
+				/instrumentation/annunciator-panel/lights/pitot-state eq 2
+				/instrumentation/annunciator-panel/lights/flash-property/state eq 1
+			</test>
+		</switch>
+		<switch name="/instrumentation/annunciator-panel/lights/low-fuel" >
+			<default value="0"/>
+			<test value="1">
+				/instrumentation/annunciator-panel/lights/low-fuel-state eq 1
+			</test>
+			<test value="1" logic="AND">
+				/instrumentation/annunciator-panel/lights/low-fuel-state eq 2
+				/instrumentation/annunciator-panel/lights/flash-property/state eq 1
+			</test>
+		</switch>
+		<switch name="/instrumentation/annunciator-panel/lights/engine" >
+			<default value="0"/>
+			<test value="1">
+				/instrumentation/annunciator-panel/lights/engine-state eq 1
+			</test>
+			<test value="1" logic="AND">
+				/instrumentation/annunciator-panel/lights/engine-state eq 2
+				/instrumentation/annunciator-panel/lights/flash-property/state eq 1
+			</test>
+		</switch>
+		<switch name="/instrumentation/annunciator-panel/lights/glow" >
+			<default value="0"/>
+			<test value="1">
+				/instrumentation/annunciator-panel/lights/glow-state eq 1
+			</test>
+			<test value="1" logic="AND">
+				/instrumentation/annunciator-panel/lights/glow-state eq 2
+				/instrumentation/annunciator-panel/lights/flash-property/state eq 1
+			</test>
+		</switch>
+	</channel>
+</system>

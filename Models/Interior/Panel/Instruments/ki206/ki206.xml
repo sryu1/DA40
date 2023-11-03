@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+	
+	<path>ki206.ac</path>
+	
+	<params>
+		<nav-flag>instrumentation/ki206[0]/nav-flag</nav-flag>
+		<gs-flag>instrumentation/ki206[0]/gs-flag</gs-flag>
+		<tofrom-flag>instrumentation/ki206[0]/tofrom-flag</tofrom-flag>
+		<radial>instrumentation/nav[0]/radials/selected-deg</radial>
+		<hdg-needle>instrumentation/nav[0]/heading-needle-deflection-norm</hdg-needle>
+		<gs-needle>instrumentation/nav[0]/gs-needle-deflection-norm</gs-needle>
+		<instrument-light-volts>systems/electrical/outputs/instrument-lights</instrument-light-volts>
+		<flood-light-volts>systems/electrical/outputs/flood-lights</flood-light-volts>
+	</params>
+	
+	<effect>
+		<inherits-from>../../../../Effects/interior/instrument-glass</inherits-from>
+		<object-name>ki206.glass</object-name>
+	</effect>
+	
+	<animation>
+		<type>material</type>
+		<object-name>ki206.face</object-name>
+		<object-name>ki206.nav_needle</object-name>
+		<object-name>ki206.gs_needle</object-name>
+		<object-name>ki206.nav_flag</object-name>
+		<object-name>ki206.gs_flag</object-name>
+		<object-name>ki206.tofrom_flag</object-name>
+		<object-name>ki206.card</object-name>
+		<emission>
+			<red>   0.04 </red>
+			<green> 0.02 </green>
+			<blue>  0.02 </blue>
+			<factor-prop alias="../../../params/instrument-light-volts" />
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>ki206.base</object-name>
+		<object-name>ki206.knob</object-name>
+		<emission>
+			<red>   0.04 </red>
+			<green> 0.02 </green>
+			<blue>  0.02 </blue>
+			<factor-prop alias="../../../params/flood-light-volts" />
+		</emission>
+	</animation>
+	
+	<!--	Needles	-->
+	<animation>
+		<type>translate</type>
+		<object-name>ki206.nav_needle</object-name>
+		<property alias="../../params/hdg-needle" />
+		<interpolation>
+			<entry><ind> -1 </ind><dep> -0.0156 </dep></entry>
+			<entry><ind>  0 </ind><dep>  0.0    </dep></entry>
+			<entry><ind>  1 </ind><dep>  0.0156 </dep></entry>
+		</interpolation>
+		<axis>
+			<y> 1 </y>
+		</axis>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>ki206.gs_needle</object-name>
+		<property alias="../../params/gs-needle" />
+		<interpolation>
+			<entry><ind> -1 </ind><dep> -0.0156 </dep></entry>
+			<entry><ind>  0 </ind><dep>  0.0    </dep></entry>
+			<entry><ind>  1 </ind><dep>  0.0156 </dep></entry>
+		</interpolation>
+		<axis>
+			<z> 1 </z>
+		</axis>
+	</animation>
+	
+	
+	<!--	Flags	-->
+	<animation>
+		<type>translate</type>
+		<object-name>ki206.nav_flag</object-name>
+		<property alias="../../params/nav-flag" />
+		<factor>-0.005</factor>
+		<axis>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>ki206.gs_flag</object-name>
+		<property alias="../../params/gs-flag" />
+		<factor>-0.005</factor>
+		<axis>
+			<z>1</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>ki206.tofrom_flag</object-name>
+		<property alias="../../params/tofrom-flag" />
+		<factor>-90</factor>
+		<axis>
+			<x>1</x>
+		</axis>
+		<center>
+			<y-m>0.013296</y-m>
+		</center>
+	</animation>
+	<!--	Azimuth Card	-->
+	<animation>
+		<type>rotate</type>
+		<object-name>ki206.card</object-name>
+		<property alias="../../params/radial" />
+		<axis>
+			<x> 1 </x>
+		</axis>
+	</animation>
+	
+	<!--	Knob	-->
+	<animation>
+		<type>knob</type>
+		<object-name>ki206.knob</object-name>
+		<property alias="../../params/radial" />
+		<center>
+			<y-m> -0.02927 </y-m>
+			<z-m> -0.02927 </z-m>
+		</center>
+		<axis>
+			<x> -1 </x>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property alias="../../../../params/radial" />
+				<factor>1</factor>
+				<min>0</min>
+				<max>360</max>
+				<wrap>1</wrap>
+			</binding>
+		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<tooltip-id>ki206-knob</tooltip-id>
+				<mapping>heading</mapping>
+				<label>NAV Radial: %3d deg</label>
+				<property alias="../../../../params/radial" />
+			</binding>
+		</hovered>
+	</animation>
+	
+</PropertyList>

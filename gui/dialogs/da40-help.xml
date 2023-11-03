@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+	<title>Diamond Aircraft DA40 NG</title>
+	<!--	TODO add keybindings
+	<key>
+	<name></name>
+	<desc></desc>
+	</key>
+	-->
+	<line>QUICK REFERENCE</line>
+	<line/>
+	<line>CAUTION: Flight-simulation use only! Do not use for real-life flight!</line>
+	<line/>
+	<line>Airspeeds (depending on gross weight)</line>
+	<line/>
+	<line>Stall Speeds</line>
+	<line>Flaps UP.......................58 - 66 kias</line>	<!-- ref. 1, p. 5-8 - 5-9 -->
+	<line>Flaps T/O......................54 - 62 kias</line>	<!-- ref. 1, p. 5-8 - 5-9 -->
+	<line>Flaps LDG......................55 - 60 kias</line>	<!-- ref. 1, p. 5-8 - 5-9 -->
+	<line/>
+	<line>Operating Speeds</line>
+	<line>Vr......Takeoff rotation..............56 - 67 kias</line>	<!-- ref. 1, p. 4A-2 -->
+	<line>Vy......Best rate of climb............72 kias</line>	<!-- ref. 1, p. 4A-2 -->
+	<line>Vref....Approach Speed................66 - 77 kias</line>	<!-- ref. 1, p. 4A-3 -->
+	<line>Vglide..Engine-out best glide speed...88 kias.......1.59 NM per 1000ft altitude loss</line>	<!-- ref. 1, p. 5-41 -->
+	<line/>
+	<line>Masses / Weights</line>
+	<line/>
+	<line>MTOW....Maximum Takeoff Weight....1280 kg.....2822 lb</line>	<!-- ref. 1, p. 2-16 -->
+	<line>MLW.....Maximum Landing Weight....1216 kg.....2681 lb</line>	<!-- ref. 1, p. 2-16 -->
+</PropertyList>

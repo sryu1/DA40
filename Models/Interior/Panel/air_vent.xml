@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+	<path>air_vent.ac</path>
+	
+	
+	<params>
+		<heading-prop>environment/air-vent[0]/heading-deg</heading-prop>
+		<pitch-prop>environment/air-vent[0]/pitch-deg</pitch-prop>
+	</params>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>air_vent</object-name>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property alias="../../../../params/pitch-prop" />
+				<min>-30</min>
+				<max>30</max>
+				<factor>-2</factor>
+				<wrap>0</wrap>
+			</binding>
+		</action>
+		<shift-action>
+			<binding>
+				<command>property-adjust</command>
+				<property alias="../../../../params/heading-prop" />
+				<min>-30</min>
+				<max>30</max>
+				<factor>2</factor>
+				<wrap>0</wrap>
+			</binding>
+		</shift-action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>air_vent</object-name>
+		<property alias="../../params/pitch-prop" />
+		<factor>1</factor>
+		<axis>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>air_vent</object-name>
+		<property alias="../../params/heading-prop" />
+		<factor>1</factor>
+		<axis>
+			<z>1</z>
+		</axis>
+	</animation>
+</PropertyList>

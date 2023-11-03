@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Copyright (c) 2015 onox, 2021 Benedikt Wolf (D-ECHO)
+Using defrost simulation by B. Hallinger for the c182s (2018)
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!--	Cabin Environment Simulation, adapted from the Cessna 172p	-->
+
+<system name="da40-cabin-environment">
+	
+	<property value="37.0">cabin-environment/human-body-temp-degc</property>
+	
+	
+	<channel name="PAX">
+		<!--	Humans present for Cabin Environment simulation	-->
+		<switch name="pax/pilot/present">
+			<default value="0" />
+			<test value="1">
+				inertia/pointmass-weight-lbs[0] gt 70
+			</test>
+		</switch>
+		<switch name="pax/co-pilot/present">
+			<default value="0" />
+			<test value="1">
+				inertia/pointmass-weight-lbs[1] gt 70
+			</test>
+		</switch>
+		<switch name="pax/left-passenger/present">
+			<default value="0" />
+			<test value="1">
+				inertia/pointmass-weight-lbs[2] gt 70
+			</test>
+		</switch>
+		<switch name="pax/right-passenger/present">
+			<default value="0" />
+			<test value="1">
+				inertia/pointmass-weight-lbs[3] gt 70
+			</test>
+		</switch>
+	</channel>
+	
+	<channel name="cabin-doors-windows">
+		
+		<aerosurface_scale name="cabin-environment/canopy">
+			<input>/da40/canopy-norm</input>
+			<zero_centered>false</zero_centered>
+			<domain>
+				<min>0.5</min>
+				<max>1.0</max>
+			</domain>
+			<range>
+				<min>0.0</min>
+				<max>1.0</max>
+			</range>
+			<clipto>
+				<min>0.0</min>
+				<max>1.0</max>
+			</clipto>
+		</aerosurface_scale>
+		
+		<aerosurface_scale name="cabin-environment/door-left">
+			<input>/da40/door-left-norm</input>
+			<zero_centered>false</zero_centered>
+			<domain>
+				<min>0.5</min>
+				<max>1.0</max>
+			</domain>
+			<range>
+				<min>0.0</min>
+				<max>1.0</max>
+			</range>
+			<clipto>
+				<min>0.0</min>
+				<max>1.0</max>
+			</clipto>
+		</aerosurface_scale>
+		
+		<!--	TODO: Implement small window in the canopy	-->
+		<!--<aerosurface_scale name="cabin-environment/left">
+		<input>/sim/model/c150/doors/window[0]/position-norm</input>
+		<zero_centered>false</zero_centered>
+		<domain>
+		<min>0.5</min>
+		<max>1.0</max>
+		</domain>
+		<range>
+		<min>0.0</min>
+		<max>0.2</max>
+		</range>
+		<clipto>
+		<min>0.0</min>
+		<max>0.2</max>
+		</clipto>
+		</aerosurface_scale>-->
+		
+		<summer name="cabin-environment/doors-windows-total">
+			<input>cabin-environment/canopy</input>
+			<input>cabin-environment/door-left</input>
+			<!--<input>cabin-environment/window</input>-->
+			<clipto>
+				<min>0.0</min>
+				<max>1.0</max>
+			</clipto>
+		</summer>
+		
+		<summer name="cabin-environment/humans-count">
+			<input>pax/pilot/present</input>
+			<input>pax/co-pilot/present</input>
+			<input>pax/left-passenger/present</input>
+			<input>pax/right-passenger/present</input>
+		</summer>
+		
+	</channel>
+	
+	<channel name="cabin-temperature">
+		
+		<!-- The exhaust gas temperature controls how much the air is
+		heated up.
+		-->
+		<pure_gain name="cabin-environment/heat-exhaust-gas-temp-degc">
+			<input>/engines/engine[0]/egt-degf</input>
+			
+			<!-- Extra heat (in Celsius) when EGT is at maximum. EGT is
+			usually between 0.4 and 0.6.
+			-->
+			<gain>0.06</gain>	<!--	60 / 1000	-->
+		</pure_gain>
+		
+		<!-- Computes the difference in temperature between the cabin
+		heat intake (behind propeller) and the cabin.
+		-->
+		<summer name="cabin-environment/cabin-heat-temp-diff">
+			<input>/environment/temperature-degc</input>
+			<input>-cabin-environment/cabin-air-temp-degc</input>
+			<input>cabin-environment/heat-exhaust-gas-temp-degc</input>
+		</summer>
+		
+		<!-- Computes the difference in temperature between the cabin
+		air intake (ventilating air door on the right side of the
+		fuselage) and the cabin.
+		-->
+		<summer name="cabin-environment/cabin-air-temp-diff">
+			<input>/environment/temperature-degc</input>
+			<input>-cabin-environment/cabin-air-temp-degc</input>
+		</summer>
+		
+		<summer name="cabin-environment/cabin-human-temp-diff">
+			<input>cabin-environment/human-body-temp-degc</input>
+			<input>-cabin-environment/cabin-air-temp-degc</input>
+			<clipto>
+				<min>-0.01</min>
+				<max> 0.10</max>
+			</clipto>
+		</summer>
+		
+		<scheduled_gain name="cabin-environment/cabin-air-transfer-heat-duct">
+			<input>cabin-environment/cabin-heat-temp-diff</input>
+			<gain>/environment/aircraft-effects/cabin-heat-set</gain>
+			<table>
+				<independentVar lookup="row">/engines/engine[0]/rpm</independentVar>
+				<independentVar lookup="column">/velocities/airspeed-kt</independentVar>
+				<tableData>
+					40	120
+					0	0.10	0.50
+					700	0.25	0.60
+					2800	0.50	1.00
+				</tableData>
+			</table>
+		</scheduled_gain>
+		
+		<scheduled_gain name="cabin-environment/cabin-air-transfer-air-duct">
+			<input>cabin-environment/cabin-air-temp-diff</input>
+			<gain>/environment/aircraft-effects/cabin-air-set</gain>
+			<table>
+				<independentVar lookup="row">/engines/engine[0]/rpm</independentVar>
+				<independentVar lookup="column">/velocities/airspeed-kt</independentVar>
+				<tableData>
+					40      120
+					0    0.10    0.50
+					700    0.25    0.60
+					2800    0.50    1.00
+				</tableData>
+			</table>
+		</scheduled_gain>
+		
+		<!-- Even with the air slider closed, there is still some small
+		amount of heat transferred via the fuselage.
+		-->
+		<summer name="cabin-environment/cabin-air-transfer-fuselage">
+			<input>/environment/temperature-degc</input>
+			<input>-cabin-environment/cabin-air-temp-degc</input>
+			<clipto>
+				<min>-0.2</min>
+				<max> 0.2</max>
+			</clipto>
+		</summer>
+		
+		
+		<pure_gain name="cabin-environment/cabin-air-transfer-doors-windows">
+			<input>cabin-environment/cabin-air-temp-diff</input>
+			<gain>cabin-environment/doors-windows-total</gain>
+		</pure_gain>
+		
+		<pure_gain name="cabin-environment/cabin-air-transfer-humans">
+			<input>cabin-environment/cabin-human-temp-diff</input>
+			<gain>cabin-environment/humans-count</gain>
+		</pure_gain>
+		
+		<summer name="cabin-environment/cabin-air-transfer-total">
+			<input>cabin-environment/cabin-air-transfer-heat-duct</input>
+			<input>cabin-environment/cabin-air-transfer-air-duct</input>
+			<input>cabin-environment/cabin-air-transfer-fuselage</input>
+			<input>cabin-environment/cabin-air-transfer-doors-windows</input>
+			<input>cabin-environment/cabin-air-transfer-humans</input>
+		</summer>
+		
+		<integrator name="cabin-environment/cabin-air-temp-degc">
+			<input>cabin-environment/cabin-air-transfer-total</input>
+			
+			<!-- This is the constant that actually controls how fast
+			(or slow) the cabin temperature changes.
+			-->
+			<c1>0.020</c1>
+		</integrator>
+		
+	</channel>
+	
+	<channel name="surface-temperature">
+		
+		<summer name="cabin-environment/surface-cabin-heat-transfer">
+			<input>cabin-environment/cabin-air-temp-degc</input>
+			<input>-cabin-environment/surface-temp-degc</input>
+			
+			<!-- If the pilot opens the air slider, the cabin air temp might
+			start increasing or decreasing fast. Clip the difference to
+			limit this effect.
+			-->
+			<clipto>
+				<min>-5.0</min>
+				<max> 5.0</max>
+			</clipto>
+		</summer>
+		
+		<integrator name="cabin-environment/surface-temp-degc">
+			<input>cabin-environment/surface-cabin-heat-transfer</input>
+			
+			<!-- This is the constant that actually controls how fast
+			(or slow) the surface temperature changes.
+			-->
+			<c1>0.020</c1>
+		</integrator>
+		
+	</channel>
+	
+	<channel name="cabin-dewpoint">
+		
+		<fcs_function name="cabin-environment/non-humans-airflow">
+			<function>
+				<quotient>
+					<sum>
+						<abs>
+							<property>cabin-environment/cabin-air-transfer-air-duct</property>
+						</abs>
+						<abs>
+							<product>
+								<quotient>
+									<property>cabin-environment/cabin-air-transfer-heat-duct</property>
+									<property>cabin-environment/cabin-heat-temp-diff</property>
+								</quotient>
+								<property>cabin-environment/cabin-air-temp-diff</property>
+							</product>
+						</abs>
+						<abs>
+							<property>cabin-environment/cabin-air-transfer-doors-windows</property>
+						</abs>
+					</sum>
+					<abs>
+						<property>cabin-environment/cabin-air-temp-diff</property>
+					</abs>
+				</quotient>
+			</function>
+		</fcs_function>
+		
+		<pure_gain name="cabin-environment/humans-airflow">
+			<input>cabin-environment/humans-count</input>
+			<gain>0.1</gain>
+		</pure_gain>
+		
+		<fcs_function name="cabin-environment/future-cabin-rel-humidity">
+			<function>
+				<quotient>
+					<sum>
+						<product>
+							<property>cabin-environment/non-humans-airflow</property>
+							<property>/environment/relative-humidity</property>
+						</product>
+						<product>
+							<property>cabin-environment/humans-airflow</property>
+							<!-- Human breath: 35 C with 95 % RH -->
+							<value>95.0</value>
+						</product>
+					</sum>
+					<sum>
+						<property>cabin-environment/non-humans-airflow</property>
+						<property>cabin-environment/humans-airflow</property>
+					</sum>
+				</quotient>
+			</function>
+		</fcs_function>
+		
+		<summer name="cabin-environment/cabin-rel-humidity-diff">
+			<input>cabin-environment/future-cabin-rel-humidity</input>
+			<input>-cabin-environment/cabin-relative-humidity</input>
+			
+			<clipto>
+				<min>-10.0</min>
+				<max> 10.0</max>
+			</clipto>
+		</summer>
+		
+		<integrator name="cabin-environment/cabin-relative-humidity">
+			<input>cabin-environment/cabin-rel-humidity-diff</input>
+			
+			<!-- This is the constant that actually controls how fast
+			(or slow) the cabin relative humidity changes.
+			-->
+			<c1>0.015</c1>
+			
+			<!-- Keep relative humidity above zero to prevent
+			math domain error (which happens in ln(x) for x = 0).
+			-->
+			<clipto>
+				<min>  0.1</min>
+				<max>100.0</max>
+			</clipto>
+		</integrator>
+		
+		<!-- Computing the dewpoint using the Arden Buck equation:
+		
+		y_m(T, RH) = ln(RH/100 * exp((b - T/d) * (T/(c+T)))
+		
+		using the following constants:
+		
+		b = 17.67; c = 243.5 celsius; d = 234.5 celsius
+		
+		from:
+		
+		Bolton, D. (1980). The computation of equivalent potential
+		temperature. Monthly weather review, 108(7), 1046-1053.
+		-->
+		<fcs_function name="cabin-environment/cabin-dewpoint-ym">
+			<function>
+				<ln>
+					<product>
+						<quotient>
+							<property>cabin-environment/cabin-relative-humidity</property>
+							<value>100.0</value>
+						</quotient>
+						<exp>
+							<product>
+								<difference>
+									<value>17.67</value>
+									<quotient>
+										<property>cabin-environment/cabin-air-temp-degc</property>
+										<value>234.5</value>
+									</quotient>
+								</difference>
+								<quotient>
+									<property>cabin-environment/cabin-air-temp-degc</property>
+									<sum>
+										<value>243.5</value>
+										<property>cabin-environment/cabin-air-temp-degc</property>
+									</sum>
+								</quotient>
+							</product>
+						</exp>
+					</product>
+				</ln>
+			</function>
+		</fcs_function>
+		
+		<!-- Computing dewpoint using the Arden Buck equation using constants
+		that give a maximum error of 0.1 % for -30.0 <= T <= +35.0.
+		
+		Reference: https://en.wikipedia.org/wiki/Dew_point#Calculating_the_dew_point
+		-->
+		<fcs_function name="cabin-environment/cabin-dewpoint-degc">
+			<function>
+				<quotient>
+					<product>
+						<value>243.5</value>
+						<property>cabin-environment/cabin-dewpoint-ym</property>
+					</product>
+					<difference>
+						<value>17.67</value>
+						<property>cabin-environment/cabin-dewpoint-ym</property>
+					</difference>
+				</quotient>
+			</function>
+		</fcs_function>
+		
+		<!-- Normalized human perception of dew point:
+		
+		0.0 is dry; 0.1 - 0.5 is comfortable; 0.7 is somewhat uncomfortable;
+		0.8 - 0.9 is very uncomfortable; 1.0 is extremely high.
+		
+		Reference: https://en.wikipedia.org/wiki/Dew_point#Relationship_to_human_comfort
+		-->
+		<fcs_function name="cabin-environment/cabin-dewpoint-perception-norm">
+			<function>
+				<table>
+					<independentVar>cabin-environment/cabin-dewpoint-degc</independentVar>
+					<tableData>
+						10  0.0
+						13  0.3
+						16  0.5
+						18  0.7
+						21  0.8
+						24  0.9
+						26  1.0
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+	</channel>
+	
+	<channel name="fog-and-frost">
+		
+		
+		<!-- Defroster simulation: Adapted from Cessna 182S by B. Hallinger (2018) -->
+		<!-- TODO: currently very simple implementation: we just put down the dewpoint of the windshield if defrost is enabled and engine is on -->
+		<fcs_function name="cabin-environment/windshield-dewpoint-defrost-offset-degc">
+			<function>
+				<table>
+					<independentVar lookup="row">/environment/aircraft-effects/defrost-set</independentVar>
+					<independentVar lookup="column">/engines/engine/egt-degf</independentVar>
+					<tableData>
+							0	1000
+						0.0	0	0
+						1.0	0	-15
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		<summer name="cabin-environment/windshield-dewpoint-degc">
+			<input>cabin-environment/cabin-dewpoint-degc</input>
+			<input>cabin-environment/windshield-dewpoint-defrost-offset-degc</input>
+		</summer>
+		<fcs_function name="cabin-environment/windshield-defrost-boost">
+			<function>
+				<product>
+					<value>0.010</value> <!-- fixed value from below integrator code -->
+					<table>
+						<independentVar lookup="row">/environment/aircraft-effects/defrost-set</independentVar>
+						<independentVar lookup="column">/engines/engine/egt-degf</independentVar>
+						<tableData>
+								0	1000
+							0.0	1.0	1.0
+							1.0	1.0	2.5
+						</tableData>
+					</table>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<summer name="cabin-environment/surface-dewpoint-diff">
+			<input>cabin-environment/windshield-dewpoint-degc</input>
+			<input>-cabin-environment/surface-temp-degc</input>
+			
+			<!-- Small maximum to slowdown increase and decrease of fog
+			and frost.
+			-->
+			<clipto>
+				<min>-0.5</min>
+				<max> 0.5</max>
+			</clipto>
+		</summer>
+		
+		<switch name="cabin-environment/moisture-windup-trigger">
+			<default value="0"/>
+			
+			<test logic="AND" value="1">
+				cabin-environment/surface-dewpoint-diff GT 0
+				cabin-environment/moisture-norm GE 1
+			</test>
+			
+			<test logic="AND" value="1">
+				cabin-environment/surface-dewpoint-diff LT 0
+				cabin-environment/moisture-norm LE 0
+			</test>
+		</switch>
+		
+		<integrator name="cabin-environment/moisture-norm">
+			<input>cabin-environment/surface-dewpoint-diff</input>
+			<trigger>cabin-environment/moisture-windup-trigger</trigger>
+			
+			<!-- This is the constant that actually controls how fast
+			(or slow) the moisture changes.
+			-->
+			<c1>cabin-environment/windshield-defrost-boost</c1>
+			
+			<clipto>
+				<min>0.0</min>
+				<max>1.0</max>
+			</clipto>
+		</integrator>
+		
+		<pure_gain name="cabin-environment/moisture-fog-level">
+			<input>cabin-environment/moisture-norm</input>
+			<gain>1.6</gain>
+		</pure_gain>
+		
+		<pure_gain name="cabin-environment/moisture-frost-level">
+			<input>cabin-environment/moisture-norm</input>
+			<gain>1.0</gain>
+		</pure_gain>
+		
+		<switch name="cabin-environment/fog-level">
+			<default value="cabin-environment/moisture-fog-level"/>
+			<test logic="AND" value="0">
+				cabin-environment/cabin-air-temp-degc LE 0
+			</test>
+			<output>/environment/aircraft-effects/fog-level</output>
+		</switch>
+		
+		<switch name="cabin-environment/frost-level">
+			<default value="cabin-environment/moisture-frost-level"/>
+			<test logic="AND" value="0">
+				cabin-environment/cabin-air-temp-degc GT 0
+			</test>
+			<output>/environment/aircraft-effects/frost-level</output>
+		</switch>
+		
+	</channel>
+	
+</system>

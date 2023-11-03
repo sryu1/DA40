@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- Base: The sounds of the FK9 Mark 2 by Maik JUSTUS -->
+
+<PropertyList>
+	
+	<fx>
+		
+		<avionics>
+			<name>avionics</name>
+			<mode>looped</mode>
+			<path>gyro.wav</path>
+			<condition>
+				<property>/systems/electrical/bus/main-bus-volts</property>
+			</condition>
+			<volume>
+				<factor>0.4</factor>
+			</volume>
+		</avionics>
+		
+		<avionics>
+			<name>fan</name>
+			<mode>looped</mode>
+			<path>Sounds/fan.wav</path>
+			<condition>
+				<property>/systems/electrical/bus/main-bus-volts</property>
+			</condition>
+			<volume>
+				<factor>0.4</factor>
+			</volume>
+		</avionics>
+	
+		<crank>
+			<name>engstart</name>
+			<path>eng_start_ext1_part1.wav</path>
+			<condition>
+				<and>
+					<property>engines/engine/cranking</property>
+					<property>/sim/current-view/internal</property>
+				</and>
+			</condition>
+			<volume>
+				<offset>0.4</offset>
+			</volume>
+			<reference-dist>100</reference-dist>
+			<max-dist>1000</max-dist>
+		</crank>
+		
+		<crank>
+			<name>engstartext</name>
+			<path>eng_start_int1_part1.wav</path>
+			<condition>
+				<and>
+					<property>engines/engine/cranking</property>
+					<not>
+						<property>/sim/current-view/internal</property>
+					</not>
+				</and>
+			</condition>
+			<volume>
+				<offset>0.4</offset>
+			</volume>
+			<reference-dist>100</reference-dist>
+			<max-dist>1000</max-dist>
+		</crank>
+		
+		<crank>
+			<name>crank</name>
+			<mode>looped</mode>
+			<path>eng_start_int1_part2.wav</path>
+			<condition>
+				<and>
+					<property>engines/engine/cranking</property>
+					<property>/sim/current-view/internal</property>
+					<not>
+						<property>engines/engine/running</property>
+					</not>
+				</and>
+			</condition>
+			<volume>
+				<offset>0.5</offset>
+			</volume>
+			<reference-dist>100</reference-dist>
+			<max-dist>1000</max-dist>
+		</crank>
+		
+		<crank>
+			<name>crankext</name>
+			<mode>looped</mode>
+			<path>eng_start_ext1_part2.wav</path>
+			<condition>
+				<and>
+					<property>engines/engine/cranking</property>
+					<not>
+						<property>/sim/current-view/internal</property>
+					</not>
+					<not>
+						<property>engines/engine/running</property>
+					</not>
+				</and>
+			</condition>
+			<volume>
+				<offset>0.5</offset>
+			</volume>
+			<reference-dist>100</reference-dist>
+			<max-dist>1000</max-dist>
+		</crank>
+		
+		<crank>
+			<name>cough</name>
+			<path>Sounds/coughing.wav</path>
+			<property>engines/engine/running</property>
+			<volume>
+				<offset>0.3</offset>
+			</volume>
+			<reference-dist>100</reference-dist>
+			<max-dist>1000</max-dist>
+		</crank>
+		
+		<stopext>
+			<name>stopext</name>
+			<path>eng_stop_ext1.wav</path>
+			<condition>
+				<not>
+					<property>engines/engine/running</property>
+				</not>
+			</condition>
+			<volume>
+				<property>/sim/current-view/internal</property>
+				<factor>-1.0</factor>
+				<offset>1.0</offset>
+			</volume>
+			<reference-dist>100</reference-dist>
+			<max-dist>1000</max-dist>
+		</stopext>
+		
+		<stop>
+			<name>stop</name>
+			<path>eng_stop_int1.wav</path>
+			<condition>
+				<not>
+					<property>engines/engine/running</property>
+				</not>
+			</condition>
+			<volume>
+				<property>/sim/current-view/internal</property>
+				<factor>1.0</factor>
+				<offset>0.0</offset>
+			</volume>
+			<reference-dist>100</reference-dist>
+			<max-dist>1000</max-dist>
+		</stop>
+		
+		<engine>
+			<name>engine</name>
+			<mode>looped</mode>
+			<path>eng_run_ext1_loop.wav</path>
+			<condition>
+				<and>
+					<property>engines/engine/running</property>
+					<not>
+						<property>/sim/current-view/internal</property>
+					</not>
+				</and>
+			</condition>
+			<volume>
+				<property>engines/engine/mp-osi</property>
+				<factor>0.00375</factor>
+				<min>0.5</min>
+				<max>2.0</max>
+			</volume>
+			<pitch>
+				<property>engines/engine/rpm</property>
+				<factor>0.00028</factor>
+				<min>0.15</min>
+				<max>2.0</max>
+				<offset>-0.0</offset>
+			</pitch>
+			<reference-dist>100</reference-dist>
+			<max-dist>1000</max-dist>
+		</engine>
+		
+		<engine>
+			<name>engineextslow</name>
+			<mode>looped</mode>
+			<path>eng_run_ext3_slow.wav</path>
+			<condition>
+				<and>
+					<property>engines/engine/running</property>
+					<not>
+						<property>/sim/current-view/internal</property>
+					</not>
+				</and>
+			</condition>
+			<volume>
+				<property>engines/engine/mp-osi</property>
+				<factor>0.00375</factor>
+				<min>0.5</min>
+				<max>2.0</max>
+			</volume>
+			<pitch>
+				<property>engines/engine/rpm</property>
+				<factor>0.0005</factor>
+				<min>0.35</min>
+				<max>2.0</max>
+				<offset>-0.0</offset>
+			</pitch>
+			<reference-dist>100</reference-dist>
+			<max-dist>1000</max-dist>
+		</engine>
+		
+		<propellerhigh>
+			<name>propellerhigh</name>
+			<mode>looped</mode>
+			<path>eng_run_int_4430.wav</path>
+			<condition>
+				<and>
+					<property>engines/engine/running</property>
+					<property>/sim/current-view/internal</property>
+				</and>
+			</condition>
+			<volume>
+				<property>engines/engine/mp-osi</property>
+				<factor>0.00375</factor>
+				<min>0.5</min>
+				<max>2.0</max>
+			</volume>
+			<pitch>
+				<property>engines/engine/rpm</property>
+				<factor>0.000226</factor>
+				<min>0.15</min>
+				<max>4.0</max>
+				<offset>-0.0</offset>
+			</pitch>
+			<reference-dist>100</reference-dist>
+			<max-dist>1000</max-dist>
+		</propellerhigh>
+		
+		<propellerlow>
+			<name>propellerlow</name>
+			<mode>looped</mode>
+			<path>eng_run_int_1340.wav</path>
+			<condition>
+				<and>
+					<property>engines/engine/running</property>
+					<property>/sim/current-view/internal</property>
+				</and>
+			</condition>
+			<volume>
+				<property>engines/engine/mp-osi</property>
+				<factor>0.00375</factor>
+				<min>0.5</min>
+				<max>2.0</max>
+			</volume>
+			<pitch>
+				<property>engines/engine/rpm</property>
+				<factor>0.0007462</factor>
+				<min>0.5</min>
+				<max>4.0</max>-
+				<offset>-0.0</offset>
+			</pitch>
+			<reference-dist>100</reference-dist>
+			<max-dist>1000</max-dist>
+		</propellerlow>
+		
+		<rumble>
+			<name>rumble</name>
+			<mode>looped</mode>
+			<path>rumble.wav</path>
+			<condition>
+				<or>
+					<property>gear/gear[0]/wow</property>
+					<property>gear/gear[1]/wow</property>
+					<property>gear/gear[2]/wow</property>
+				</or>
+				<!-- <property>/sim/current-view/internal</property> -->
+			</condition>
+			<volume>
+				<property>velocities/groundspeed-kt</property>
+				<!--type>log</type-->
+				<factor>0.025</factor>
+				<offset> -0.01</offset>
+				<max>1.01</max>
+				<min>0.01</min>
+			</volume>
+			<pitch>
+				<property>velocities/groundspeed-kt</property>
+				<factor>0.01</factor>
+				<offset>0.85</offset>
+			</pitch>
+			<reference-dist>100</reference-dist>
+			<max-dist>1000</max-dist>
+		</rumble>
+		
+		<squeal>
+			<name>squeal</name>
+			<path>wow.wav</path>
+			<condition>
+				<or>
+					<property>gear/gear[0]/wow</property>
+					<property>gear/gear[1]/wow</property>
+					<property>gear/gear[2]/wow</property>
+				</or>
+			</condition>
+			<volume>
+				<property>velocities/speed-down-fps</property>
+				<factor>0.5</factor>
+				<max>1.0</max>
+			</volume>
+			<volume>
+				<property>velocities/groundspeed-kt</property>
+				<factor>0.1</factor>
+				<max>1.0</max>
+			</volume>
+			<volume>
+				<internal>dt_stop</internal>
+				<factor>0.05</factor>
+				<max>1.0</max>
+			</volume>
+			<pitch>
+				<property>velocities/groundspeed-kt</property>
+				<factor>0.0025</factor>
+				<offset>1.0</offset>
+			</pitch>
+			<reference-dist>100</reference-dist>
+			<max-dist>1000</max-dist>
+		</squeal>
+		
+		<flap>
+			<name>flaps</name>
+			<mode>in-transit</mode>
+			<path>Sounds/flaps.wav</path>
+			<property>surface-positions/flap-pos-norm</property>
+			<volume>
+				<factor>0.8</factor>
+			</volume>
+			<reference-dist>10.0</reference-dist>
+			<max-dist>20.0</max-dist>
+		</flap>
+		
+		<wind>
+			<name>wind</name>
+			<mode>looped</mode>
+			<path>Sounds/wind.wav</path>
+			<property>velocities/true-airspeed-kt</property>
+			<volume>
+				<property>position/altitude-ft</property>
+				<factor>-0.000015</factor>
+				<offset>1.0</offset>
+				<min>0.0</min>
+				<max>1.0</max>
+			</volume>
+			<volume>
+				<property>velocities/true-airspeed-kt</property>
+				<factor>0.0015</factor>
+				<min>0.0</min>
+				<max>0.25</max>
+			</volume>
+			<pitch>
+				<property>velocities/true-airspeed-kt</property>
+				<factor>0.0035</factor>
+				<offset>1.25</offset>
+			</pitch>
+		</wind>
+		
+		<!--From c172p, simulated using JSB-->
+		<stall>
+			<name>stall</name>
+			<mode>looped</mode>
+			<path>Sounds/stall2.wav</path>
+			<condition>
+				<and>
+					<greater-than>
+						<property>velocities/airspeed-kt</property>
+						<value>10</value>
+					</greater-than>
+					<greater-than>
+						<property>systems/electrical/bus/avionic-bus-volts</property>
+						<value>10</value>
+					</greater-than>
+					<not>
+						<property>gear/gear[0]/wow</property>
+					</not>
+				</and>
+			</condition>
+			<position>
+				<x>-0.0360</x>
+				<y>0.5174</y>
+				<z>0.4831</z>
+			</position>
+			<volume>
+				<property>/fdm/jsbsim/sounds/stall-horn-volume</property>
+			</volume>
+			<pitch>
+				<property>/fdm/jsbsim/sounds/stall-horn-pitch</property>
+				<offset>0.0</offset>
+			</pitch>
+			<reference-dist>0.5</reference-dist>
+			<max-dist>50.0</max-dist>
+		</stall>
+		
+		<!--                  Toggle Switches                  -->     
+		<click> 
+			<name>Battery on</name>
+			<path>Sounds/click.wav</path>
+			<condition> 
+				<property>controls/electric/battery-switch</property>
+			</condition>
+			<volume> 
+				<factor>0.3</factor>
+			</volume>
+		</click>
+		
+		<click> 
+			<name>Battery off</name>
+			<path>Sounds/click.wav</path>
+			<condition> 
+				<not> 
+					<property>controls/electric/battery-switch</property>
+				</not>
+			</condition>
+			<volume> 
+				<factor>0.3</factor>
+			</volume>
+		</click>
+		
+		<click> 
+			<name>Fuel Pump on</name>
+			<path>Sounds/click.wav</path>
+			<condition> 
+				<property>controls/engines/engine/fuel-pump</property>
+			</condition>
+			<volume> 
+				<factor>0.3</factor>
+			</volume>
+		</click>
+		
+		<click> 
+			<name>Fuel Pump off</name>
+			<path>Sounds/click.wav</path>
+			<condition> 
+				<not> 
+					<property>controls/engines/engine/fuel-pump</property>
+				</not>
+			</condition>
+			<volume> 
+				<factor>0.3</factor>
+			</volume>
+		</click>
+		
+		<click>
+			<name>Landing Light On</name>
+			<path>Sounds/click.wav</path>
+			<condition>
+				<property>controls/lighting/landing-lights</property>
+			</condition>
+			<volume>
+				<factor>0.3</factor>
+			</volume>
+		</click>
+		
+		<click>
+			<name>Landing Light Off</name>
+			<path>Sounds/click.wav</path>
+			<condition>
+				<not>
+					<property>controls/lighting/landing-lights</property>
+				</not>
+			</condition>
+			<volume>
+				<factor>0.3</factor>
+			</volume>
+		</click>
+		
+		<click> 
+			<name>Magnetos-off</name>
+			<path>keys2.wav</path>
+			<condition>
+				<not>
+					<property>controls/electric/electric-master</property>
+				</not>
+			</condition>
+			<volume> 
+				<factor>1.0</factor>
+			</volume>
+		</click>
+		
+		<click> 
+			<name>Magnetos-on</name>
+			<path>keys2.wav</path>
+			<condition>
+				<property>controls/electric/electric-master</property>
+			</condition>
+			<volume> 
+				<factor>1.0</factor>
+			</volume>
+		</click>
+		
+		<click> 
+			<name>Strobe Lights White</name>
+			<path>Sounds/click.wav</path>
+			<condition>
+				<equals>
+					<property>controls/lighting/strobe</property>
+					<value>1</value>
+				</equals>
+			</condition>
+			<volume> 
+				<factor>0.3</factor>
+			</volume>
+		</click>
+		
+		<click> 
+			<name>Strobe Lights Off</name>
+			<path>Sounds/click.wav</path>
+			<condition>
+				<not> 
+					<property>controls/lighting/strobe</property>
+				</not>
+			</condition>
+			<volume> 
+				<factor>0.3</factor>
+			</volume>
+		</click>
+		
+		<click> 
+			<name>Taxi Lights On</name>
+			<path>Sounds/click.wav</path>
+			<condition>
+				<property>controls/lighting/taxi-light</property>
+			</condition>
+			<volume> 
+				<factor>0.3</factor>
+			</volume>
+		</click>
+		
+		<click> 
+			<name>Taxi Lights Off</name>
+			<path>Sounds/click.wav</path>
+			<condition>
+				<not> 
+					<property>controls/lighting/taxi-light</property>
+				</not>
+			</condition>
+			<volume> 
+				<factor>0.3</factor>
+			</volume>
+		</click>
+		
+		<click> 
+			<name>Nav Lights On</name>
+			<path>Sounds/click.wav</path>
+			<condition>
+				<property>controls/lighting/nav-lights</property>
+			</condition>
+			<volume> 
+				<factor>0.3</factor>
+			</volume>
+		</click>
+		
+		<click> 
+			<name>Nav Lights Off</name>
+			<path>Sounds/click.wav</path>
+			<condition>
+				<not> 
+					<property>controls/lighting/nav-lights</property>
+				</not>
+			</condition>
+			<volume> 
+				<factor>0.3</factor>
+			</volume>
+		</click>
+		
+		<click> 
+			<name>Avionics Master On</name>
+			<path>Sounds/click.wav</path>
+			<condition>
+				<property>controls/electric/avionic-master</property>
+			</condition>
+			<volume> 
+				<factor>0.3</factor>
+			</volume>
+		</click>
+		
+		<click> 
+			<name>Avionics Master Off</name>
+			<path>Sounds/click.wav</path>
+			<condition>
+				<not>
+					<property>controls/electric/avionic-master</property>
+				</not>
+			</condition>
+			<volume> 
+				<factor>0.3</factor>
+			</volume>
+		</click>
+		
+		<click> 
+			<name>Engine Master On</name>
+			<path>Sounds/click.wav</path>
+			<condition>
+				<property>controls/electric/engine-master</property>
+			</condition>
+			<volume> 
+				<factor>0.3</factor>
+			</volume>
+		</click>
+		
+		<click> 
+			<name>Engine Master Off</name>
+			<path>Sounds/click.wav</path>
+			<condition>
+				<not>
+					<property>controls/electric/engine-master</property>
+				</not>
+			</condition>
+			<volume> 
+				<factor>0.3</factor>
+			</volume>
+		</click>
+		
+		<click> 
+			<name>Pitot Heat On</name>
+			<path>Sounds/click.wav</path>
+			<condition>
+				<property>controls/anti-ice/pitot-heat</property>
+			</condition>
+			<volume> 
+				<factor>0.3</factor>
+			</volume>
+		</click>
+		
+		<click> 
+			<name>Pitot Heat Off</name>
+			<path>Sounds/click.wav</path>
+			<condition>
+				<not>
+					<property>controls/anti-ice/pitot-heat</property>
+				</not>
+			</condition>
+			<volume> 
+				<factor>0.3</factor>
+			</volume>
+		</click>
+		
+		<!--	White Wire Annunciator	-->
+		<annunciator>
+			<name>Annunciator Alert</name>
+			<path>annunciator-alert.wav</path>
+			<mode>looped</mode>
+			<condition>
+				<greater-than>
+					<property>systems/electrical/outputs/annun</property>
+					<value>9.0</value>
+				</greater-than>
+				<property>instrumentation/annunciator-panel/alert</property>
+			</condition>
+			<reference-dist>2</reference-dist>
+			<max-dist>10</max-dist>
+			<position>
+				<x>-2  </x>
+				<z> 0.4</z>
+			</position>
+		</annunciator>
+			
+		
+		<!--	KAP140 Autopilot by Sascha Reiszner/WoodSTokk	-->
+		<kap140-disengage>
+			<name>KAP140 disengage</name>
+			<path>kap140-disengage.wav</path>
+			<condition>
+				<equals>
+					<property>/sim/aero</property>
+					<value>da40ng-jsb</value>
+				</equals>
+				<or>
+					<equals>
+						<property>autopilot/kap140/panel/state</property>
+						<value>3</value>
+					</equals>
+					<property>autopilot/kap140/panel/ap-timer</property>
+				</or>
+			</condition>
+			<volume><factor>0.2</factor></volume>
+			<position>
+				<x>-0.444</x>
+				<y> 0.229</y>
+				<z> 0.312</z>
+			</position>
+		</kap140-disengage>
+		
+		<kap140-alert>
+			<name>KAP140 altitude alerter</name>
+			<path>kap140-alert.wav</path>
+			<condition>
+				<equals>
+					<property>/sim/aero</property>
+					<value>da40ng-jsb</value>
+				</equals>
+				<property>autopilot/kap140/panel/alt-alert-sound</property>
+			</condition>
+			<volume><factor>0.2</factor></volume>
+			<position>
+				<x>-0.444</x>
+				<y> 0.229</y>
+				<z> 0.312</z>
+			</position>
+		</kap140-alert>
+		
+		<gfc700-disengage>
+			<name>GFC700 approaching altitude</name>
+			<path>g1000_alt.wav</path>
+			<condition>
+				<less-than>
+					<expression>
+						<abs>
+							<dif>
+								<property>/autopilot/settings/target-alt-ft</property>
+								<property>/instrumentation/altimeter/indicated-altitude-ft</property>
+							</dif>
+						</abs>
+					</expression>
+					<value>1000</value>
+				</less-than>
+			</condition>
+		</gfc700-disengage>
+		
+		<gfc700-disengage>
+			<name>GFC700 leaving altitude</name>
+			<path>g1000_alt.wav</path>
+			<condition>
+				<greater-than>
+					<expression>
+						<abs>
+							<dif>
+								<property>/autopilot/settings/target-alt-ft</property>
+								<property>/instrumentation/altimeter/indicated-altitude-ft</property>
+							</dif>
+						</abs>
+					</expression>
+					<value>200</value>
+				</greater-than>
+			</condition>
+		</gfc700-disengage>
+		
+	</fx>
+	
+</PropertyList>

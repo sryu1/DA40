@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList> 
+	
+	<path>compass.ac</path>
+	
+	<params>
+		<instrument-light-volts>systems/electrical/outputs/instrument-lights</instrument-light-volts>
+		<flood-light-volts>systems/electrical/outputs/flood-lights</flood-light-volts>
+	</params>
+	
+	<effect>
+		<inherits-from>../../../../Effects/interior/instrument-glass</inherits-from>
+		<object-name>compass.glass</object-name>
+	</effect>
+	
+	<animation>
+		<type>material</type>
+		<object-name>compass.scale</object-name>
+		<emission>
+			<red>   0.04 </red>
+			<green> 0.02 </green>
+			<blue>  0.02 </blue>
+			<factor-prop alias="../../../params/instrument-light-volts" />
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>compass</object-name>
+		<emission>
+			<red>   0.04 </red>
+			<green> 0.035 </green>
+			<blue>  0.035 </blue>
+			<factor-prop alias="../../../params/flood-light-volts" />
+		</emission>
+	</animation>
+	
+	<animation> 
+		<type>rotate</type>
+		<object-name>compass.scale</object-name>
+		<property>instrumentation/magnetic-compass/indicated-heading-deg</property>
+		<center> 
+			<x-m> -0.026709 </x-m>
+			<y-m>  0.0 </y-m>
+		</center>
+		<axis> 
+			<x> 0 </x>
+			<y> 0 </y>
+			<z> 1 </z>
+		</axis>
+	</animation>
+	
+</PropertyList>
