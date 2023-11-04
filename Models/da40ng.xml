@@ -178,6 +178,30 @@
 		<path>Interior/interior.xml</path>
 	</model>
 
+	<animation>
+		<type>material</type>
+		<object-name>fuselage</object-name>
+		<object-name>airleron.L</object-name>
+		<object-name>airleron.R</object-name>
+		<object-name>wings</object-name>
+		<object-name>elevator</object-name>
+		<object-name>elevator.trim.tab</object-name>
+		<object-name>rudder</object-name>
+		<object-name>hstab</object-name>
+		<object-name>canopy.F</object-name>
+		<object-name>door.R</object-name>
+		<object-name>gear.F</object-name>
+		<object-name>gear.F.2</object-name>
+		<object-name>wheelfairingF</object-name>
+		<object-name>gearL</object-name>
+		<object-name>wheelfairingL</object-name>
+		<object-name>gearR</object-name>
+		<object-name>wheelfairingR</object-name>
+		<property-base>sim/model/livery</property-base>
+		<texture-prop>texture</texture-prop>
+		<texture>Liveries/OE-DWS.png</texture>
+	</animation>
+
 
 	<!--	############	-->
 	<!--	 ANIMATIONS 	-->
@@ -604,4 +628,23 @@
 		<name>lights</name>
 		<path>lights.xml</path>
 	</model>
+
+	<nasal>
+		<load>
+			<!--
+			##############################################################################
+			# The on-load Nasal is not executed when this file is loaded as the user
+			# aircraft. The code is only executed if the file is loaded for a remote
+			# aircraft in Multi-Player mode (MP)
+			##############################################################################
+		  -->
+		  <![CDATA[
+			var livery_update = aircraft.livery_update.new("Aircraft/747/Models/Liveries");
+		  ]]>
+		</load>
+
+		<unload><![CDATA[
+		  livery_update.stop();
+		]]></unload>
+	</nasal>
 </PropertyList>
