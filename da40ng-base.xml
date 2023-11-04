@@ -99,7 +99,7 @@
 		<model>
 			<path archive="y">Aircraft/DA40/Models/da40ng.xml</path>
 			<livery>
-				<file type="string">default</file>
+				<file type="string">lLveries/OE-DWS</file>
 			</livery>
 			<rendering>
 				<rain-enabled type="int">2</rain-enabled>
@@ -146,7 +146,7 @@
 		<menubar>
 			<default>
 				<menu n="10">
-					<label>Diamond Aircraft DA40NG</label>
+					<label>Diamond Aircraft DA-40 NG</label>
 					<enabled type="bool">true</enabled>
 					<item n="0">
 						<label>Select Livery</label>
@@ -290,9 +290,9 @@
 		<m803>
 			<file>Models/Interior/Panel/Instruments/M803/davtron803.nas</file>
 		</m803>
-		<!--<gtx327>
+		<gtx327>
 			<file>Models/Interior/Panel/Instruments/gtx-327/gtx-327.nas</file>
-		</gtx327>-->
+		</gtx327>
 		<kap140>
 			<file>Aircraft/Generic/kap140.nas</file>
 		</kap140>

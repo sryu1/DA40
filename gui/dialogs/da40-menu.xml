@@ -25,16 +25,16 @@
 				<label>Select Livery</label>
 				<binding>
 					<command>nasal</command>
-					<script>aircraft.livery.dialog.open()</script>
+					<script>aircraft.livery.dialog.toggle()</script>
 				</binding>
 			</item>
-            <item>
-                <label>Panel Configuration</label>
-                <binding>
-                    <command>dialog-show</command>
-                    <dialog-name>da40_panel_config</dialog-name>
-                </binding>
-            </item>
+			<item>
+				<label>Panel Configuration</label>
+				<binding>
+					<command>dialog-show</command>
+					<dialog-name>da40_panel_config</dialog-name>
+				</binding>
+			</item>
 		</menu>
 
 	</default>
