@@ -3,7 +3,7 @@
 <PropertyList>
 	<default>
 		<menu n="10">
-			<label>Diamond DA-40 NG</label>
+			<label>Diamond DA40 NG</label>
 			<enabled type="bool">true</enabled>
 
 			<item>
@@ -35,6 +35,17 @@
 					<dialog-name>da40_panel_config</dialog-name>
 				</binding>
 			</item>
+			<!--	item n="1" reserved for conventional panel config	-->
+			<!--<item>
+				<name>mpcopilot</name>
+				<label>Select MP Copilot</label>
+				<binding>
+					<command>nasal</command>
+					<script>
+						dual_control_tools.copilot_dialog.show(aircraft_dual_control.copilot_type);
+					</script>
+				</binding>
+			</item>-->
 		</menu>
 
 	</default>

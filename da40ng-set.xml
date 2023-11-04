@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PropertyList>
 	<sim include="Systems/views.xml">
-		<aircraft-version>09/2021</aircraft-version>
-		<status>Alpha</status>
+		<aircraft-version>0.1</aircraft-version>
+		<status>Beta</status>
 		<flight-model archive="y">jsb</flight-model>
-		<aero archive="y">da40ng-jsb</aero>
+		<aero archive="y">da40ng</aero>
 		<minimum-fg-version>2020.3</minimum-fg-version>
-		
+		<description>Diamond DA40 NG</description>
+
 		<rating>
-			<FDM type="int">     2 </FDM>
+			<FDM type="int"> 2 </FDM>
 			<systems type="int"> 2 </systems>
 			<cockpit type="int"> 3 </cockpit>
-			<model type="int">   4 </model>
+			<model type="int"> 3 </model>
 		</rating>
-		
+
 		<tags>
 			<tag>diamond</tag>
 			<tag>low-wing</tag>
@@ -26,7 +27,8 @@
 			<tag>ga</tag>
 			<tag>2000s</tag>
 			<tag>2010s</tag>
-			<!--	tag n="11" for glass cockpit, G1000 variant only	-->
+			<tag>glass-cockpit</tag>
+			<tag>g1000</tag>
 		</tags>
 		<authors>
 			<author n="0">
@@ -69,7 +71,7 @@
 				<nick>sryu1</nick>
 			</author>
 		</authors>
-		<fuel-fraction>1.0</fuel-fraction>		
+		<fuel-fraction>1.0</fuel-fraction>
 		<previews>
 			<preview>
 				<type>exterior</type>
@@ -81,9 +83,6 @@
 			<path>Systems/da40-instrumentation.xml</path>
 		</instrumentation>
 		<menubar include="Aircraft/DA40/gui/dialogs/da40-menu.xml" />
-		<menubar>
-			<path>Aircraft/DA40/gui/dialogs/da40-menu.xml</path>
-		</menubar>
 		<sound>
 			<path archive="y">Aircraft/Da40/Sounds/da40-sound.xml</path>
 		</sound>
@@ -93,6 +92,9 @@
 				<name>visual_effects_rules</name>
 				<path>Systems/effects.xml</path>
 			</property-rule>
+			<autopilot n="0">
+				<path>Aircraft/Instruments-3d/FG1000/GFC700.xml</path>
+			</autopilot>
 			<!--	101 used for KAP140 Rules	-->
 			<!--	102 used for KI206 Rules	-->
 		</systems>
@@ -122,61 +124,31 @@
 		</flaps>
 		<multiplay>
 			<generic>
-				<int n="0" alias="/engines/engine[0]/cranking"/>
-				<int n="1" alias="/sim/model/lights/landing-light"/>
-				<int n="2" alias="/sim/model/lights/taxi-light"/>
-				<int n="3" alias="/sim/model/lights/nav-light"/>
-				<int n="4" alias="/sim/model/lights/strobe/state"/>
-				<int n="5" alias="/engines/engine[0]/running"/>
-				<int n="6" alias="/gear/gear[0]/wow"/>
-				<int n="7" alias="/gear/gear[1]/wow"/>
-				<int n="8" alias="/gear/gear[2]/wow"/>
-				<float n="0" alias="/controls/flight/elevator-trim"/>
-				<float n="1" alias="/gear/gear[0]/steering-norm"/>
-				<float n="2" alias="/gear/gear[0]/rollspeed-ms"/>
-				<float n="3" alias="/gear/gear[1]/rollspeed-ms"/>
-				<float n="4" alias="/gear/gear[2]/rollspeed-ms"/>
-				<float n="5" alias="/da40/canopy-norm"/>
-				<float n="6" alias="/da40/door-left-norm"/>
-				<float n="7" alias="/engines/engine[0]/mp-osi"/>
-				<float n="8" alias="/velocities/groundspeed-kt"/>
+				<int n="0" alias="/engines/engine[0]/cranking" />
+				<int n="1" alias="/sim/model/lights/landing-light" />
+				<int n="2" alias="/sim/model/lights/taxi-light" />
+				<int n="3" alias="/sim/model/lights/nav-light" />
+				<int n="4" alias="/sim/model/lights/strobe/state" />
+				<int n="5" alias="/engines/engine[0]/running" />
+				<int n="6" alias="/gear/gear[0]/wow" />
+				<int n="7" alias="/gear/gear[1]/wow" />
+				<int n="8" alias="/gear/gear[2]/wow" />
+				<float n="0" alias="/controls/flight/elevator-trim" />
+				<float n="1" alias="/gear/gear[0]/steering-norm" />
+				<float n="2" alias="/gear/gear[0]/rollspeed-ms" />
+				<float n="3" alias="/gear/gear[1]/rollspeed-ms" />
+				<float n="4" alias="/gear/gear[2]/rollspeed-ms" />
+				<float n="5" alias="/da40/canopy-norm" />
+				<float n="6" alias="/da40/door-left-norm" />
+				<float n="7" alias="/engines/engine[0]/mp-osi" />
+				<float n="8" alias="/velocities/groundspeed-kt" />
 			</generic>
 		</multiplay>
 		<help include="gui/dialogs/da40-help.xml" />
-		<menubar>
-			<default>
-				<menu n="10">
-					<label>Diamond Aircraft DA-40 NG</label>
-					<enabled type="bool">true</enabled>
-					<item n="0">
-						<label>Select Livery</label>
-						<binding>
-						<command>nasal</command>
-						<script>aircraft.livery.dialog.toggle()</script>
-						</binding>
-					</item>
-					<!--	item n="1" reserved for conventional panel config	-->
-					<!--<item>
-						<name>mpcopilot</name>
-						<label>Select MP Copilot</label>
-						<binding>
-							<command>nasal</command>
-							<script>
-								dual_control_tools.copilot_dialog.show(aircraft_dual_control.copilot_type);
-							</script>
-						</binding>
-					</item>-->
-				</menu>
-			</default>
-		</menubar>
 	</sim>
-	<autopilot>
-		<KAP140>
-			<settings>
-				<auto-pitch-trim type="bool">true</auto-pitch-trim>
-			</settings>
-		</KAP140>
-	</autopilot>
+	<options>
+		<g1000 type="bool">1</g1000>
+	</options>
 	<controls>
 		<gear>
 			<brake-parking type="bool">1</brake-parking>
@@ -290,12 +262,12 @@
 		<m803>
 			<file>Models/Interior/Panel/Instruments/M803/davtron803.nas</file>
 		</m803>
-		<gtx327>
-			<file>Models/Interior/Panel/Instruments/gtx-327/gtx-327.nas</file>
-		</gtx327>
 		<kap140>
 			<file>Aircraft/Generic/kap140.nas</file>
 		</kap140>
+		<gtx327>
+			<file>Models/Interior/Panel/Instruments/gtx-327/gtx-327.nas</file>
+		</gtx327>
 		<liveries>
 			<file>Aircraft/DA40/Nasal/liveries.nas</file>
 		</liveries>
