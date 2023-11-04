@@ -621,6 +621,18 @@
 		</axis>
 	</animation>
 
+	<animation>
+		<type>slider</type>
+		<object-name>Circle</object-name>
+		<property>/controls/engines/engine/throttle</property>
+		<factor>0.1</factor>
+		<axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+	</animation>
+
 	<!--	########	-->
 	<!--	 LIGHTS 	-->
 	<!--	########	-->
