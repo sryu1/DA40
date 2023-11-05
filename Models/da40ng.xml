@@ -627,10 +627,33 @@
 		<property>/controls/engines/engine/throttle</property>
 		<factor>0.1</factor>
 		<axis>
-            <x>-1</x>
-            <y>0</y>
-            <z>0</z>
-        </axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>g1000_sw.ecu_test</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>/controls/engines/engine/throttle</property>
+				<step>1</step>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/engines/engine/throttle</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
 	</animation>
 
 	<!--	########	-->
