@@ -11,23 +11,22 @@
 			<mode>looped</mode>
 			<path>gyro.wav</path>
 			<condition>
-				<property>/systems/electrical/bus/main-bus-volts</property>
+				<greater-than>
+					<property>/instrumentation/attitude-indicator/spin</property>
+					<value>0</value>
+				</greater-than>
 			</condition>
 			<volume>
-				<factor>0.4</factor>
+				<property>/instrumentation/attitude-indicator/spin</property>
+				<factor>0.25</factor>
 			</volume>
-		</avionics>
-
-		<avionics>
-			<name>fan</name>
-			<mode>looped</mode>
-			<path>Sounds/fan.wav</path>
-			<condition>
-				<property>/systems/electrical/bus/main-bus-volts</property>
-			</condition>
-			<volume>
+			<pitch>
+				<property>/instrumentation/attitude-indicator/spin</property>
+				<offset>0.0</offset>
+			</pitch>
+			<!--<volume>
 				<factor>0.4</factor>
-			</volume>
+			</volume>-->
 		</avionics>
 
 		<crank>
@@ -256,8 +255,8 @@
 				<property>engines/engine/rpm</property>
 				<factor>0.0007462</factor>
 				<min>0.5</min>
-				<max>4.0</max>
-				<offset>-0.0</offset>
+				<max>
+				4.0</max>- <offset>-0.0</offset>
 			</pitch>
 			<reference-dist>100</reference-dist>
 			<max-dist>1000</max-dist>
@@ -713,7 +712,7 @@
 		</kap140-alert>
 
 		<gfc700-disengage>
-			<name>GFC700 approaching altitude</name>
+			<name>GFC700 approaching alt 1000</name>
 			<path>g1000_alt.wav</path>
 			<condition>
 				<less-than>
@@ -726,6 +725,24 @@
 						</abs>
 					</expression>
 					<value>1000</value>
+				</less-than>
+			</condition>
+		</gfc700-disengage>
+
+		<gfc700-disengage>
+			<name>GFC700 approaching alt 200</name>
+			<path>g1000_alt.wav</path>
+			<condition>
+				<less-than>
+					<expression>
+						<abs>
+							<dif>
+								<property>/autopilot/settings/target-alt-ft</property>
+								<property>/instrumentation/altimeter/indicated-altitude-ft</property>
+							</dif>
+						</abs>
+					</expression>
+					<value>200</value>
 				</less-than>
 			</condition>
 		</gfc700-disengage>

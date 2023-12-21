@@ -220,16 +220,6 @@
 			<z-m> -0.020 </z-m>
 		</offsets>
 	</model>
-	<!-- GTX327 Transponder by Joshua Davidson -->
-	<!--<model>
-		<path>Instruments/gtx-327/gtx-327.xml</path>
-		<offsets>
-			<x-m> -0.006 </x-m>
-			<y-m> -0.005817 </y-m>
-			<z-m> -0.062 </z-m>
-		</offsets>
-	</model>-->
-	<!-- Second KX165 (COM2/NAV2) for IFR use -->
 	<model>
 		<condition>
 			<property>options/ifr-conventional</property>

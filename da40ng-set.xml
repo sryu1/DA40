@@ -48,7 +48,7 @@
 			<author n="2">
 				<name>Joshua Davidson</name>
 				<nick>Octal450</nick>
-				<description>GTX327</description>
+				<description>GTX327</description><!--No longer in use-->
 			</author>
 			<author n="3">
 				<name>Emmanuel Baranger</name>
@@ -279,9 +279,6 @@
 		<kap140>
 			<file>Aircraft/Generic/kap140.nas</file>
 		</kap140>
-		<gtx327>
-			<file>Models/Interior/Panel/Instruments/gtx-327/gtx-327.nas</file>
-		</gtx327>
 		<liveries>
 			<file>Aircraft/DA40/Nasal/liveries.nas</file>
 		</liveries>
