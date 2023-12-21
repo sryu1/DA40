@@ -9,6 +9,9 @@ var autostart = func {
     props.globals.setBoolValue("/controls/electric/engine-master-cover", 0);
 	props.globals.setDoubleValue("/controls/engines/engine/throttle", 0.15);
     props.globals.setIntValue("/controls/electric/electric-master", 2);
-    props.globals.setDoubleValue("/controls/lighting/instrument-lights", 0.5);
+    props.globals.setDoubleValue("/controls/lighting/instrument-lights", 0.8);
+    props.globals.setDoubleValue("/controls/lighting/flood-lights", 0.5);
+    props.globals.setBoolValue("/controls/lighting/nav-lights", 1);
+    props.globals.setBoolValue("/controls/lighting/strobe", 1);
     disengage_starter_timer.start();
 }
