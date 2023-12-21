@@ -6,7 +6,11 @@
 		<flight-model archive="y">jsb</flight-model>
 		<aero archive="y">da40ng</aero>
 		<minimum-fg-version>2020.3</minimum-fg-version>
+		<expected-aircraft-dir-name>DA40</expected-aircraft-dir-name>
 		<description>Diamond DA40 NG</description>
+		<long-description>The Diamond DA40 NG is an Austrian four-seat, single-engine, light
+			aircraft constructed from composite materials. Built in both Austria and Canada, it was
+			developed as a four-seat version of the earlier DA20 by Diamond Aircraft Industries. </long-description>
 
 		<rating>
 			<FDM type="int"> 2 </FDM>
@@ -77,6 +81,16 @@
 				<type>exterior</type>
 				<splash type="bool">true</splash>
 				<path>Splash/exterior1.jpg</path>
+			</preview>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/exterior2.png</path>
+			</preview>
+			<preview>
+				<type>interior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/interior1.png</path>
 			</preview>
 		</previews>
 		<instrumentation>
