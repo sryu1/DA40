@@ -643,6 +643,22 @@
 			</volume>
 		</click>
 
+		<!-- Rain -->
+		<rain>
+            <name>rain</name>
+            <mode>looped</mode>
+            <path>Sounds/rain.wav</path>
+            <condition>
+                <greater-than>
+                    <property>/environment/rain-norm</property>
+                    <value>0</value>
+                </greater-than>
+            </condition>
+            <volume>
+                <factor>0.3</factor>
+            </volume>
+        </rain>
+
 		<!--	White Wire Annunciator	-->
 		<annunciator>
 			<name>Annunciator Alert</name>

@@ -20,7 +20,7 @@ Diamond DA40 Next Generation for FlightGear Flight Simulator
 ## Features
 
 * HDR Compatible
-* Functional G1000 avionics
+* Fully Functional G1000 avionics
 
 ## Installation
 
