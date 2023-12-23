@@ -112,6 +112,11 @@
 			<!--	101 used for KAP140 Rules	-->
 			<!--	102 used for KI206 Rules	-->
 		</systems>
+		<input>
+			<keyboard>
+				<multikey include="Aircraft/Instruments-3d/FG1000/fg1000-multikey.xml"/>
+			</keyboard>
+		</input>
 		<model>
 			<path archive="y">Aircraft/DA40/Models/da40ng.xml</path>
 			<livery>
