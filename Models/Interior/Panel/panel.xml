@@ -211,15 +211,6 @@
 			<z-m> 0.067 </z-m>
 		</offsets>
 	</model>
-	<!-- KAP140 by Sascha Reiszner -->
-	<model>
-		<path>Instruments/kap140/kap140.xml</path>
-		<offsets>
-			<x-m> -0.001 </x-m>
-			<y-m> -0.005817 </y-m>
-			<z-m> -0.020 </z-m>
-		</offsets>
-	</model>
 	<model>
 		<condition>
 			<property>options/ifr-conventional</property>

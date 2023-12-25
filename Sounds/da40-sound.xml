@@ -645,19 +645,19 @@
 
 		<!-- Rain -->
 		<rain>
-            <name>rain</name>
-            <mode>looped</mode>
-            <path>Sounds/rain.wav</path>
-            <condition>
-                <greater-than>
-                    <property>/environment/rain-norm</property>
-                    <value>0</value>
-                </greater-than>
-            </condition>
-            <volume>
-                <factor>0.3</factor>
-            </volume>
-        </rain>
+			<name>rain</name>
+			<mode>looped</mode>
+			<path>Sounds/rain.wav</path>
+			<condition>
+				<greater-than>
+					<property>/environment/rain-norm</property>
+					<value>0</value>
+				</greater-than>
+			</condition>
+			<volume>
+				<factor>0.3</factor>
+			</volume>
+		</rain>
 
 		<!--	White Wire Annunciator	-->
 		<annunciator>
@@ -678,54 +678,6 @@
 				<z> 0.4</z>
 			</position>
 		</annunciator>
-
-
-		<!--	KAP140 Autopilot by Sascha Reiszner/WoodSTokk	-->
-		<kap140-disengage>
-			<name>KAP140 disengage</name>
-			<path>kap140-disengage.wav</path>
-			<condition>
-				<equals>
-					<property>/sim/aero</property>
-					<value>da40ng-jsb</value>
-				</equals>
-				<or>
-					<equals>
-						<property>autopilot/kap140/panel/state</property>
-						<value>3</value>
-					</equals>
-					<property>autopilot/kap140/panel/ap-timer</property>
-				</or>
-			</condition>
-			<volume>
-				<factor>0.2</factor>
-			</volume>
-			<position>
-				<x>-0.444</x>
-				<y> 0.229</y>
-				<z> 0.312</z>
-			</position>
-		</kap140-disengage>
-
-		<kap140-alert>
-			<name>KAP140 altitude alerter</name>
-			<path>kap140-alert.wav</path>
-			<condition>
-				<equals>
-					<property>/sim/aero</property>
-					<value>da40ng-jsb</value>
-				</equals>
-				<property>autopilot/kap140/panel/alt-alert-sound</property>
-			</condition>
-			<volume>
-				<factor>0.2</factor>
-			</volume>
-			<position>
-				<x>-0.444</x>
-				<y> 0.229</y>
-				<z> 0.312</z>
-			</position>
-		</kap140-alert>
 
 		<gfc700-disengage>
 			<name>GFC700 approaching alt 1000</name>
