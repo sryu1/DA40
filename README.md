@@ -36,10 +36,6 @@ Diamond DA40 Next Generation for FlightGear Flight Simulator
 2. Unzip the file into your aircraft folder and make sure the aircraft folder directory is added in FlightGear's Add-ons menu
 3. Rename the unzipped folder to "DA40"
 
-### Known issues
-
-* Autopilot will not work through the FG1000 - https://sourceforge.net/p/flightgear/fgdata/ci/41ccf88618195125ea5d93c7869969ee12357202/
-
 ## Links
 
 * [https://github.com/sryu1/DA40](https://github.com/sryu1/DA40)

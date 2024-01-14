@@ -48,7 +48,8 @@
 			<author n="2">
 				<name>Joshua Davidson</name>
 				<nick>Octal450</nick>
-				<description>GTX327</description> <!--No longer in use -->
+				<description>GTX327</description> <!--No
+				longer in use -->
 			</author>
 			<author n="3">
 				<name>Emmanuel Baranger</name>
@@ -68,6 +69,7 @@
 				<description>Cabin Environment Simulation (adapted)</description>
 			</author>
 			<author n="8">
+				<name>CMDR-DiTRay</name>
 				<nick>CMDR-DiTRay</nick>
 			</author>
 			<author n="9">
@@ -98,10 +100,10 @@
 		</instrumentation>
 		<menubar include="Aircraft/DA40/gui/dialogs/da40-menu.xml" />
 		<sound>
-			<path archive="y">Aircraft/Da40/Sounds/da40-sound.xml</path>
+			<path archive="y">Aircraft/DA40/Sounds/da40-sound.xml</path>
 		</sound>
 		<systems>
-			<path>Aircraft/Da40/Systems/da40-systems.xml</path>
+			<path>Aircraft/DA40/Systems/da40-systems.xml</path>
 			<property-rule n="100">
 				<name>visual_effects_rules</name>
 				<path>Systems/effects.xml</path>
@@ -113,14 +115,11 @@
 		</systems>
 		<input>
 			<keyboard>
-				<multikey include="Aircraft/Instruments-3d/FG1000/fg1000-multikey.xml"/>
+				<multikey include="Aircraft/Instruments-3d/FG1000/fg1000-multikey.xml" />
 			</keyboard>
 		</input>
 		<model>
 			<path archive="y">Aircraft/DA40/Models/da40ng.xml</path>
-			<livery>
-				<file type="string">lLveries/OE-DWS</file>
-			</livery>
 			<rendering>
 				<rain-enabled type="int">2</rain-enabled>
 				<reflection-enabled type="int">1</reflection-enabled>
@@ -271,14 +270,14 @@
 	</systems>
 	<nasal>
 		<controls>
-			<file>Nasal/controls_override.nas</file>
+			<file>Aircraft/DA40/Nasal/controls_override.nas</file>
 		</controls>
 		<da40>
-			<file>Nasal/da40.nas</file>
-			<file>Nasal/electrical.nas</file>
+			<file>Aircraft/DA40/Nasal/da40.nas</file>
+			<file>Aircraft/DA40/Nasal/electrical.nas</file>
 		</da40>
 		<m803>
-			<file>Models/Interior/Panel/Instruments/M803/davtron803.nas</file>
+			<file>Aircraft/DA40/Models/Interior/Panel/Instruments/M803/davtron803.nas</file>
 		</m803>
 		<liveries>
 			<file>Aircraft/DA40/Nasal/liveries.nas</file>

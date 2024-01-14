@@ -80,7 +80,7 @@
 
 	<!-- G1000 MFD -->
 	<model>
-		<path>Aircraft/Instruments-3d/FG1000/GDU104X/GDU-1045.2.xml</path>
+		<path>Aircraft/DA40/Models/Interior/Panel/Instruments/FG1000/GDU104X/GDU-1045.2.xml</path>
 		<offsets>
 			<x-m> 0.009 </x-m>
 			<y-m> 0.11 </y-m>
