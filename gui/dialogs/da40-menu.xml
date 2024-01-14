@@ -28,13 +28,6 @@
 					<script>aircraft.livery.dialog.toggle()</script>
 				</binding>
 			</item>
-			<item>
-				<label>Panel Configuration</label>
-				<binding>
-					<command>dialog-show</command>
-					<dialog-name>da40_panel_config</dialog-name>
-				</binding>
-			</item>
 			<!--	item n="1" reserved for conventional panel config	-->
 			<!--<item>
 				<name>mpcopilot</name>
