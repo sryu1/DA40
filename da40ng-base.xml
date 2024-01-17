@@ -303,17 +303,17 @@
 	</systems>
 	<nasal>
 		<controls>
-			<file>Nasal/controls_override.nas</file>
+			<file>Aircraft/DA40/Nasal/controls_override.nas</file>
 		</controls>
 		<da40>
-			<file>Nasal/da40.nas</file>
-			<file>Nasal/electrical.nas</file>
+			<file>Aircraft/DA40/Nasal/da40.nas</file>
+			<file>Aircraft/DA40/Nasal/electrical.nas</file>
 		</da40>
 		<m803>
-			<file>Models/Interior/Panel/Instruments/M803/davtron803.nas</file>
+			<file>Aircraft/DA40/Models/Interior/Panel/Instruments/M803/davtron803.nas</file>
 		</m803>
 		<gtx327>
-			<file>Models/Interior/Panel/Instruments/gtx-327/gtx-327.nas</file>
+			<file>Aircraft/DA40/Models/Interior/Panel/Instruments/gtx-327/gtx-327.nas</file>
 		</gtx327>
 		<kap140>
 			<file>Aircraft/Generic/kap140.nas</file>

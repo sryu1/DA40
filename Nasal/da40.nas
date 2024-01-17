@@ -18,7 +18,14 @@ aircraft.livery.init("Aircraft/DA40/Models/Liveries");
  raintimer.start();
  # end 
 
-#	FG1000 Panel Variant:
+ # Set transponder to 1200
+setprop("/instrumentation/transponder/inputs/digit[3]", "1");
+setprop("/instrumentation/transponder/inputs/digit[2]", "2");
+setprop("/instrumentation/transponder/inputs/digit[1]", "0");
+setprop("/instrumentation/transponder/inputs/digit[0]", "0");
+setprop("/instrumentation/transponder/id-code", 1200);
+
+# FG1000 Panel Variant:
 if( getprop("/options/g1000") ){
 
 	var nasal_dir = getprop("/sim/fg-root") ~ "/Aircraft/Instruments-3d/FG1000/Nasal/";
