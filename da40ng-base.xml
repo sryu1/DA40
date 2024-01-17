@@ -2,11 +2,12 @@
 <PropertyList>
 	<sim include="Systems/views.xml">
 		<aircraft-version>01/2024</aircraft-version>
-		<status>Alpha</status>
+		<status>Beta</status>
 		<flight-model archive="y">jsb</flight-model>
 		<aero archive="y">da40ng-jsb</aero>
 		
 		<expected-aircraft-dir-name>DA40</expected-aircraft-dir-name>
+		<minimum-fg-version>2020.3</minimum-fg-version>
 		
 		<rating>
 			<FDM type="int">     2 </FDM>
@@ -92,7 +93,7 @@
 			</preview>
 		</previews>
 		<instrumentation>
-			<path>Systems/da40-instrumentation.xml</path>
+			<path>Aircraft/DA40/Systems/da40-instrumentation.xml</path>
 		</instrumentation>
 		<menubar include="Aircraft/DA40/gui/dialogs/da40-menu.xml" />
 		<sound>

@@ -234,7 +234,8 @@
 			</test>
 		</switch>
 	</channel>
-	<channel name="G1000 Circuits">
+	<!-- Temporarilty Disable G1000 Circuit Breakers (If enabled, club version doesn't work)-->
+	<!--<channel name="G1000 Circuits">
 		<pure_gain>
 			<input>/systems/electrical/outputs/gps-nav[0]</input>
 			<gain>1.0</gain>
@@ -247,5 +248,5 @@
 			<output>/systems/electrical/outputs/gps[1]</output>
 			<output>/systems/electrical/outputs/nav[1]</output>
 		</pure_gain>
-	</channel>
+	</channel>-->
 </system>
