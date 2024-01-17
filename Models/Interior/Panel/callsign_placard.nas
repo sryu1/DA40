@@ -6,8 +6,8 @@
 ##  Original from Nasal for DR400-dauphin by dany93;
 ##                    Clément de l'Hamaide - PAF Team - http://equipe-flightgear.forumactif.com
 ##  Heavily modified in 2017 for c182s by Benedikt Hallinger
-##  Modified in 2020 for M811 by Benedikt Wolf
-##  Modified in 2020 for Callsign Placard by Benedikt Wolf
+##  Modified in 2020 for M811 by Bea Wolf
+##  Modified in 2020 for Callsign Placard by Bea Wolf
 ##  
 ##  This file is licensed under the GPL license version 2 or later.
 ##

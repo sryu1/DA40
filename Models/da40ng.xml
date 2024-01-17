@@ -4,69 +4,53 @@
 	<nasal>
 		<load>
 			var livery_update = aircraft.livery_update.new("Aircraft/DA40/Models/Liveries", 10);
-
+			
 			var rplayer = cmdarg();
-
+			
 			# Set up property aliases for animations
-			rplayer.getNode("engines/engine[0]/cranking",
-			1).alias(rplayer.getNode("sim/multiplay/generic/int[0]") );
-			rplayer.getNode("sim/model/lights/landing-light",
-			1).alias(rplayer.getNode("sim/multiplay/generic/int[1]") );
-			rplayer.getNode("sim/model/lights/taxi-light",
-			1).alias(rplayer.getNode("sim/multiplay/generic/int[2]") );
-			rplayer.getNode("sim/model/lights/nav-light",
-			1).alias(rplayer.getNode("sim/multiplay/generic/int[3]") );
-			rplayer.getNode("sim/model/lights/strobe/state",
-			1).alias(rplayer.getNode("sim/multiplay/generic/int[4]") );
-			rplayer.getNode("engines/engine[0]/running",
-			1).alias(rplayer.getNode("sim/multiplay/generic/int[5]") );
-			rplayer.getNode("gear/gear[0]/wow",
-			1).alias(rplayer.getNode("sim/multiplay/generic/int[6]") );
-			rplayer.getNode("gear/gear[1]/wow",
-			1).alias(rplayer.getNode("sim/multiplay/generic/int[7]") );
-			rplayer.getNode("gear/gear[2]/wow",
-			1).alias(rplayer.getNode("sim/multiplay/generic/int[8]") );
-			rplayer.getNode("controls/flight/elevator-trim",
-			1).alias(rplayer.getNode("sim/multiplay/generic/float[0]") );
-			rplayer.getNode("gear/gear[0]/steering-norm",
-			1).alias(rplayer.getNode("sim/multiplay/generic/float[1]") );
-			rplayer.getNode("gear/gear[0]/rollspeed-ms",
-			1).alias(rplayer.getNode("sim/multiplay/generic/float[2]") );
-			rplayer.getNode("gear/gear[1]/rollspeed-ms",
-			1).alias(rplayer.getNode("sim/multiplay/generic/float[3]") );
-			rplayer.getNode("gear/gear[2]/rollspeed-ms",
-			1).alias(rplayer.getNode("sim/multiplay/generic/float[4]") );
-			rplayer.getNode("da40/canopy-norm",
-			1).alias(rplayer.getNode("sim/multiplay/generic/float[5]") );
-			rplayer.getNode("da40/door-left-norm",
-			1).alias(rplayer.getNode("sim/multiplay/generic/float[6]") );
-			rplayer.getNode("engines/engine[0]/mp-osi",
-			1).alias(rplayer.getNode("sim/multiplay/generic/float[7]") );
-			rplayer.getNode("velocities/groundspeed-kt",
-			1).alias(rplayer.getNode("sim/multiplay/generic/float[8]") );
-
+			rplayer.getNode("engines/engine[0]/cranking",		1).alias(rplayer.getNode("sim/multiplay/generic/int[0]")	);
+			rplayer.getNode("sim/model/lights/landing-light",	1).alias(rplayer.getNode("sim/multiplay/generic/int[1]")	);
+			rplayer.getNode("sim/model/lights/taxi-light",		1).alias(rplayer.getNode("sim/multiplay/generic/int[2]")	);
+			rplayer.getNode("sim/model/lights/nav-light",		1).alias(rplayer.getNode("sim/multiplay/generic/int[3]")	);
+			rplayer.getNode("sim/model/lights/strobe/state",	1).alias(rplayer.getNode("sim/multiplay/generic/int[4]")	);
+			rplayer.getNode("engines/engine[0]/running",		1).alias(rplayer.getNode("sim/multiplay/generic/int[5]")	);
+			rplayer.getNode("gear/gear[0]/wow",				1).alias(rplayer.getNode("sim/multiplay/generic/int[6]")	);
+			rplayer.getNode("gear/gear[1]/wow",				1).alias(rplayer.getNode("sim/multiplay/generic/int[7]")	);
+			rplayer.getNode("gear/gear[2]/wow",				1).alias(rplayer.getNode("sim/multiplay/generic/int[8]")	);
+				
+			rplayer.getNode("controls/flight/elevator-trim",	1).alias(rplayer.getNode("sim/multiplay/generic/float[0]")	);
+			rplayer.getNode("gear/gear[0]/steering-norm",		1).alias(rplayer.getNode("sim/multiplay/generic/float[1]")	);
+			rplayer.getNode("gear/gear[0]/rollspeed-ms",		1).alias(rplayer.getNode("sim/multiplay/generic/float[2]")	);
+			rplayer.getNode("gear/gear[1]/rollspeed-ms",		1).alias(rplayer.getNode("sim/multiplay/generic/float[3]")	);
+			rplayer.getNode("gear/gear[2]/rollspeed-ms",		1).alias(rplayer.getNode("sim/multiplay/generic/float[4]")	);
+			rplayer.getNode("da40/canopy-norm",				1).alias(rplayer.getNode("sim/multiplay/generic/float[5]")	);
+			rplayer.getNode("da40/door-left-norm",			1).alias(rplayer.getNode("sim/multiplay/generic/float[6]")	);
+			rplayer.getNode("engines/engine[0]/mp-osi",		1).alias(rplayer.getNode("sim/multiplay/generic/float[7]")	);
+			rplayer.getNode("velocities/groundspeed-kt",		1).alias(rplayer.getNode("sim/multiplay/generic/float[8]")	);
+			
 		</load>
 		<unload>
 			livery_update.stop();
-
-			rplayer.getNode("engines/engine[0]/cranking", 1).unalias();
-			rplayer.getNode("sim/model/lights/landing-light", 1).unalias();
-			rplayer.getNode("sim/model/lights/taxi-light", 1).unalias();
-			rplayer.getNode("sim/model/lights/nav-light", 1).unalias();
-			rplayer.getNode("sim/model/lights/strobe/state", 1).unalias();
-			rplayer.getNode("engines/engine[0]/running", 1).unalias();
-			rplayer.getNode("gear/gear[0]/wow", 1).unalias();
-			rplayer.getNode("gear/gear[1]/wow", 1).unalias();
-			rplayer.getNode("gear/gear[2]/wow", 1).unalias();
-			rplayer.getNode("controls/flight/elevator-trim", 1).unalias();
-			rplayer.getNode("gear/gear[0]/steering-norm", 1).unalias();
-			rplayer.getNode("gear/gear[0]/rollspeed-ms", 1).unalias();
-			rplayer.getNode("gear/gear[1]/rollspeed-ms", 1).unalias();
-			rplayer.getNode("gear/gear[2]/rollspeed-ms", 1).unalias();
-			rplayer.getNode("da40/canopy-norm", 1).unalias();
-			rplayer.getNode("da40/door-left-norm", 1).unalias();
-			rplayer.getNode("engines/engine[0]/mp-osi", 1).unalias();
-			rplayer.getNode("velocities/groundspeed-kt", 1).unalias();
+			
+			rplayer.getNode("engines/engine[0]/cranking",		1).unalias();
+			rplayer.getNode("sim/model/lights/landing-light",	1).unalias();
+			rplayer.getNode("sim/model/lights/taxi-light",		1).unalias();
+			rplayer.getNode("sim/model/lights/nav-light",		1).unalias();
+			rplayer.getNode("sim/model/lights/strobe/state",	1).unalias();
+			rplayer.getNode("engines/engine[0]/running",		1).unalias();
+			rplayer.getNode("gear/gear[0]/wow",				1).unalias();
+			rplayer.getNode("gear/gear[1]/wow",				1).unalias();
+			rplayer.getNode("gear/gear[2]/wow",				1).unalias();
+				
+			rplayer.getNode("controls/flight/elevator-trim",	1).unalias();
+			rplayer.getNode("gear/gear[0]/steering-norm",		1).unalias();
+			rplayer.getNode("gear/gear[0]/rollspeed-ms",		1).unalias();
+			rplayer.getNode("gear/gear[1]/rollspeed-ms",		1).unalias();
+			rplayer.getNode("gear/gear[2]/rollspeed-ms",		1).unalias();
+			rplayer.getNode("da40/canopy-norm",				1).unalias();
+			rplayer.getNode("da40/door-left-norm",			1).unalias();
+			rplayer.getNode("engines/engine[0]/mp-osi",		1).unalias();
+			rplayer.getNode("velocities/groundspeed-kt",		1).unalias();
 		</unload>
 	</nasal>
 	<!--	#########	-->
@@ -106,17 +90,17 @@
 		<object-name>window.L</object-name>
 		<object-name>window.R</object-name>
 	</effect>
-	<!-- Tyresmoke -->
+	<!-- Tyresmoke --> 
 	<model>
 		<path>Aircraft/Generic/Effects/tyre-smoke-nose.xml</path>
 		<name>tyre-smoke-n</name>
 		<offsets>
 			<x-m> -2.919 </x-m>
-			<y-m> 0.000 </y-m>
+			<y-m>  0.000 </y-m>
 			<z-m> -1.109 </z-m>
 		</offsets>
 	</model>
-
+		
 	<model>
 		<path>Aircraft/Generic/Effects/tyre-smoke-port.xml</path>
 		<name>tyre-smoke-p</name>
@@ -126,7 +110,7 @@
 			<z-m> -1.109 </z-m>
 		</offsets>
 	</model>
-
+		
 	<model>
 		<path>Aircraft/Generic/Effects/tyre-smoke-stbd.xml</path>
 		<name>tyre-smoke-s</name>
@@ -142,11 +126,11 @@
 		<name>rain-splash-n</name>
 		<offsets>
 			<x-m> -2.919 </x-m>
-			<y-m> 0.000 </y-m>
+			<y-m>  0.000 </y-m>
 			<z-m> -1.109 </z-m>
 		</offsets>
 	</model>
-
+		
 	<model>
 		<path>Aircraft/Generic/Effects/rain-port.xml</path>
 		<name>rain-splash-p</name>
@@ -156,7 +140,7 @@
 			<z-m> -1.109 </z-m>
 		</offsets>
 	</model>
-
+		
 	<model>
 		<path>Aircraft/Generic/Effects/rain-stbd.xml</path>
 		<name>rain-splash-s</name>
@@ -166,18 +150,22 @@
 			<z-m> -1.109 </z-m>
 		</offsets>
 	</model>
-
-
+	
+	
 	<!--	########	-->
 	<!--	 MODELS 	-->
 	<!--	########	-->
-
+	
 	<!--	Interior	-->
 	<model>
 		<usage>interior</usage>
 		<path>Interior/interior.xml</path>
 	</model>
-
+	
+	
+	<!--	############	-->
+	<!--	 ANIMATIONS 	-->
+	<!--	############	-->
 	<animation>
 		<type>material</type>
 		<object-name>fuselage</object-name>
@@ -201,12 +189,7 @@
 		<texture-prop>texture</texture-prop>
 		<texture>Liveries/OE-DWS.png</texture>
 	</animation>
-
-
-	<!--	############	-->
-	<!--	 ANIMATIONS 	-->
-	<!--	############	-->
-
+	
 	<!--	Engine	-->
 	<animation>
 		<name>propeller</name>
@@ -240,12 +223,12 @@
 		<property>engines/engine[0]/rpm</property>
 		<factor> 1 </factor>
 		<center>
-			<z-m> 0.225324</z-m>
+			<z-m>  0.225324</z-m>
 		</center>
 		<axis>
 			<x> -1 </x>
-			<y> 0 </y>
-			<z> 0 </z>
+			<y>  0 </y>
+			<z>  0 </z>
 		</axis>
 	</animation>
 	<!--	FLIGHT CONTROL SURFACES	-->
@@ -256,8 +239,7 @@
 		<object-name>elevator.trim.tab</object-name>
 		<property>surface-positions/elevator-pos-norm</property>
 		<factor>21</factor>
-		<!--Max
-		elevator deflection: 21�-->
+		<!--Max elevator deflection: 21 deg-->
 		<center>
 			<x-m>3.735 </x-m>
 			<y-m> 0.00000 </y-m>
@@ -274,8 +256,7 @@
 		<object-name>elevator.trim.tab</object-name>
 		<property>controls/flight/elevator-trim</property>
 		<factor>-39</factor>
-		<!--Max
-		elevator trim tab deflection: 39�(?)-->
+		<!--Max elevator trim tab deflection: 39 deg(?)-->
 		<center>
 			<x-m>3.97486 </x-m>
 			<y-m> 0.00000 </y-m>
@@ -293,8 +274,7 @@
 		<object-name>rudder</object-name>
 		<property>surface-positions/rudder-pos-norm</property>
 		<factor>26</factor>
-		<!--Max
-		Rudder deflection: 26�-->
+		<!--Max Rudder deflection: 26 deg-->
 		<axis>
 			<x1-m> 3.2865 </x1-m>
 			<y1-m> 0.00000 </y1-m>
@@ -310,8 +290,7 @@
 		<object-name>aileron.L</object-name>
 		<property>surface-positions/left-aileron-pos-norm</property>
 		<factor>-20</factor>
-		<!--Max
-		aileron deflection: 20�-->
+		<!--Max aileron deflection: 20 deg-->
 		<axis>
 			<x1-m> -0.969622 </x1-m>
 			<y1-m> -4.01238 </y1-m>
@@ -326,8 +305,7 @@
 		<object-name>aileron.R</object-name>
 		<property>surface-positions/right-aileron-pos-norm</property>
 		<factor>20</factor>
-		<!--Max
-		aileron deflection: 20�-->
+		<!--Max aileron deflection: 20 deg-->
 		<axis>
 			<x1-m> -0.969622 </x1-m>
 			<y1-m> 4.01238 </y1-m>
@@ -343,8 +321,7 @@
 		<object-name>flap.L</object-name>
 		<property>surface-positions/flap-pos-norm</property>
 		<factor>-42</factor>
-		<!--Max
-		flap deflection: 42�-->
+		<!--Max flap deflection: 42 deg-->
 		<axis>
 			<x1-m> -0.969622 </x1-m>
 			<y1-m> -4.01238 </y1-m>
@@ -359,8 +336,7 @@
 		<object-name>flap.R</object-name>
 		<property>surface-positions/flap-pos-norm</property>
 		<factor>42</factor>
-		<!--Max
-		flap deflection: 42�-->
+		<!--Max flap deflection: 42 deg-->
 		<axis>
 			<x1-m> -0.969622 </x1-m>
 			<y1-m> 4.01238 </y1-m>
@@ -370,7 +346,7 @@
 			<z2-m> 0.175616 </z2-m>
 		</axis>
 	</animation>
-
+	
 	<!--	LANDING GEAR	-->
 	<!--	Compression	-->
 	<animation>
@@ -424,11 +400,11 @@
 		<interpolation>
 			<entry>
 				<ind> 0.00 </ind>
-				<dep> 6 </dep>
+				<dep>  6 </dep>
 			</entry>
 			<entry>
 				<ind> 0.2053 </ind>
-				<dep> 0 </dep>
+				<dep>  0 </dep>
 			</entry>
 			<entry>
 				<ind> 1.00 </ind>
@@ -458,11 +434,11 @@
 		<interpolation>
 			<entry>
 				<ind> 0.00 </ind>
-				<dep> -6 </dep>
+				<dep>  -6 </dep>
 			</entry>
 			<entry>
 				<ind> 0.2053 </ind>
-				<dep> 0 </dep>
+				<dep>  0 </dep>
 			</entry>
 			<entry>
 				<ind> 1.00 </ind>
@@ -491,12 +467,12 @@
 			<z-m> -0.694738 </z-m>
 		</center>
 		<axis>
-			<x> 0 </x>
-			<y> 0 </y>
+			<x>  0 </x>
+			<y>  0 </y>
 			<z> -1 </z>
 		</axis>
 	</animation>
-	<!-- Rotation des roues lors du roulage -->
+	<!-- Spin Wheels -->
 	<animation>
 		<type>spin</type>
 		<object-name>wheelF</object-name>
@@ -507,9 +483,9 @@
 			<z-m> -0.824345 </z-m>
 		</center>
 		<axis>
-			<x> 0 </x>
+			<x>  0 </x>
 			<y> -1 </y>
-			<z> 0 </z>
+			<z>  0 </z>
 		</axis>
 	</animation>
 	<animation>
@@ -522,9 +498,9 @@
 			<z-m> -0.719738 </z-m>
 		</center>
 		<axis>
-			<x> 0 </x>
+			<x>  0 </x>
 			<y> -1 </y>
-			<z> 0 </z>
+			<z>  0 </z>
 		</axis>
 	</animation>
 	<animation>
@@ -537,9 +513,9 @@
 			<z-m> -0.719738 </z-m>
 		</center>
 		<axis>
-			<x> 0 </x>
+			<x>  0 </x>
 			<y> -1 </y>
-			<z> 0 </z>
+			<z>  0 </z>
 		</axis>
 	</animation>
 	<!-- Canopy Front -->
@@ -567,14 +543,14 @@
 				<dep> 0 </dep>
 			</entry>
 			<entry>
-				<ind> 1 </ind>
+				<ind>  1  </ind>
 				<dep> -50 </dep>
 			</entry>
 		</interpolation>
 		<center>
-			<x-m> -2.67007 </x-m>
-			<y-m> 0.00000 </y-m>
-			<z-m> 0.460298 </z-m>
+			<x-m> -2.67007  </x-m>
+			<y-m>  0.0      </y-m>
+			<z-m>  0.460298 </z-m>
 		</center>
 		<axis>
 			<x> 0 </x>
@@ -607,55 +583,20 @@
 				<dep> 0 </dep>
 			</entry>
 			<entry>
-				<ind> 1 </ind>
+				<ind>  1  </ind>
 				<dep> -65 </dep>
 			</entry>
 		</interpolation>
 		<axis>
-			<x1-m>-1.12832 </x1-m>
-			<y1-m>0.009967 </y1-m>
-			<z1-m> 0.851564 </z1-m>
+			<x1-m> -1.12832  </x1-m>
+			<y1-m>  0.009967 </y1-m>
+			<z1-m>  0.851564 </z1-m>
 			<x2-m> -0.524687 </x2-m>
 			<y2-m> -0.071008 </y2-m>
-			<z2-m> 0.792257 </z2-m>
+			<z2-m>  0.792257 </z2-m>
 		</axis>
 	</animation>
-
-	<animation>
-		<type>slider</type>
-		<object-name>Circle</object-name>
-		<property>/controls/engines/engine/throttle</property>
-		<factor>0.1</factor>
-		<axis>
-			<x>-1</x>
-			<y>0</y>
-			<z>0</z>
-		</axis>
-	</animation>
-
-	<animation>
-		<type>pick</type>
-		<object-name>g1000_sw.ecu_test</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>true</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>/controls/engines/engine/throttle</property>
-				<step>1</step>
-				<min>0</min>
-				<max>1</max>
-			</binding>
-			<mod-up>
-				<binding>
-					<command>property-assign</command>
-					<property>/controls/engines/engine/throttle</property>
-					<value>0</value>
-				</binding>
-			</mod-up>
-		</action>
-	</animation>
-
+	
 	<!--	########	-->
 	<!--	 LIGHTS 	-->
 	<!--	########	-->
@@ -663,23 +604,4 @@
 		<name>lights</name>
 		<path>lights.xml</path>
 	</model>
-
-	<nasal>
-		<load>
-			<!--
-			##############################################################################
-			# The on-load Nasal is not executed when this file is loaded as the user
-			# aircraft. The code is only executed if the file is loaded for a remote
-			# aircraft in Multi-Player mode (MP)
-			##############################################################################
-		  -->
-		  <![CDATA[
-			var livery_update = aircraft.livery_update.new("Aircraft/747/Models/Liveries");
-		  ]]>
-		</load>
-
-		<unload><![CDATA[
-		  livery_update.stop();
-		]]></unload>
-	</nasal>
 </PropertyList>

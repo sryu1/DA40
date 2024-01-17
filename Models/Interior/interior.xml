@@ -54,17 +54,17 @@
 		<interpolation>
 			<entry>
 				<ind> 0 </ind>
-				<dep>   0 </dep>
+				<dep> 0 </dep>
 			</entry>
 			<entry>
-				<ind> 1 </ind>
+				<ind>  1  </ind>
 				<dep> -50 </dep>
 			</entry>
 		</interpolation>
 		<center>
-			<x-m> -2.67007 </x-m>
-			<y-m>  0.00000 </y-m>
-			<z-m> 0.460298 </z-m>
+			<x-m> -2.67007  </x-m>
+			<y-m>  0.0      </y-m>
+			<z-m>  0.460298 </z-m>
 		</center>
 		<axis>
 			<x> 0 </x>
@@ -80,20 +80,43 @@
 		<interpolation>
 			<entry>
 				<ind> 0 </ind>
-				<dep>   0 </dep>
+				<dep> 0 </dep>
 			</entry>
 			<entry>
-				<ind> 1 </ind>
+				<ind>  1  </ind>
 				<dep> -65 </dep>
 			</entry>
 		</interpolation>
 		<axis>
-			<x1-m>-1.12832 </x1-m>
-			<y1-m>0.009967 </y1-m>
+			<x1-m> -1.12832  </x1-m>
+			<y1-m>  0.009967 </y1-m>
 			<z1-m>  0.851564 </z1-m>
 			<x2-m> -0.524687 </x2-m>
 			<y2-m> -0.071008 </y2-m>
-			<z2-m> 0.792257 </z2-m>
+			<z2-m>  0.792257 </z2-m>
 		</axis>
+	</animation>
+	
+	<animation>
+		<type>slider</type>
+		<object-name>throttle_lever</object-name>
+		<drag-direction>vertical</drag-direction>
+		<property>controls/engines/engine/throttle</property>
+		<factor>0.1</factor>
+		<offset-m>-0.05</offset-m>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine/throttle</property>
+				<min>0</min>
+				<max>1</max>
+				<factor>0.05</factor>
+			</binding>
+		</action>
 	</animation>
 </PropertyList>

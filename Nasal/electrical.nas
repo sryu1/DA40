@@ -1,5 +1,5 @@
 # Diamond DA40 NG Electrical System
-# Benedikt Wolf (D-ECHO) 2020
+# Bea Wolf (D-ECHO) 2020
 # Reference(s) (see docs/references.md)	:
 #			Ref. [1] chapter 7.10
 #			Ref. [2] chapters 24, 33, 80
@@ -538,7 +538,7 @@ if( g1000.getBoolValue() ){
 }
 
 #	Avionic Bus
-#		connected to essential bus (ref. [2] chapter 24-00-00 page 3
+#		connected to essential bus (ref. [2] chapter 24-00-00 page 3)
 #		powers:
 #			own consumers
 var avionic_bus = bus.new(
@@ -567,7 +567,6 @@ var avionic_bus = bus.new(
 
 # Version-specific consumers:
 if( g1000.getBoolValue() ){
-	append( avionic_bus.consumers, consumer.new( "nav[0]", nil, 0.1, 5 ) );
 	append( avionic_bus.consumers, consumer.new( "gps-nav[1]", nil, 0.1, 5 ) );
 	append( avionic_bus.consumers, consumer.new( "dme", nil, 0.1, 2 ) );
 	append( avionic_bus.consumers, consumer.new( "wx500", nil, 0.1, 3 ) );

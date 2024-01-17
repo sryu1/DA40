@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+	<name>da40_panel_config</name>
+	<layout>vbox</layout>
+	<default-padding>5</default-padding>
+	<modal>false</modal>
+	
+	<group>
+		<layout>hbox</layout>
+		<text>
+			<halign>center</halign>
+			<label>Panel Configuration</label>
+		</text>
+		<button>
+			<legend/>
+			<key>Esc</key>
+			<pref-width>16</pref-width>
+			<pref-height>16</pref-height>
+			<border>2</border>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>
+	</group>
+	
+	<hrule/>
+	
+	<checkbox>
+		<halign>left</halign>
+		<label>IFR Panel</label>
+		<property>/options/ifr-conventional</property>
+		<live>true</live>
+		<binding>
+			<command>property-toggle</command>
+			<property>/options/ifr-conventional</property>
+		</binding>
+	</checkbox>
+	
+</PropertyList>

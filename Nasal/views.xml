@@ -11,9 +11,9 @@
     <config>
       <from-model type="bool">true</from-model>
       <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
-      <x-offset-m archive="y" type="double"> 0.25429 </x-offset-m> <!-- Right -->
-      <y-offset-m archive="y" type="double"> 0.37350 </y-offset-m> <!-- Up    -->
-      <z-offset-m archive="y" type="double"> -1.64564 </z-offset-m> <!-- Back  -->
+       <x-offset-m archive="y">  0.25429 </x-offset-m> <!-- Right -->
+       <y-offset-m archive="y">  0.37350 </y-offset-m> <!-- Up    -->
+       <z-offset-m archive="y"> -1.64564 </z-offset-m> <!-- Back  -->
       <pitch-offset-deg> -13 </pitch-offset-deg>
       <default-field-of-view-deg> 60 </default-field-of-view-deg>
       <dynamic-view type="bool">true</dynamic-view>
@@ -28,9 +28,9 @@
       <from-model type="bool">true</from-model>
       <from-model-idx type="int">0</from-model-idx>
       <ground-level-nearplane-m type="double">0.01f</ground-level-nearplane-m>
-      <x-offset-m archive="y" type="double"> 0.000 </x-offset-m> <!--Right-->
-      <y-offset-m archive="y" type="double"> 1.000 </y-offset-m> <!--Up-->
-      <z-offset-m archive="y" type="double"> 2.882 </z-offset-m> <!--Back-->
+      <x-offset-m archive="y"> 0.000 </x-offset-m> <!--Right-->
+      <y-offset-m archive="y"> 1.000 </y-offset-m> <!--Up-->
+      <z-offset-m archive="y"> 2.882 </z-offset-m> <!--Back-->
       <pitch-offset-deg> -5 </pitch-offset-deg>
       <default-field-of-view-deg type="double"> 30 </default-field-of-view-deg>
     </config>
@@ -39,10 +39,10 @@
   <view n="0">
     <internal archive="y">true</internal>
     <config>
-      <x-offset-m archive="y" type="double"> -0.25429 </x-offset-m> <!-- Right -->
-      <y-offset-m archive="y" type="double"> 0.37350 </y-offset-m> <!-- Up    -->
-      <z-offset-m archive="y" type="double"> -1.64564 </z-offset-m> <!-- Back  -->
-      <pitch-offset-deg> -13 </pitch-offset-deg>
+       <x-offset-m archive="y"> -0.25429 </x-offset-m> <!-- Right -->
+       <y-offset-m archive="y">  0.37350 </y-offset-m> <!-- Up    -->
+       <z-offset-m archive="y"> -1.64564 </z-offset-m> <!-- Back  -->
+       <pitch-offset-deg> -13 </pitch-offset-deg>
       <default-field-of-view-deg> 77 </default-field-of-view-deg>
     </config>
   </view>

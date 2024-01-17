@@ -234,4 +234,18 @@
 			</test>
 		</switch>
 	</channel>
+	<channel name="G1000 Circuits">
+		<pure_gain>
+			<input>/systems/electrical/outputs/gps-nav[0]</input>
+			<gain>1.0</gain>
+			<output>/systems/electrical/outputs/gps[0]</output>
+			<output>/systems/electrical/outputs/nav[0]</output>
+		</pure_gain>
+		<pure_gain>
+			<input>/systems/electrical/outputs/gps-nav[1]</input>
+			<gain>1.0</gain>
+			<output>/systems/electrical/outputs/gps[1]</output>
+			<output>/systems/electrical/outputs/nav[1]</output>
+		</pure_gain>
+	</channel>
 </system>
