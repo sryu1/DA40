@@ -2,7 +2,7 @@
 
 Diamond DA40 Next Generation for FlightGear Flight Simulator
 
-![DA40 NG](Splash/exterior2.png)
+![DA40 NG](Splash/exterior2.jpg)
 
 ## Contributors
 
