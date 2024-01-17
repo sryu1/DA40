@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	<default>
+		<menu n="10">
+			<label>Diamond DA40 NG</label>
+			<enabled type="bool">true</enabled>
+
+			<!--<item>
+				<label>Aircraft Options</label>
+				<binding>
+					<command>dialog-show</command>
+					<dialog-name>aircraft-dialog</dialog-name>
+				</binding>
+			</item>-->
+
+			<item>
+				<label>Autostart</label>
+				<binding>
+					<command>nasal</command>
+					<script>autostart.autostart();</script>
+				</binding>
+			</item>
+			<item>
+				<label>Select Livery</label>
+				<binding>
+					<command>nasal</command>
+					<script>aircraft.livery.dialog.toggle()</script>
+				</binding>
+			</item>
+			<!--	item n="1" reserved for conventional panel config	-->
+			<!--<item>
+				<name>mpcopilot</name>
+				<label>Select MP Copilot</label>
+				<binding>
+					<command>nasal</command>
+					<script>
+						dual_control_tools.copilot_dialog.show(aircraft_dual_control.copilot_type);
+					</script>
+				</binding>
+			</item>-->
+		</menu>
+
+	</default>
+
+</PropertyList>

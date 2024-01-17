@@ -94,21 +94,7 @@
 		<instrumentation>
 			<path>Systems/da40-instrumentation.xml</path>
 		</instrumentation>
-		<menubar n="0">
-			<default n="0">
-				<menu n="10">
-					<label>Diamond DA40 NG</label>
-					<enabled type="bool">true</enabled>
-					<item n="0">
-						<label>Select Livery</label>
-						<binding>
-							<command>nasal</command>
-							<script>aircraft.livery.dialog.toggle()</script>
-						</binding>
-					</item>
-				</menu>
-			</default>
-		</menubar>
+		<menubar include="Aircraft/DA40/gui/dialogs/da40-menu.xml" />
 		<sound>
 			<path archive="y">Sounds/da40-sound.xml</path>
 		</sound>
@@ -318,5 +304,8 @@
 		<kap140>
 			<file>Aircraft/Generic/kap140.nas</file>
 		</kap140>
+		<autostart>
+			<file>Aircraft/DA40/Nasal/autostart.nas</file>
+		</autostart>
 	</nasal>
 </PropertyList>
