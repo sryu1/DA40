@@ -154,32 +154,6 @@
 			</generic>
 		</multiplay>
 		<help include="gui/dialogs/da40-help.xml" />
-		<menubar>
-			<default>
-				<menu n="10">
-					<label>Diamond Aircraft DA40NG</label>
-					<enabled type="bool">true</enabled>
-					<item n="0">
-						<label>Select Livery</label>
-						<binding>
-						<command>nasal</command>
-						<script>aircraft.livery.dialog.toggle()</script>
-						</binding>
-					</item>
-					<!--	item n="1" reserved for conventional panel config	-->
-					<!--<item>
-						<name>mpcopilot</name>
-						<label>Select MP Copilot</label>
-						<binding>
-							<command>nasal</command>
-							<script>
-								dual_control_tools.copilot_dialog.show(aircraft_dual_control.copilot_type);
-							</script>
-						</binding>
-					</item>-->
-				</menu>
-			</default>
-		</menubar>
 	</sim>
 	<autopilot>
 		<KAP140>
