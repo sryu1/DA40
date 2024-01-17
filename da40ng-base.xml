@@ -2,11 +2,12 @@
 <PropertyList>
 	<sim include="Systems/views.xml">
 		<aircraft-version>01/2024</aircraft-version>
-		<status>Alpha</status>
+		<status>Beta</status>
 		<flight-model archive="y">jsb</flight-model>
 		<aero archive="y">da40ng-jsb</aero>
 		
 		<expected-aircraft-dir-name>DA40</expected-aircraft-dir-name>
+		<minimum-fg-version>2020.3</minimum-fg-version>
 		
 		<rating>
 			<FDM type="int">     2 </FDM>
@@ -70,7 +71,7 @@
 			<author n="9">
 				<name>Noah Ryu</name>
 				<nick>sryu1</nick>
-				<description>FG1000 Work, HDR Compatibility</description>
+				<description>FG1000 Work</description>
 			</author>
 		</authors>
 		<fuel-fraction>1.0</fuel-fraction>		
@@ -92,23 +93,9 @@
 			</preview>
 		</previews>
 		<instrumentation>
-			<path>Systems/da40-instrumentation.xml</path>
+			<path>Aircraft/DA40/Systems/da40-instrumentation.xml</path>
 		</instrumentation>
-		<menubar n="0">
-			<default n="0">
-				<menu n="10">
-					<label>Diamond DA40 NG</label>
-					<enabled type="bool">true</enabled>
-					<item n="0">
-						<label>Select Livery</label>
-						<binding>
-							<command>nasal</command>
-							<script>aircraft.livery.dialog.toggle()</script>
-						</binding>
-					</item>
-				</menu>
-			</default>
-		</menubar>
+		<menubar include="Aircraft/DA40/gui/dialogs/da40-menu.xml" />
 		<sound>
 			<path archive="y">Sounds/da40-sound.xml</path>
 		</sound>
@@ -168,32 +155,6 @@
 			</generic>
 		</multiplay>
 		<help include="gui/dialogs/da40-help.xml" />
-		<menubar>
-			<default>
-				<menu n="10">
-					<label>Diamond Aircraft DA40NG</label>
-					<enabled type="bool">true</enabled>
-					<item n="0">
-						<label>Select Livery</label>
-						<binding>
-						<command>nasal</command>
-						<script>aircraft.livery.dialog.toggle()</script>
-						</binding>
-					</item>
-					<!--	item n="1" reserved for conventional panel config	-->
-					<!--<item>
-						<name>mpcopilot</name>
-						<label>Select MP Copilot</label>
-						<binding>
-							<command>nasal</command>
-							<script>
-								dual_control_tools.copilot_dialog.show(aircraft_dual_control.copilot_type);
-							</script>
-						</binding>
-					</item>-->
-				</menu>
-			</default>
-		</menubar>
 	</sim>
 	<autopilot>
 		<KAP140>
@@ -303,20 +264,23 @@
 	</systems>
 	<nasal>
 		<controls>
-			<file>Nasal/controls_override.nas</file>
+			<file>Aircraft/DA40/Nasal/controls_override.nas</file>
 		</controls>
 		<da40>
-			<file>Nasal/da40.nas</file>
-			<file>Nasal/electrical.nas</file>
+			<file>Aircraft/DA40/Nasal/da40.nas</file>
+			<file>Aircraft/DA40/Nasal/electrical.nas</file>
 		</da40>
 		<m803>
-			<file>Models/Interior/Panel/Instruments/M803/davtron803.nas</file>
+			<file>Aircraft/DA40/Models/Interior/Panel/Instruments/M803/davtron803.nas</file>
 		</m803>
 		<gtx327>
-			<file>Models/Interior/Panel/Instruments/gtx-327/gtx-327.nas</file>
+			<file>Aircraft/DA40/Models/Interior/Panel/Instruments/gtx-327/gtx-327.nas</file>
 		</gtx327>
 		<kap140>
 			<file>Aircraft/Generic/kap140.nas</file>
 		</kap140>
+		<autostart>
+			<file>Aircraft/DA40/Nasal/autostart.nas</file>
+		</autostart>
 	</nasal>
 </PropertyList>
