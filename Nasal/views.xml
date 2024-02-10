@@ -5,7 +5,7 @@
   <chase-distance-m type="double" archive="y"> -15 </chase-distance-m>
 
   <view n="100">
-    <name>Passanger Seat View</name>
+    <name>Passenger Seat View</name>
     <internal archive="y">true</internal>
     <type>lookfrom</type>
     <config>
@@ -23,7 +23,7 @@
   <view n="101">
     <name>Tail Camera View</name>
     <type>lookfrom</type>
-    <internal archive="y">true</internal>
+    <internal archive="y">false</internal>
     <config>
       <from-model type="bool">true</from-model>
       <from-model-idx type="int">0</from-model-idx>
