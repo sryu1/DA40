@@ -5,6 +5,7 @@
 		<status>Beta</status>
 		<flight-model archive="y">jsb</flight-model>
 		<aero archive="y">da40ng-jsb</aero>
+		<allow-toggle-cockpit type="bool">true</allow-toggle-cockpit>
 		
 		<expected-aircraft-dir-name>DA40</expected-aircraft-dir-name>
 		<minimum-fg-version>2020.3</minimum-fg-version>

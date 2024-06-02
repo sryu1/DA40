@@ -62,8 +62,8 @@
 			</key>
 			<!-- KAP140 disconnect end -->
 			<!-- CWS begin -->
-			<key n="99">
-				<name>c</name>
+			<key n="100">
+				<name>d</name>
 				<desc>Control Wheel Steering (CWS)</desc>
 				<binding>
 					<command>property-assign</command>
