@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 
 <PropertyList>
+	<name type="string">da40-menu</name>
 	<default>
 		<menu n="10">
 			<label>Diamond DA40 NG</label>

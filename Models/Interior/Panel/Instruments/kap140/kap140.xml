@@ -2795,7 +2795,7 @@
   </effect-->
 
   <effect>
-    <inherits-from>Aircraft/PA28/Models/Effects/Glass/instrument_glass</inherits-from>
+    <inherits-from>Models/Effects/interior/instrument-glass</inherits-from>
     <object-name>glass</object-name>
     <object-name>base-sensor</object-name>
   </effect>
