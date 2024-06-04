@@ -40,7 +40,7 @@
 		<type>rotate</type>
 		<object-name>compass.scale</object-name>
 		<property>instrumentation/magnetic-compass/indicated-heading-deg</property>
-		<factor>-1</factor>
+		<offset-deg>180</offset-deg>
 		<center> 
 			<x-m> -0.026709 </x-m>
 			<y-m>  0.0 </y-m>
