@@ -44,7 +44,7 @@
 		<type>rotate</type>
 		<object-name>tc.airplane</object-name>
 		<property>instrumentation/turn-indicator/indicated-turn-rate</property>
-		<factor>-6.667</factor><!--	20 deg at 2 min per turn = 3 deg/s turn rate	-->
+		<factor>-20</factor><!--	20 deg at 2 min per turn = 3 deg/s turn rate	-->
 		<axis>
 			<x>1</x>
 		</axis>
