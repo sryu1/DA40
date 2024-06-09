@@ -5,6 +5,9 @@
 		<inherits-from>Effects/model-transparent</inherits-from>
 		<object-name>dg.face.2</object-name>
 		<object-name>dg.face</object-name>
+	</effect>
+	<effect>
+		<inherits-from>../../../../Effects/interior/instrument-glass</inherits-from>
 		<object-name>dg.glass</object-name>
 	</effect>
 	<animation>
