@@ -8,7 +8,7 @@
 	<path>ai.ac</path>
 	
 	<effect>
-		<inherits-from>Effects/model-transparent</inherits-from>
+		<inherits-from>../../../../Effects/interior/instrument-glass</inherits-from>
 		<object-name>ai.glass</object-name>
 	</effect>
 	

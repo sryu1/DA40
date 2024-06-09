@@ -2,7 +2,7 @@
 <PropertyList>
 	<path>alt.ac</path>
 	<effect>
-		<inherits-from>Effects/model-transparent</inherits-from>
+		<inherits-from>../../../../Effects/interior/instrument-glass</inherits-from>
 		<object-name>alt.glass</object-name>
 	</effect>
 	<animation>
