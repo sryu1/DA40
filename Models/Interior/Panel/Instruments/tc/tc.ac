@@ -1,6 +1,6 @@
 AC3Db
 MATERIAL "turn_coordinator" rgb 1.000 1.000 1.000  amb 0.800 0.800 0.800  emis 0.000 0.000 0.000  spec 0.500 0.500 0.500  shi 64 trans 0.000
-MATERIAL "turn_oordinator.glass" rgb 0.800 0.800 0.800  amb 0.800 0.800 0.800  emis 0.000 0.000 0.000  spec 0.500 0.500 0.500  shi 64 trans 0.700
+MATERIAL "turn_oordinator.glass" rgb 0.800 0.800 0.800  amb 0.800 0.800 0.800  emis 0.000 0.000 0.000  spec 0.500 0.500 0.500  shi 64 trans 0.900
 OBJECT world
 name "Blender_exporter_v3.3__tc.ac"
 kids 6
