@@ -22,6 +22,7 @@
 	<effect>
 		<inherits-from>../../../../Effects/interior/instrument-glass</inherits-from>
 		<object-name>tc.glass</object-name>
+		<object-name>tc.glass_front</object-name>
 	</effect>
 	<!--	Ball	-->
 	<animation>
