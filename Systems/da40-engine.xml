@@ -215,4 +215,44 @@
 		</fcs_function>
 	</channel>
 				
+
+	<channel name="Boost">
+		<fcs_function>
+			<function>
+				<table>
+					<independentVar lookup="row">/controls/engines/engine/throttle</independentVar>
+					<independentVar lookup="column">atmosphere/density-altitude</independentVar>
+					<tableData>
+						         0  4500  9000 13500 18000
+						0.00  2.17  2.34  2.56  2.85  3.30
+						0.30  2.17  2.34  2.56  2.85  3.30
+						0.45  1.21  1.29  1.42  1.59  1.80
+						0.60  1.27  1.35  1.49  1.65  1.90
+						0.75  1.33  1.41  1.55  1.72  1.98
+						0.92  1.41  1.49  1.63  1.82  2.04
+						1.00  1.18  1.25  1.37  1.52  1.74
+					</tableData>
+				</table>
+			</function>
+			<output>propulsion/engine/volumetric-efficiency</output>
+		</fcs_function>
+		<fcs_function>
+			<function>
+				<table>
+					<independentVar lookup="row">atmosphere/density-altitude</independentVar>
+					<tableData>
+						    0  0.33
+						10000  0.32
+						18000  0.36
+					</tableData>
+				</table>
+			</function>
+			<clipto>
+				<min> 0.32 </min>
+				<max> 0.36 </max>
+			</clipto>
+			<output>propulsion/engine/bsfc-lbs_hphr</output>
+		</fcs_function>
+	</channel>
+
 </system>
