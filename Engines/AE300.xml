@@ -21,12 +21,17 @@
   <idlerpm>      700.0 </idlerpm>
   <maxrpm>      4225.0 </maxrpm> <!-- AFM 2.4 c) max. overspeed 2500RPM (prop) * 1.69 gear ratio -->
   <sparkfaildrop>  0.1 </sparkfaildrop>
-  <volumetric-efficiency> 1.300 </volumetric-efficiency> <!-- Good value for AFM 5.3.11 fuel flow -->
   <man-press-lag> 0.1 </man-press-lag>
   <static-friction  unit="HP"> 0.828067 </static-friction>
   <starter-torque> 132.491 </starter-torque>
   <starter-rpm> 1400 </starter-rpm>
-  <bsfc unit="LBS/HP*HR"> 0.300 </bsfc> <!-- Good value for AFM 7.9.1 continuous power -->
+
+  <!--
+    volumetric-efficiency and bsfc are overriden at runtime in da40-engine.xml
+  -->
+  <volumetric-efficiency> 1.18 </volumetric-efficiency> <!-- Tunes fuel flow. Overriden at runtime in da40-engine.xml. See AFM 5.3.2 Fuel Flow -->
+  <bsfc unit="LBS/HP*HR"> 0.33 </bsfc> <!-- Tunes continuous power. Overriden at runtime in da40-engine.xml. 165hp from 0-10000ft then decreasing linear to 135hp@18000ft -->
+
   <stroke unit="IN">  3.600 </stroke>
   <bore unit="IN">    3.300 </bore>
   <cylinders>         4  </cylinders>
