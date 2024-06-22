@@ -445,7 +445,7 @@
 				<product>
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
-					<value> 0.015 </value>
+					<value> 0.0 </value>
 				</product>
 			</function>
 			<function name="aero/force/Drag_alpha">
@@ -454,7 +454,7 @@
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>aero/function/kCDge</property>
-					<value>0.92</value>
+					<value>1.07</value>
 					<!-- Tuning factor -->
 					<table>
 						<independentVar lookup="row">aero/alpha-wing-deg</independentVar>
@@ -518,7 +518,7 @@
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>aero/cl-squared</property>
-					<value> 0.0045 </value>
+					<value> 0.0 </value> <!-- 1/(pi*AR*e), AR=8.53, e=0.84, value=0.044 -->
 				</product>
 			</function>
 			<function name="aero/force/Drag_mach">
@@ -545,11 +545,11 @@
 					<table>
 						<independentVar lookup="row">aero/beta-rad</independentVar>
 						<tableData>
-						-1.57    1.2300
-						-0.26    0.0800
-						0.00    0.0000
-						0.26    0.0800
-						1.57    1.2300
+						-1.57    0.800
+						-0.26    0.040
+						0.00    0.000
+						0.26    0.040
+						1.57    0.800
 						</tableData>
 					</table>
 				</product>
