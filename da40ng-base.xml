@@ -173,6 +173,7 @@
 			<flood-lights type="float">0.0</flood-lights>
 		</lighting>
 		<electric>
+			<fuel-transfer type="bool">0</fuel-transfer>
 			<battery-switch>0</battery-switch>
 			<generator>0</generator>
 			<avionics-switch type="bool">0</avionics-switch>
@@ -200,6 +201,10 @@
 	<da40>
 		<canopy-cmd type="bool">0</canopy-cmd>
 		<door-left-cmd type="bool">0</door-left-cmd>
+		<fuelsystem>
+			<!-- electric fuel-transfer pump -->
+			<electric-fuel-pump-transfer-active type="bool">false</electric-fuel-pump-transfer-active>
+		</fuelsystem>
 	</da40>
 	<environment>
 		<aircraft-effects>
@@ -270,6 +275,7 @@
 		<da40>
 			<file>Aircraft/DA40/Nasal/da40.nas</file>
 			<file>Aircraft/DA40/Nasal/electrical.nas</file>
+			<file>Aircraft/DA40/Nasal/fuelsystem.nas</file>
 		</da40>
 		<m803>
 			<file>Aircraft/DA40/Models/Interior/Panel/Instruments/M803/davtron803.nas</file>

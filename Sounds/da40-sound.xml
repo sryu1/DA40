@@ -439,6 +439,30 @@
 		</click>
 
 		<click>
+			<name>Fuel Transfer on</name>
+			<path>Sounds/click.wav</path>
+			<condition>
+				<property>controls/electric/fuel-transfer</property>
+			</condition>
+			<volume>
+				<factor>0.3</factor>
+			</volume>
+		</click>
+
+		<click>
+			<name>Fuel Transfer off</name>
+			<path>Sounds/click.wav</path>
+			<condition>
+				<not>
+					<property>controls/electric/fuel-transfer</property>
+				</not>
+			</condition>
+			<volume>
+				<factor>0.3</factor>
+			</volume>
+		</click>
+
+		<click>
 			<name>Landing Light On</name>
 			<path>Sounds/click.wav</path>
 			<condition>
@@ -632,6 +656,25 @@
 				<factor>0.3</factor>
 			</volume>
 		</click>
+
+		<!-- Fuel Transfer Pump -->
+		<fuel_xfer_pump>
+			<name>Electric Fuel Transfer Pump</name>
+			<path>Sounds/fuel_xfer_pump.wav</path>
+			<mode>looped</mode>
+			<condition>
+				<property>da40/fuelsystem/electric-fuel-pump-transfer-active</property>
+			</condition>
+			<volume>
+				<factor>0.125</factor>
+			</volume>
+			<position>
+				<x> -2.5 </x>
+				<z> -0.5 </z>
+			</position>
+			<reference-dist>10</reference-dist>
+			<max-dist>50</max-dist>
+		</fuel_xfer_pump>
 
 		<!-- Rain -->
 		<rain>
