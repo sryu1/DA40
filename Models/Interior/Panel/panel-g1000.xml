@@ -357,6 +357,32 @@
 			<z-m> -0.158179 </z-m>
 		</center>
 	</animation>
+	<!-- Fuel Transfer -->
+	<animation>
+		<type>pick</type>
+		<object-name>g1000_sw.fuel_trans</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/electric/fuel-transfer</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>g1000_sw.fuel_trans</object-name>
+		<property>controls/electric/fuel-transfer</property>
+		<factor>-24</factor>
+		<offset-deg>12</offset-deg>
+		<axis>
+			<y> 1 </y>
+		</axis>
+		<center>
+			<x-m>  0.004151 </x-m>
+			<z-m> -0.158179 </z-m>
+		</center>
+	</animation>
 	<!--	Pitot Heat	-->
 	<animation>
 		<type>pick</type>

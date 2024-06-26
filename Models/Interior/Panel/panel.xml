@@ -255,7 +255,7 @@
 		<offsets>
 			<x-m> 0.003 </x-m>
 			<y-m> 0.026 </y-m>
-			<z-m> 0.117 </z-m>
+			<z-m> 0.145 </z-m>
 		</offsets>
 	</model>
 	<animation>
@@ -426,6 +426,32 @@
 		<center>
 			<x-m> 0.001382 </x-m>
 			<z-m> -0.145109</z-m>
+		</center>
+	</animation>
+	<!-- Fuel Transfer -->
+	<animation>
+		<type>pick</type>
+		<object-name>switch.fuel_trans</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/electric/fuel-transfer</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>switch.fuel_trans</object-name>
+		<property>controls/electric/fuel-transfer</property>
+		<factor> -35 </factor>
+		<offset-deg> 17.5 </offset-deg>
+		<axis>
+			<y> 1 </y>
+		</axis>
+		<center>
+			<x-m>  0.001382 </x-m>
+			<z-m> -0.145109 </z-m>
 		</center>
 	</animation>
 	<!--	Pitot Heat	-->
