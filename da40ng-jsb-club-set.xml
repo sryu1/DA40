@@ -28,8 +28,14 @@
 				<path>Models/Interior/Panel/Instruments/ki206/ki206-property-rules.xml</path>
 			</property-rule>
 		</systems>
+		<!-- save these properties between sessions -->
 		<aircraft-data>
 			<path n="0">/options/ifr-conventional</path>
+			<path>/controls/anti-ice/pitot-heat</path>
+			<path>/controls/lighting/strobe</path>
+			<path>/controls/lighting/nav-lights</path>
+			<path>/controls/lighting/taxi-light</path>
+			<path>/controls/lighting/landing-lights</path>
 		</aircraft-data>
 		<menubar n="0">
 			<default n="0">
