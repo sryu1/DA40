@@ -20,9 +20,26 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>panel.cover</object-name>
-		<object-name>compass</object-name>
+		<!--object-name>compass</object-name-->
 		<property>da40/canopy-norm</property>
 		<factor>-50</factor>
+		<center>
+			<x-m> -0.47007  </x-m>
+			<y-m>  0.0      </y-m>
+			<z-m>  0.070298 </z-m>
+		</center>
+		<axis>
+			<x> 0 </x>
+			<y> 1 </y>
+			<z> 0 </z>
+		</axis>
+	</animation>
+	<!--	Compass (temporary fix, not perfect but good enough until understood why the rotation with the panel cover is not correct) -->
+	<animation>
+		<type>rotate</type>
+		<object-name>compass</object-name>
+		<property>da40/canopy-norm</property>
+		<factor>-25</factor>
 		<center>
 			<x-m> -0.47007  </x-m>
 			<y-m>  0.0      </y-m>
