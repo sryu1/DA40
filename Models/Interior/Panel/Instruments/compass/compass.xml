@@ -40,7 +40,7 @@
 		<type>rotate</type>
 		<object-name>compass.scale</object-name>
 		<property>instrumentation/magnetic-compass/indicated-heading-deg</property>
-		<offset-deg>180</offset-deg>
+		<offset-deg>165</offset-deg>
 		<center> 
 			<x-m> -0.026709 </x-m>
 			<y-m>  0.0 </y-m>
@@ -52,4 +52,18 @@
 		</axis>
 	</animation>
 	
+	<animation>
+		<type>pick</type>
+		<object-name>compass.scale</object-name>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<tooltip-id>magnetichdg</tooltip-id>
+				<property>instrumentation/magnetic-compass/indicated-heading-deg</property>
+				<mapping>heading</mapping>
+				<label>Magnetic heading: %3d</label>
+			</binding>
+		</hovered>
+	</animation>
+
 </PropertyList>
