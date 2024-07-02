@@ -36,6 +36,19 @@
 			<path>/controls/lighting/nav-lights</path>
 			<path>/controls/lighting/taxi-light</path>
 			<path>/controls/lighting/landing-lights</path>
+
+			<path>/instrumentation/comm[0]/frequencies/selected-mhz</path>
+			<path>/instrumentation/comm[0]/frequencies/standby-mhz</path>
+
+			<path>/instrumentation/nav[0]/frequencies/selected-mhz</path>
+			<path>/instrumentation/nav[0]/frequencies/standby-mhz</path>
+
+			<path>/instrumentation/comm[1]/frequencies/selected-mhz</path>
+			<path>/instrumentation/comm[1]/frequencies/standby-mhz</path>
+
+			<path>/instrumentation/nav[1]/frequencies/selected-mhz</path>
+			<path>/instrumentation/nav[1]/frequencies/standby-mhz</path>
+
 		</aircraft-data>
 		<menubar n="0">
 			<default n="0">
