@@ -52,8 +52,11 @@
 		</aircraft-data>
 		<menubar n="0">
 			<default n="0">
+				<!-- 10th entry in menubar is for DA40 -->
+				<!-- This is defined in da40-menu.xml. -->
+				<!-- Here we add only variant-specific item(s) -->
 				<menu n="10">
-					<item n="1">
+					<item n="30">
 						<label>Panel Configuration</label>
 						<binding>
 							<command>dialog-show</command>
