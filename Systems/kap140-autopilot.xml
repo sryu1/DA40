@@ -111,7 +111,7 @@
 	<filter>
 		<name>Target Intercept Angle P</name>
 		<type>gain</type>
-		<gain>12.5</gain>
+		<gain>4.5</gain>
 		<input>
 			<expression>
 				<product>
