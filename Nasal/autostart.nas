@@ -3,7 +3,6 @@ var disengage_starter_timer = maketimer(2, func { props.globals.setIntValue("/co
 if( getprop("/options/g1000") ){
     var autostart = func {
         props.globals.setBoolValue("/controls/electric/avionic-master", 1);
-        props.globals.setBoolValue("/controls/electric/battery-switch", 1);
         props.globals.setBoolValue("/controls/electric/engine-master-cover", 1);
         props.globals.setBoolValue("/controls/electric/engine-master", 1);
         props.globals.setBoolValue("/controls/electric/engine-master-cover", 0);
