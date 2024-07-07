@@ -308,9 +308,10 @@
 			<binding>
 				<command>property-cycle</command>
 				<property>controls/electric/electric-master</property>
+				<value>0</value>
 				<value>1</value>
 				<value>2</value>
-				<value>0</value>
+				<wrap>false</wrap>
 			</binding>
 			<mod-up>
 				<binding>
@@ -331,23 +332,10 @@
 			<binding>
 				<command>property-cycle</command>
 				<property>controls/electric/electric-master</property>
-				<value>0</value>
-				<value>2</value>
 				<value>1</value>
+				<value>0</value>
+				<wrap>false</wrap>
 			</binding>
-			<mod-up>
-				<binding>
-					<condition>
-						<equals>
-							<property>controls/electric/electric-master</property>
-							<value>2</value>
-						</equals>
-					</condition>
-					<command>property-assign</command>
-					<property>controls/electric/electric-master</property>
-					<value>1</value>
-				</binding>
-			</mod-up>
 		</action>
 	</animation>
 	<animation>
