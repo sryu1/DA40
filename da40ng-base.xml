@@ -174,7 +174,6 @@
 		</lighting>
 		<electric>
 			<fuel-transfer type="bool">0</fuel-transfer>
-			<generator>0</generator>
 			<avionics-switch type="bool">0</avionics-switch>
 			<engines>
 				<engine n="0">
