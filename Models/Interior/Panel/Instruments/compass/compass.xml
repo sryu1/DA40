@@ -36,21 +36,6 @@
 		</emission>
 	</animation>
 	
-	<animation> 
-		<type>rotate</type>
-		<object-name>compass.scale</object-name>
-		<property>instrumentation/magnetic-compass/indicated-heading-deg</property>
-		<center> 
-			<x-m> -0.026709 </x-m>
-			<y-m>  0.0 </y-m>
-		</center>
-		<axis> 
-			<x> 0 </x>
-			<y> 0 </y>
-			<z> 1 </z>
-		</axis>
-	</animation>
-	
 	<animation>
 		<type>pick</type>
 		<object-name>compass.scale</object-name>
