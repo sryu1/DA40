@@ -292,9 +292,13 @@
 	</model>
 	<animation>
 		<type>material</type>
+		<object-name>panel</object-name>
 		<object-name>key</object-name>
 		<object-name>master.inner</object-name>
 		<object-name>switch.engine_master</object-name>
+		<object-name>switch.ecu_test</object-name>
+		<object-name>switch.ecu_voter</object-name>
+		<object-name>switch.fuel_pumps</object-name>
 		<object-name>switch.avionic_master</object-name>
 		<object-name>switch.strobe</object-name>
 		<object-name>switch.landing</object-name>
@@ -395,6 +399,29 @@
 			<x-m> 0.001382 </x-m>
 			<z-m> -0.145109</z-m>
 		</center>
+	</animation>
+	<!-- ECU Test TODO model correct function -->
+	<animation>
+		<type>pick</type>
+		<object-name>switch.ecu_test</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>/controls/engines/engine/throttle</property>
+				<step>1</step>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/engines/engine/throttle</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
 	</animation>
 	<!-- Essential Bus -->
 	<animation>
