@@ -193,6 +193,7 @@
 		<engines>
 			<engine>
 				<on type="bool">false</on>
+				<ecu-voter type="int">0</ecu-voter>
 			</engine>
 		</engines>
 	</controls>

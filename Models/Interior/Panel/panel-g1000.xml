@@ -307,6 +307,32 @@
 			<z-m> -0.079516 </z-m>
 		</center>
 	</animation>
+	<!--	ECU Voter	-->
+	<animation>
+		<type>knob</type>
+		<object-name>g1000_sw.ecu_voter</object-name>
+		<property>controls/engines/engine/ecu-voter</property>
+		<factor> 20 </factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m> 0.00287 </x-m>
+			<z-m> -0.079517 </z-m>
+		</center>
+		<action>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/engines/engine/ecu-voter</property>
+				<value> -1 </value>
+				<value> 0 </value>
+				<value> 1 </value>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
 	<!-- ECU Test TODO model correct function -->
 	<animation>
 		<type>pick</type>

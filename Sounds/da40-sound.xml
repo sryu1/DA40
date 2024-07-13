@@ -391,6 +391,30 @@
 		
 		<!--                  Toggle Switches                  -->
 		<click>
+			<name>ECU Voter A/B</name>
+			<path>Sounds/click.wav</path>
+			<condition>
+				<property>controls/engines/engine/ecu-voter</property>
+			</condition>
+			<volume>
+				<factor>0.3</factor>
+			</volume>
+		</click>
+
+		<click>
+			<name>ECU Voter AUTO</name>
+			<path>Sounds/click.wav</path>
+			<condition>
+				<not>
+					<property>controls/engines/engine/ecu-voter</property>
+				</not>
+			</condition>
+			<volume>
+				<factor>0.3</factor>
+			</volume>
+		</click>
+
+		<click>
 			<name>Fuel Pump on</name>
 			<path>Sounds/click.wav</path>
 			<condition>
