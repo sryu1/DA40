@@ -330,6 +330,32 @@
 			</mod-up>
 		</action>
 	</animation>
+	<!-- Fuel Pumps -->
+	<animation>
+		<type>pick</type>
+		<object-name>g1000_sw.fuel_pumps</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/engines/engine/fuel-pump</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>g1000_sw.fuel_pumps</object-name>
+		<property>controls/engines/engine/fuel-pump</property>
+		<factor> -35 </factor>
+		<offset-deg> 17.5 </offset-deg>
+		<axis>
+			<y> 1 </y>
+		</axis>
+		<center>
+			<x-m> 0.00389 </x-m>
+			<z-m> -0.10841 </z-m>
+		</center>
+	</animation>
 	<!-- Avionic Master -->
 	<animation>
 		<type>pick</type>
