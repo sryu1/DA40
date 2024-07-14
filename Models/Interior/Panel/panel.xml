@@ -33,7 +33,7 @@
 			<z> 0 </z>
 		</axis>
 	</animation>
-	<!--	Compass (temporary fix. Why is the rotation factor is -25 ?) -->
+	<!--	Compass (temporary fix. Why is the rotation factor -25 ?) -->
 	<animation>
 		<type>rotate</type>
 		<object-name>compass</object-name>
