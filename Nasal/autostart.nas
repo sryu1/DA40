@@ -2,6 +2,7 @@ var disengage_starter_timer = maketimer(2, func { props.globals.setIntValue("/co
     disengage_starter_timer.singleShot = 1;
 if( getprop("/options/g1000") ){
     var autostart = func {
+        props.globals.setIntValue("/controls/switches/fuel_tank_selector", 2);
         props.globals.setBoolValue("/controls/electric/avionic-master", 1);
         props.globals.setBoolValue("/controls/electric/engine-master-cover", 1);
         props.globals.setBoolValue("/controls/electric/engine-master", 1);
@@ -16,6 +17,7 @@ if( getprop("/options/g1000") ){
     }
 } else {
     var autostart = func {
+        props.globals.setIntValue("/controls/switches/fuel_tank_selector", 2);
         props.globals.setBoolValue("/controls/electric/avionic-master", 1);
         props.globals.setBoolValue("/controls/lighting/strobe", 1);
         props.globals.setBoolValue("/controls/lighting/nav-lights", 1);

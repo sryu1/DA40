@@ -83,6 +83,28 @@
 		
 	</channel>
 	
+	<channel name="EngineSupply">
+		<switch name="enable_L">
+			<default value="0"/>
+			<test value="1">
+				/controls/switches/fuel_tank_selector eq 2
+			</test>
+			<output>
+				propulsion/tank[0]/priority
+			</output>
+		</switch>
+
+		<switch name="enable_R">
+			<default value="0"/>
+			<test value="1">
+				/controls/switches/fuel_tank_selector eq 1
+			</test>
+			<output>
+				propulsion/tank[1]/priority
+			</output>
+		</switch>
+	</channel>
+
 	<property value="1.0">propulsion/engine[0]/coolant-level-norm</property>
 	
 	<channel name="Coolant Temperature">

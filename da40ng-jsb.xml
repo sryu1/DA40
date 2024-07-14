@@ -107,6 +107,7 @@
 	<propulsion>
 		<engine file="AE300">
 			<feed> 0 </feed>
+			<feed> 1 </feed>
 			<thruster file="MTV-6-R">
 				<sense> 1 </sense>
 				<location unit="M">
