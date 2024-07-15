@@ -687,7 +687,7 @@
 			<path>Sounds/fuel_xfer_pump.wav</path>
 			<mode>looped</mode>
 			<condition>
-				<property>da40/fuelsystem/electric-fuel-pump-transfer-active</property>
+				<property>da40/fuelsystem/fuel-transfer-pump-active</property>
 			</condition>
 			<volume>
 				<factor>0.125</factor>

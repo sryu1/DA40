@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<system name="fuel">
+<!-- right tank[1] connected to left tank[0] via fuel transfer pump -->
+
+  <channel name="Fuel transfer pumping">
+
+    <switch>
+      <default value="0"/>
+      <test logic="AND" value="1">
+        /controls/electric/fuel-transfer EQ 1
+        /controls/electric/electric-master GT 0
+        propulsion/tank[1]/pct-full GE 1 <!-- leave min. 1% in tank -->
+        propulsion/tank[0]/pct-full LE 99 <!-- fill to max. 99% capacity -->
+      </test>
+      <output>/da40/fuelsystem/fuel-transfer-pump-active</output>
+    </switch>
+
+    <switch>
+        <default value="0"/>
+      <test logic="AND" value="-0.11"> <!-- 0.11 lbs/s, 0.0498 kg/s, 227 l/h - fuel transfer pump rate from R to L tank -->
+        /da40/fuelsystem/fuel-transfer-pump-active EQ 1
+      </test>
+      <output>propulsion/tank[1]/external-flow-rate-pps</output>
+    </switch>
+
+    <summer>
+      <input>-propulsion/tank[1]/external-flow-rate-pps</input>
+      <output>propulsion/tank[0]/external-flow-rate-pps</output>
+    </summer>
+
+  </channel>
+</system>

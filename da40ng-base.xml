@@ -198,8 +198,7 @@
 		<canopy-cmd type="bool">0</canopy-cmd>
 		<door-left-cmd type="bool">0</door-left-cmd>
 		<fuelsystem>
-			<!-- electric fuel-transfer pump -->
-			<electric-fuel-pump-transfer-active type="bool">false</electric-fuel-pump-transfer-active>
+			<fuel-transfer-pump-active type="bool">false</fuel-transfer-pump-active>
 		</fuelsystem>
 	</da40>
 	<environment>

@@ -53,7 +53,7 @@ var engine_props = {
 
 var pitot_heat = props.globals.getNode( "/systems/electrical/outputs/pitot-heat", 1 );
 var fuel_left = props.globals.getNode( "/consumables/fuel/tank[0]/level-gal_us", 1 );
-var fuel_xfer_on 	= props.globals.getNode( "/da40/fuelsystem/electric-fuel-pump-transfer-active", 1 );
+var fuel_trans_on 	= props.globals.getNode( "/da40/fuelsystem/fuel-transfer-pump-active", 1 );
 
 #	State Variables
 var selftest = 0;
@@ -149,7 +149,7 @@ var annun_check = func{
 	}
 
 	# fuel transfer is just information, does not need to trigger a caution/warning
-	if ( fuel_xfer_on.getBoolValue() ) {
+	if ( fuel_trans_on.getBoolValue() ) {
 		lights.fuel_trans.setIntValue(1);
 	} else {
 		lights.fuel_trans.setIntValue(0);

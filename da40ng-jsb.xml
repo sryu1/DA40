@@ -250,6 +250,7 @@
 		<damping_coeff unit="LBS/FT/SEC">1000</damping_coeff>
 		</contact>
 	</ground_reactions>
+	<system file="fuel"/> <!-- integrate advanced fuel system -->
 	<system file="da40-electrical.xml"/>
 	<system file="da40-engine.xml"/>
 	<system file="da40-cabin-environment.xml"/>
