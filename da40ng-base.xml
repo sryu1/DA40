@@ -271,7 +271,6 @@
 		<da40>
 			<file>Aircraft/DA40/Nasal/da40.nas</file>
 			<file>Aircraft/DA40/Nasal/electrical.nas</file>
-			<file>Aircraft/DA40/Nasal/fuelsystem.nas</file>
 		</da40>
 		<m803>
 			<file>Aircraft/DA40/Models/Interior/Panel/Instruments/M803/davtron803.nas</file>
