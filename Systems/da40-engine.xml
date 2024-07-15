@@ -87,7 +87,7 @@
 		<switch name="enable_L">
 			<default value="0"/>
 			<test value="1">
-				/controls/switches/fuel_tank_selector eq 2
+				/controls/fuel/fuel-tank-selector eq 2
 			</test>
 			<output>
 				propulsion/tank[0]/priority
@@ -97,7 +97,7 @@
 		<switch name="enable_R">
 			<default value="0"/>
 			<test value="1">
-				/controls/switches/fuel_tank_selector eq 1
+				/controls/fuel/fuel-tank-selector eq 1
 			</test>
 			<output>
 				propulsion/tank[1]/priority

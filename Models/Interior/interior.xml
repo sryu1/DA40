@@ -123,7 +123,7 @@
 	<animation>
 		<type>knob</type>
 		<object-name>fuel_valve_lever</object-name>
-		<property>controls/switches/fuel_tank_selector</property> <!-- 0=off, 1=right, 2=left -->
+		<property>controls/fuel/fuel-tank-selector</property> <!-- 0=off, 1=right, 2=left -->
 		<factor> 90 </factor>
         <offset-deg> -135 </offset-deg>
 		<axis>
@@ -138,7 +138,7 @@
 		<action>
 			<binding>
 				<command>property-cycle</command>
-				<property>controls/switches/fuel_tank_selector</property>
+				<property>controls/fuel/fuel-tank-selector</property>
 				<value> 0 </value>
 				<value> 1 </value>
 				<value> 2 </value>

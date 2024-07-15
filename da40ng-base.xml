@@ -185,10 +185,7 @@
 			<flaps-int type="float">0.0</flaps-int>
 		</flight>
 		<fuel>
-			<tank n="0">
-				<lock type="bool">false</lock>
-				<position type="double">0</position>
-			</tank>
+			<fuel-tank-selector type="int">0</fuel-tank-selector>
 		</fuel>
 		<engines>
 			<engine>
