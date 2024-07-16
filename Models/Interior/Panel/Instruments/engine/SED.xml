@@ -396,7 +396,7 @@
 		<object-name>amps.led.1</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/systems/electrical/bus/essential-bus-volts</property>
+				<property>/systems/electrical/alternator-amps</property>
 				<value>0</value>
 			</greater-than-equals>
 		</condition>
