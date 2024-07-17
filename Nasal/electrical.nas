@@ -41,7 +41,8 @@ var switches = {
 	engine_master:		controls.initNode("engine-master",		0,	"BOOL"),
 	avionic_master:		controls.initNode("avionic-master",		0,	"BOOL"),
 	essential_bus:		controls.initNode("essential-bus",		0,	"BOOL"),
-	
+	fuel_transfer:		controls.initNode("fuel-transfer",		0,	"BOOL"),
+
 	pitot_heat:		props.globals.getNode("/controls/anti-ice/pitot-heat", 0, "BOOL"),
 	#	Lights
 	instrument_light:	light_ctrl.initNode("instrument-lights",	0.0,	"DOUBLE"),
@@ -483,10 +484,10 @@ var ecu_bus = bus.new(
 	},
 	[
 		#TODO: ECU and ECU Fuel Pump electrical load?
-		consumer.new( "ecu-a", switches.engine_master, 0.5, 20 ),
-		consumer.new( "ecu-b", switches.engine_master, 0.5, 20 ),
-		consumer.new( "ecu-fuel-pump-a", switches.engine_master, 0.5, 7.5 ),
-		consumer.new( "ecu-fuel-pump-b", switches.engine_master, 0.5, 7.5 ),
+		consumer.new( "ecu-a", switches.engine_master, 100, 20 ),
+		consumer.new( "ecu-b", switches.engine_master, 100, 20 ),
+		consumer.new( "ecu-fuel-pump-a", switches.engine_master, 50, 7.5 ),
+		consumer.new( "ecu-fuel-pump-b", switches.engine_master, 50, 7.5 ),
 	],
 );
 
@@ -517,12 +518,12 @@ var main_bus = bus.new(
 	},
 	[
 		# TODO: Electrical load
-		consumer.new( "instrument-lights", switches.instrument_light, 0.1, 5 ),
+		consumer.new( "instrument-lights", switches.instrument_light, 5, 5 ),
 		consumer.new( "taxi-map-lights", switches.taxi_light, 35, 5 ),
-		consumer.new( "navigation-lights", switches.nav_light, 0.1, 5 ),
-		consumer.new( "strobe-lights", int_switches.strobe_light, 0.1, 5 ),
+		consumer.new( "navigation-lights", switches.nav_light, 40, 5 ),
+		consumer.new( "strobe-lights", int_switches.strobe_light, 40, 5 ),
 		# TODO: starter?! (cb max 5A, G1000 variant: max 10A)
-		consumer.new( "xfer-pump", nil, 0.1, 5),
+		consumer.new( "xfer-pump", switches.fuel_transfer, 40, 5),
 	],
 );
 
@@ -607,9 +608,9 @@ var essential_bus = bus.new(
 		consumer.new( "horizon", nil, 0.1, 3 ),
 		consumer.new( "flaps", nil, 0.1, 5 ),
 		consumer.new( "engine-instruments", nil, 0.1, 5 ),
-		consumer.new( "pitot-heat", switches.pitot_heat, 0.1, 10 ),
+		consumer.new( "pitot-heat", switches.pitot_heat, 100, 10 ),
 		consumer.new( "landing-lights", switches.landing_light, 35, 5 ),
-		consumer.new( "flood-lights", switches.flood_light, 0.1, 3 ),
+		consumer.new( "flood-lights", switches.flood_light, 3, 3 ),
 	],
 );
 
