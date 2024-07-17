@@ -674,23 +674,24 @@ var electrical_updater = maketimer( 0.0, update_electrical );
 electrical_updater.simulatedTime = 1;
 electrical_updater.start();
 
-var turn_indicator_spin = props.globals.getNode("/instrumentation/turn-indicator/spin");
-
-var check_watts = func {
-	var tc_spin = turn_indicator_spin.getDoubleValue();
-	
-	if( tc_spin == 1.0 ){
-		main_bus.consumers[1].watts = 4.2;
-		# print( "Turn Coordinator running" );
-	} else {
-		main_bus.consumers[1].watts = 18;
-		# print( "Turn Coordinator starting" );
-	}
-}
-
-var watts_updater = maketimer( 0.1, check_watts );
-watts_updater.simulatedTime = 1;
-watts_updater.start();
+# TODO turn indicator watts calculation not working as intended
+#var turn_indicator_spin = props.globals.getNode("/instrumentation/turn-indicator/spin");
+#
+#var check_watts = func {
+#	var tc_spin = turn_indicator_spin.getDoubleValue();
+#
+#	if( tc_spin == 1.0 ){
+#		main_bus.consumers[1].watts = 4.2;
+#		# print( "Turn Coordinator running" );
+#	} else {
+#		main_bus.consumers[1].watts = 18;
+#		# print( "Turn Coordinator starting" );
+#	}
+#}
+#
+#var watts_updater = maketimer( 0.1, check_watts );
+#watts_updater.simulatedTime = 1;
+#watts_updater.start();
 
 #	Disable non-existent instruments
 setlistener("/options/ifr-conventional", func( ifr ) {
