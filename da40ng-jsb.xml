@@ -130,6 +130,7 @@
 			</location>
 			<capacity unit="LBS"> 100.53 </capacity>
 			<contents unit="LBS"> 70 </contents>
+			<!--temperature> 59 </temperature--> <!-- must be degrees fahrenheit -->
 		</tank>
 		<tank type="FUEL" number="1">
 			<location unit="M">
@@ -139,6 +140,7 @@
 			</location>
 			<capacity unit="LBS"> 100.53 </capacity>
 			<contents unit="LBS"> 70 </contents>
+			<temperature> 59 </temperature> <!-- must be degrees fahrenheit -->
 		</tank>
 	</propulsion>
 	<ground_reactions>
