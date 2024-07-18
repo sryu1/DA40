@@ -534,8 +534,8 @@ if( g1000.getBoolValue() ){
 	
 } else {
 	append( main_bus.consumers, consumer.new( "fan-oat", nil, 0.1, 3 ) );
-	append( main_bus.consumers, consumer.new( "turn-coordinator", nil, 0.1, 3 ) );
-	append( main_bus.consumers, consumer.new( "DG", nil, 0.1, 3 ) );
+	append( main_bus.consumers, consumer.new( "turn-coordinator", nil, 4.2, 3 ) );
+	append( main_bus.consumers, consumer.new( "DG", nil, 5, 3 ) );
 }
 
 #	Avionic Bus
@@ -559,9 +559,9 @@ var avionic_bus = bus.new(
 	},
 	[
 		# TODO: Electrical load
-		consumer.new( "audio", nil, 0.1, 1 ),
-		consumer.new( "comm[1]", nil, 0.1, 5 ),
-		consumer.new( "autopilot", nil, 0.1, 5 ),
+		consumer.new( "audio", nil, 5, 1 ),
+		consumer.new( "comm[1]", nil, 5, 5 ),
+		consumer.new( "autopilot", nil, 14, 5 ),
 	],
 );
 
@@ -574,10 +574,10 @@ if( g1000.getBoolValue() ){
 	
 } else {
 	append( avionic_bus.consumers, consumer.new( "gps", nil, 0.1, 2 ) );
-	append( avionic_bus.consumers, consumer.new( "comm[0]", nil, 0.1, 5 ) );
-	append( avionic_bus.consumers, consumer.new( "nav[0]", nil, 0.1, 5 ) );
-	append( avionic_bus.consumers, consumer.new( "nav[1]", nil, 0.1, 5 ) );
-	append( avionic_bus.consumers, consumer.new( "transponder", nil, 0.1, 5 ) );
+	append( avionic_bus.consumers, consumer.new( "comm[0]", nil, 5, 5 ) );
+	append( avionic_bus.consumers, consumer.new( "nav[0]", nil, 20, 5 ) );
+	append( avionic_bus.consumers, consumer.new( "nav[1]", nil, 20, 5 ) );
+	append( avionic_bus.consumers, consumer.new( "transponder", nil, 20, 5 ) );
 }
 
 #	Essential Bus
@@ -605,9 +605,9 @@ var essential_bus = bus.new(
 	},
 	[
 		# TODO: Electrical load
-		consumer.new( "horizon", nil, 0.1, 3 ),
+		consumer.new( "horizon", nil, 5, 3 ),
 		consumer.new( "flaps", nil, 0.1, 5 ),
-		consumer.new( "engine-instruments", nil, 0.1, 5 ),
+		consumer.new( "engine-instruments", nil, 10, 5 ),
 		consumer.new( "pitot-heat", switches.pitot_heat, 100, 10 ),
 		consumer.new( "landing-lights", switches.landing_light, 35, 5 ),
 		consumer.new( "flood-lights", switches.flood_light, 3, 3 ),
@@ -623,7 +623,7 @@ if( g1000.getBoolValue() ){
 	append( essential_bus.consumers, consumer.new( "transponder", nil, 0.1, 5 ) );
 	append( essential_bus.consumers, consumer.new( "pfd", nil, 0.1, 5 ) );
 } else {
-	append( essential_bus.consumers, consumer.new( "annun", nil, 0.1, 3 ) );
+	append( essential_bus.consumers, consumer.new( "annun", nil, 5, 3 ) );
 	
 }
 
