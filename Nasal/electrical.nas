@@ -579,6 +579,8 @@ if( g1000.getBoolValue() ){
 	append( avionic_bus.consumers, consumer.new( "nav[1]", nil, 20, 5 ) );
 	append( avionic_bus.consumers, consumer.new( "transponder", nil, 20, 5 ) );
 }
+# Bypass for error on club when property not present
+	append( avionic_bus.consumers, consumer.new( "gps-nav[1]", nil, 0.1, 5 ) );
 
 #	Essential Bus
 #		connected to main bus when essential bus switch is OFF
@@ -626,6 +628,8 @@ if( g1000.getBoolValue() ){
 	append( essential_bus.consumers, consumer.new( "annun", nil, 5, 3 ) );
 	
 }
+# Bypass for error on club when property not present
+	append( avionic_bus.consumers, consumer.new( "gps-nav[0]", nil, 0.1, 5 ) );
 
 
 var flaps_power = props.globals.getNode("systems/electrical/outputs/flaps");
