@@ -3,11 +3,11 @@
 <PropertyList include="da40ng-base.xml">
 
 	<sim>
-	
+
 		<description>Diamond DA40 NG (G1000)</description>
 		<long-description>The Diamond DA40 NG is an Austrian four-seat, single-engine, light
 			aircraft constructed from composite materials. Built in both Austria and Canada, it was
-			developed as a four-seat version of the earlier DA20 by Diamond Aircraft Industries. 
+			developed as a four-seat version of the earlier DA20 by Diamond Aircraft Industries.
 			This variant comes with a G1000 glass panel.</long-description>
 		<variant-of>da40ng-jsb-club</variant-of>
 
@@ -41,12 +41,19 @@
 			<path>/instrumentation/nav[1]/frequencies/standby-mhz</path>
 
 		</aircraft-data>
+		<previews>
+			<preview>
+				<type>cockpit</type>
+				<splash type="bool">true</splash>
+				<path>Previews/cockpit1.jpg</path>
+			</preview>
+		</previews>
 		<input>
 			<keyboard>
 				<multikey include="Aircraft/Instruments-3d/FG1000/fg1000-multikey.xml" />
 			</keyboard>
 		</input>
-	
+
 	</sim>
 	<options>
 		<g1000 type="bool">1</g1000>

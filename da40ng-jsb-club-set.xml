@@ -50,6 +50,13 @@
 			<path>/instrumentation/nav[1]/frequencies/standby-mhz</path>
 
 		</aircraft-data>
+		<previews>
+			<preview>
+				<type>cockpit</type>
+				<splash type="bool">true</splash>
+				<path>Previews/cockpit2.jpg</path>
+			</preview>
+		</previews>
 		<menubar n="0">
 			<default n="0">
 				<!-- 10th entry in menubar is for DA40 -->
