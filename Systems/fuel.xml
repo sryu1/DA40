@@ -4,7 +4,6 @@
 <!-- right tank[1] connected to left tank[0] via fuel transfer pump -->
 
   <channel name="Fuel transfer pumping">
-
     <switch>
       <default value="0"/>
       <test logic="AND" value="1">
@@ -15,7 +14,6 @@
       </test>
       <output>/da40/fuelsystem/fuel-transfer-pump-active</output>
     </switch>
-
     <switch>
         <default value="0"/>
       <test logic="AND" value="-0.11"> <!-- 0.11 lbs/s, 0.0498 kg/s, 227 l/h - fuel transfer pump rate from R to L tank -->
@@ -23,11 +21,21 @@
       </test>
       <output>propulsion/tank[1]/external-flow-rate-pps</output>
     </switch>
-
     <summer>
       <input>-propulsion/tank[1]/external-flow-rate-pps</input>
       <output>propulsion/tank[0]/external-flow-rate-pps</output>
     </summer>
-
   </channel>
+
+  <channel name="Fuel pressure">
+    <switch>
+      <default value="0"/>
+      <test logic="OR" value="5">
+        /systems/electrical/outputs/ecu-fuel-pump-a GT 20
+        /systems/electrical/outputs/ecu-fuel-pump-b GT 20
+      </test>
+      <output>/da40/fuelsystem/fuel-pressure-bar</output>
+    </switch>
+  </channel>
+
 </system>

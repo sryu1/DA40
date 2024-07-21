@@ -21,6 +21,8 @@
 	<effect>
 		<inherits-from>Effects/model-transparent</inherits-from>
 		<object-name>leds.unused</object-name>
+		<object-name>led.fuelpress</object-name>
+		<object-name>led.waterlev</object-name>
 		<object-name>ff.000</object-name>
 		<object-name>ff.10</object-name>
 		<object-name>ff.1</object-name>
@@ -174,6 +176,8 @@
 	<animation>
 		<type>select</type>
 		<object-name>leds.unused</object-name>
+		<object-name>led.fuelpress</object-name>
+		<object-name>led.waterlev</object-name>
 		<object-name>ff.000</object-name>
 		<object-name>ff.10</object-name>
 		<object-name>ff.1</object-name>
@@ -290,6 +294,26 @@
 		</condition>
 	</animation>
 	
+	<animation>
+		<type>select</type>
+		<object-name>led.fuelpress</object-name>
+		<condition>
+			<less-than>
+				<property>/da40/fuelsystem/fuel-pressure-bar</property>
+				<value>4.0</value>
+			</less-than>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>led.waterlev</object-name>
+		<condition>
+			<less-than>
+				<property>/fdm/jsbsim/propulsion/engine/coolant-level-norm</property>
+				<value>0.9</value>
+			</less-than>
+		</condition>
+	</animation>
 	<animation>
 		<type>select</type>
 		<object-name>volt.led.1</object-name>
