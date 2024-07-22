@@ -6,7 +6,7 @@
 #	Category		Aural Alert			Lights							Elements
 #	1 Warning		Continuous until acknowledged	Red flashing (System + "Warning") until ack		Start, Doors, Alternator
 #	2 Caution		Short or until acknowledged	Amber flashing (System + "Caution") until ack		Low Volts, Engine, ECU A, ECU B, Pitot, Low Fuel
-#	3 Status		none				White steady						Fuel Trans, Glow
+#	3 Status		none				White steady						Trim Fail, Fuel Trans, Glow
 
 
 #	Set up Properties
@@ -26,6 +26,7 @@ var lights = {
 	caution:	light_path.getNode( "caution-state", 1 ),
 	start:		light_path.getNode( "start-state", 1 ),
 	doors:		light_path.getNode( "doors-state", 1 ),
+	trim_fail:	light_path.getNode( "trim-fail-state", 1 ),
 	low_volts:	light_path.getNode( "low-volts-state", 1 ),
 	alternator:	light_path.getNode( "alternator-state", 1 ),
 	ecu_a:		light_path.getNode( "ecu-a-state", 1 ),

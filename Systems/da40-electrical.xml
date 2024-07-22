@@ -143,6 +143,16 @@
 				/instrumentation/annunciator-panel/lights/flash-property/state eq 1
 			</test>
 		</switch>
+		<switch name="/instrumentation/annunciator-panel/lights/trim-fail" >
+			<default value="0"/>
+			<test value="1">
+				/instrumentation/annunciator-panel/lights/trim-fail-state eq 1
+			</test>
+			<test value="1" logic="AND">
+				/instrumentation/annunciator-panel/lights/trim-fail-state eq 2
+				/instrumentation/annunciator-panel/lights/flash-property/state eq 1
+			</test>
+		</switch>
 		<switch name="/instrumentation/annunciator-panel/lights/low-volts" >
 			<default value="0"/>
 			<test value="1">
