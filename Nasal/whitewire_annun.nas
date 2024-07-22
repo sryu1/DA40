@@ -54,6 +54,11 @@ var engine_props = {
 var pitot_heat = props.globals.getNode( "/systems/electrical/outputs/pitot-heat", 1 );
 var fuel_left = props.globals.getNode( "/consumables/fuel/tank[0]/level-gal_us", 1 );
 var fuel_trans_on 	= props.globals.getNode( "/da40/fuelsystem/fuel-transfer-pump-active", 1 );
+var engine_master = props.globals.getNode( "/controls/electric/engine-master", 0 );
+var glow_plug_tempc = props.globals.getNode( "/engines/engine/glow-plug-temperature-degc", 0 );
+var coolant_tempc = props.globals.getNode( "/engines/engine/coolant-temperature-degc", 0 );
+var starter_volts = props.globals.getNode( "/systems/electrical/outputs/starter", 0 );
+var alternator_amps = props.globals.getNode( "/systems/electrical/alternator-amps", 0 );
 
 #	State Variables
 var selftest = 0;
@@ -155,6 +160,25 @@ var annun_check = func{
 		lights.fuel_trans.setIntValue(0);
 	}
 
+	# Austro Engine Maintenance Manual E4 Serie Chapter 80-00-00 2 B. Glow Plug Control Unit
+	# The glow function is not started if coolant water temperature is >20 °C.
+	if ( engine_master.getBoolValue() and glow_plug_tempc.getDoubleValue() < 999 and coolant_tempc.getDoubleValue() < 20 ) {
+		lights.glow.setIntValue(1);
+	} else {
+		lights.glow.setIntValue(0);
+	}
+
+	if ( starter_volts.getDoubleValue() > 20 ) {
+		lights.start.setIntValue(1);
+	} else {
+		lights.start.setIntValue(0);
+	}
+
+	if ( alternator_amps.getDoubleValue() < 1 ) {
+		lights.alternator.setIntValue(1);
+	} else {
+		lights.alternator.setIntValue(0);
+	}
 
 	var op = engine_props.op.getDoubleValue();
 	var ot = engine_props.ot.getDoubleValue();

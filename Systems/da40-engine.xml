@@ -236,7 +236,28 @@
 			<output>/engines/engine[0]/oil-pressure-bar</output>
 		</fcs_function>
 	</channel>
-				
+
+	<channel name="Glow Plug Temperature">
+		<fcs_function>
+			<function>
+				<sum>
+					<product>
+						<sum>
+							<property>/controls/electric/engine-master</property>
+							<value>-0.5</value>
+						</sum>
+						<value>2.0</value>
+					</product>
+					<property>/engines/engine[0]/glow-plug-temperature-degc</property>
+				</sum>
+			</function>
+			<clipto>
+				<min>0.0</min>
+				<max>1000.0</max>
+			</clipto>
+			<output>/engines/engine[0]/glow-plug-temperature-degc</output>
+		</fcs_function>
+	</channel>
 
 	<channel name="Boost">
 		<fcs_function>
