@@ -242,6 +242,7 @@
 			<z>0</z>
 		</axis>
 	</animation>
+	<!-- AFM section 2.5 -->
 	<animation>
 		<type>select</type>
 		<object-name>rpm.led.1</object-name>
@@ -328,7 +329,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>engines/engine/thruster/rpm</property>
-				<value>2070</value>
+				<value>2100</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -336,10 +337,10 @@
 		<type>select</type>
 		<object-name>rpm.led.10</object-name>
 		<condition>
-			<greater-than-equals>
+			<greater-than>
 				<property>engines/engine/thruster/rpm</property>
 				<value>2300</value>
-			</greater-than-equals>
+			</greater-than>
 		</condition>
 	</animation>
 	
@@ -396,108 +397,110 @@
 			<z>0</z>
 		</axis>
 	</animation>
+	<!-- load LED bar, green range up to 92%, yellow range 92-100%, AFM sec. 2.5 -->
 	<animation>
 		<type>select</type>
 		<object-name>load.led.1</object-name>
 		<condition>
-			<greater-than-equals>
+			<greater-than>
 				<property>controls/engines/engine[0]/throttle</property>
-				<value>0.1</value>
-			</greater-than-equals>
+				<value>0.092</value>
+			</greater-than>
 		</condition>
 	</animation>
 	<animation>
 		<type>select</type>
 		<object-name>load.led.2</object-name>
 		<condition>
-			<greater-than-equals>
+			<greater-than>
 				<property>controls/engines/engine[0]/throttle</property>
-				<value>0.2</value>
-			</greater-than-equals>
+				<value>0.184</value>
+			</greater-than>
 		</condition>
 	</animation>
 	<animation>
 		<type>select</type>
 		<object-name>load.led.3</object-name>
 		<condition>
-			<greater-than-equals>
+			<greater-than>
 				<property>controls/engines/engine[0]/throttle</property>
-				<value>0.3</value>
-			</greater-than-equals>
+				<value>0.276</value>
+			</greater-than>
 		</condition>
 	</animation>
 	<animation>
 		<type>select</type>
 		<object-name>load.led.4</object-name>
 		<condition>
-			<greater-than-equals>
+			<greater-than>
 				<property>controls/engines/engine[0]/throttle</property>
-				<value>0.4</value>
-			</greater-than-equals>
+				<value>0.368</value>
+			</greater-than>
 		</condition>
 	</animation>
 	<animation>
 		<type>select</type>
 		<object-name>load.led.5</object-name>
 		<condition>
-			<greater-than-equals>
+			<greater-than>
 				<property>controls/engines/engine[0]/throttle</property>
-				<value>0.5</value>
-			</greater-than-equals>
+				<value>0.46</value>
+			</greater-than>
 		</condition>
 	</animation>
 	<animation>
 		<type>select</type>
 		<object-name>load.led.6</object-name>
 		<condition>
-			<greater-than-equals>
+			<greater-than>
 				<property>controls/engines/engine[0]/throttle</property>
-				<value>0.6</value>
-			</greater-than-equals>
+				<value>0.552</value>
+			</greater-than>
 		</condition>
 	</animation>
 	<animation>
 		<type>select</type>
 		<object-name>load.led.7</object-name>
 		<condition>
-			<greater-than-equals>
+			<greater-than>
 				<property>controls/engines/engine[0]/throttle</property>
-				<value>0.7</value>
-			</greater-than-equals>
+				<value>0.644</value>
+			</greater-than>
 		</condition>
 	</animation>
 	<animation>
 		<type>select</type>
 		<object-name>load.led.8</object-name>
 		<condition>
-			<greater-than-equals>
+			<greater-than>
 				<property>controls/engines/engine[0]/throttle</property>
-				<value>0.8</value>
-			</greater-than-equals>
+				<value>0.736</value>
+			</greater-than>
 		</condition>
 	</animation>
 	<animation>
 		<type>select</type>
 		<object-name>load.led.9</object-name>
 		<condition>
-			<greater-than-equals>
+			<greater-than>
 				<property>controls/engines/engine[0]/throttle</property>
-				<value>0.9</value>
-			</greater-than-equals>
+				<value>0.828</value>
+			</greater-than>
 		</condition>
 	</animation>
 	<animation>
 		<type>select</type>
 		<object-name>load.led.10</object-name>
 		<condition>
-			<greater-than-equals>
+			<greater-than>
 				<property>controls/engines/engine[0]/throttle</property>
-				<value>1</value>
-			</greater-than-equals>
+				<value>0.92</value>
+			</greater-than>
 		</condition>
 	</animation>
 	
 	<!--Oil Pressure (BAR)-->
+	<!-- AFM section 2.5  -->
 	<!-- LED1: Always on -->
 	<animation>
 		<type>select</type>
@@ -515,7 +518,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>engines/engine/oil-pressure-bar</property>
-				<value>1.7</value>
+				<value>2.5</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -525,7 +528,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>engines/engine/oil-pressure-bar</property>
-				<value>2.5</value>
+				<value>3.08</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -535,7 +538,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>engines/engine/oil-pressure-bar</property>
-				<value>3.3</value>
+				<value>3.66</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -545,7 +548,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>engines/engine/oil-pressure-bar</property>
-				<value>4.2</value>
+				<value>4.25</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -555,7 +558,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>engines/engine/oil-pressure-bar</property>
-				<value>5.1</value>
+				<value>4.83</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -565,7 +568,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>engines/engine/oil-pressure-bar</property>
-				<value>6.0</value>
+				<value>5.42</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -573,10 +576,10 @@
 		<type>select</type>
 		<object-name>op.led.9</object-name>
 		<condition>
-			<greater-than-equals>
+			<greater-than>
 				<property>engines/engine/oil-pressure-bar</property>
-				<value>6.5</value>
-			</greater-than-equals>
+				<value>6.0</value>
+			</greater-than>
 		</condition>
 	</animation>
 	<animation>
@@ -591,6 +594,7 @@
 	</animation>
 	
 	<!--Oil Temperature (deg Celcius)-->
+	<!-- AFM section 2.5     -->
 	<!-- LED1: Always on -->
 	<animation>
 		<type>select</type>
@@ -608,7 +612,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>engines/engine/oil-temperature-degc</property>
-				<value>-5</value>
+				<value>50</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -618,7 +622,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>engines/engine/oil-temperature-degc</property>
-				<value>25</value>
+				<value>64.16</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -628,7 +632,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>engines/engine/oil-temperature-degc</property>
-				<value>50</value>
+				<value>78.33</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -638,7 +642,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>engines/engine/oil-temperature-degc</property>
-				<value>75</value>
+				<value>92.50</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -648,7 +652,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>engines/engine/oil-temperature-degc</property>
-				<value>100</value>
+				<value>106.67</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -658,7 +662,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>engines/engine/oil-temperature-degc</property>
-				<value>125</value>
+				<value>120.83</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -684,6 +688,7 @@
 	</animation>
 	
 	<!--	Gearbox Temperature ( degC )	-->
+	<!-- AFM section 2.5 -->
 	<!-- LED1: Always on -->
 	<animation>
 		<type>select</type>
@@ -701,7 +706,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>engines/engine/gearbox-temperature-degc</property>
-				<value>0</value>
+				<value>35</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -711,7 +716,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>engines/engine/gearbox-temperature-degc</property>
-				<value>35</value>
+				<value>48.33</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -721,7 +726,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>engines/engine/gearbox-temperature-degc</property>
-				<value>51</value>
+				<value>61.66</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -731,7 +736,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>engines/engine/gearbox-temperature-degc</property>
-				<value>67</value>
+				<value>75</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -741,7 +746,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>engines/engine/gearbox-temperature-degc</property>
-				<value>83</value>
+				<value>88.33</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -751,7 +756,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>engines/engine/gearbox-temperature-degc</property>
-				<value>99</value>
+				<value>101.66</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -769,14 +774,15 @@
 		<type>select</type>
 		<object-name>gt.led.10</object-name>
 		<condition>
-			<greater-than-equals>
+			<greater-than>
 				<property>engines/engine/gearbox-temperature-degc</property>
 				<value>120</value>
-			</greater-than-equals>
+			</greater-than>
 		</condition>
 	</animation>
 	
 	<!--	Coolant Temperature ( degC )	-->
+	<!-- AFM section 2.5 -->
 	<!-- LED1: Always on -->
 	<animation>
 		<type>select</type>
@@ -794,7 +800,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>engines/engine/coolant-temperature-degc</property>
-				<value>-12</value>
+				<value>60</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -804,7 +810,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>engines/engine/coolant-temperature-degc</property>
-				<value>6</value>
+				<value>65.83</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -814,7 +820,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>engines/engine/coolant-temperature-degc</property>
-				<value>24</value>
+				<value>71.66</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -824,7 +830,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>engines/engine/coolant-temperature-degc</property>
-				<value>42</value>
+				<value>77.50</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -834,7 +840,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>engines/engine/coolant-temperature-degc</property>
-				<value>60</value>
+				<value>83.33</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -844,7 +850,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>engines/engine/coolant-temperature-degc</property>
-				<value>78</value>
+				<value>89.16</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -862,10 +868,10 @@
 		<type>select</type>
 		<object-name>ct.led.10</object-name>
 		<condition>
-			<greater-than-equals>
+			<greater-than>
 				<property>engines/engine/coolant-temperature-degc</property>
 				<value>105</value>
-			</greater-than-equals>
+			</greater-than>
 		</condition>
 	</animation>
 </PropertyList>
