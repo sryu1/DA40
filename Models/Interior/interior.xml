@@ -99,6 +99,29 @@
 	
 	<animation>
 		<type>slider</type>
+		<object-name>parking_brake_lever</object-name>
+		<drag-direction>vertical</drag-direction>
+		<property>controls/gear/brake-parking</property>
+		<factor>-0.09</factor>
+		<offset-m>0.09</offset-m>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0.77</z>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/gear/brake-parking</property>
+				<min>0</min>
+				<max>1</max>
+				<factor>-0.07</factor>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>slider</type>
 		<object-name>throttle_lever</object-name>
 		<drag-direction>vertical</drag-direction>
 		<property>controls/engines/engine/throttle</property>
