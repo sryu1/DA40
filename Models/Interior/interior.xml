@@ -115,7 +115,53 @@
 				<property>controls/gear/brake-parking</property>
 				<min>0</min>
 				<max>1</max>
-				<factor>-0.07</factor>
+				<factor>-0.05</factor>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>slider</type>
+		<object-name>heat_defrost_lever</object-name>
+		<drag-direction>vertical</drag-direction>
+		<property>environment/aircraft-effects/defrost-set</property>
+		<factor>0.09</factor>
+		<offset-m>0.0</offset-m>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0.77</z>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>environment/aircraft-effects/defrost-set</property>
+				<min>0</min>
+				<max>1</max>
+				<factor>0.05</factor>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>slider</type>
+		<object-name>heat_lever</object-name>
+		<drag-direction>vertical</drag-direction>
+		<property>environment/aircraft-effects/cabin-heat-set</property>
+		<factor>0.09</factor>
+		<offset-m>0.0</offset-m>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0.77</z>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>environment/aircraft-effects/cabin-heat-set</property>
+				<min>0</min>
+				<max>1</max>
+				<factor>0.05</factor>
 			</binding>
 		</action>
 	</animation>
