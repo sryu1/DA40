@@ -6,6 +6,7 @@
 	<params>
 		<heading-prop>environment/air-vent[0]/heading-deg</heading-prop>
 		<pitch-prop>environment/air-vent[0]/pitch-deg</pitch-prop>
+		<flap-prop>environment/air-vent[0]/flap-deg</flap-prop>
 	</params>
 	
 	<animation>
@@ -33,6 +34,20 @@
 		</shift-action>
 	</animation>
 	<animation>
+		<type>knob</type>
+		<object-name>air_vent_flap</object-name>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property alias="../../../../params/flap-prop" />
+				<min>0</min>
+				<max>90</max>
+				<factor>1</factor>
+				<wrap>0</wrap>
+			</binding>
+		</action>
+	</animation>
+	<animation>
 		<type>rotate</type>
 		<object-name>air_vent</object-name>
 		<property alias="../../params/pitch-prop" />
@@ -46,6 +61,38 @@
 		<object-name>air_vent</object-name>
 		<property alias="../../params/heading-prop" />
 		<factor>1</factor>
+		<axis>
+			<z>1</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>air_vent_flap</object-name>
+		<property alias="../../params/pitch-prop" />
+		<factor>1</factor>
+		<axis>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>air_vent_flap</object-name>
+		<property alias="../../params/heading-prop" />
+		<factor>1</factor>
+		<axis>
+			<z>1</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>air_vent_flap</object-name>
+		<property alias="../../params/flap-prop" />
+		<factor>1</factor>
+		<center>
+			<x-m>0.008708</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+		</center>
 		<axis>
 			<z>1</z>
 		</axis>

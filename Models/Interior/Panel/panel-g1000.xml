@@ -34,6 +34,7 @@
 			<params>
 				<heading-prop>environment/air-vent[0]/heading-deg</heading-prop>
 				<pitch-prop>environment/air-vent[0]/pitch-deg</pitch-prop>
+				<flap-prop>environment/air-vent[0]/flap-deg</flap-prop>
 			</params>
 		</overlay>
 		<offsets>
@@ -48,6 +49,7 @@
 			<params>
 				<heading-prop>environment/air-vent[1]/heading-deg</heading-prop>
 				<pitch-prop>environment/air-vent[1]/pitch-deg</pitch-prop>
+				<flap-prop>environment/air-vent[1]/flap-deg</flap-prop>
 			</params>
 		</overlay>
 		<offsets>

@@ -128,6 +128,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	
 	<channel name="cabin-temperature">
 		
+		<pure_gain name="/environment/aircraft-effects/cabin-air-set">
+			<input>/environment/air-vent[0]/flap-deg</input>
+			<gain>0.012</gain>
+			<clipto>
+				<min>0</min>
+				<max>1</max>
+			</clipto>
+		</pure_gain>
+
 		<!-- The exhaust gas temperature controls how much the air is
 		heated up.
 		-->
