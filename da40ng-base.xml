@@ -216,6 +216,7 @@
 				<caution-state type="int">0</caution-state>
 				<start-state type="int">0</start-state>
 				<doors-state type="int">0</doors-state>
+				<trim-fail-state type="int">0</trim-fail-state>
 				<low-volts-state type="int">0</low-volts-state>
 				<alternator-state type="int">0</alternator-state>
 				<ecu-a-state type="int">0</ecu-a-state>
