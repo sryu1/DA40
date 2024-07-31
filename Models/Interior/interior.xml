@@ -215,4 +215,70 @@
 			</binding>
 		</action>
 	</animation>
+	<!-- Elevator Trim -->
+	<animation>
+		<type>knob</type>
+		<object-name>elevator_trim</object-name>
+		<property>controls/flight/elevator-trim</property>
+		<factor>-720</factor>
+		<drag-direction>vertical</drag-direction>
+		<axis>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0.0</z>
+		</axis>
+		<center>
+			<x-m>-1.74988</x-m>
+			<y-m>0.0037</y-m>
+			<z-m>0.061148</z-m>
+		</center>
+		<action>
+			<binding>
+				<condition>
+					<not><property>/devices/status/keyboard/alt</property></not>
+				</condition>
+				<command>property-adjust</command>
+				<property>controls/flight/elevator-trim</property>
+				<factor>0.001</factor>
+				<min>-1</min>
+				<max>1</max>
+				<wrap>0</wrap>
+			</binding>
+			<binding>
+				<condition>
+					<property>/devices/status/keyboard/alt</property>
+				</condition>
+				<command>property-adjust</command>
+				<property>controls/flight/elevator-trim</property>
+				<factor>0.0001</factor>
+				<min>-1</min>
+				<max>1</max>
+				<wrap>0</wrap>
+			</binding>
+		</action>
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<label>Elevator trim: %3f</label>
+				<tooltip-id>pitch-trim</tooltip-id>
+				<property>controls/flight/elevator-trim</property>
+			</binding>
+		</hovered>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>elevator_trim_marker</object-name>
+		<property>controls/flight/elevator-trim</property>
+		<factor>-35</factor>
+		<axis>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0.0</z>
+		</axis>
+		<center>
+			<x-m>-1.76151 m</x-m>
+			<y-m>-0.025133</y-m>
+			<z-m>-0.031293</z-m>
+		</center>
+	</animation>
 </PropertyList>
