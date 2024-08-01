@@ -274,15 +274,6 @@
 			<z-m>  -0.122 </z-m>
 		</offsets>
 	</model>
-	<!-- Hobbs --><!--
-	<model>
-		<path>Instruments/hobbs/hobbs.xml</path>
-		<offsets>
-			<x-m>  0.000 </x-m>
-			<y-m>  0.283 </y-m>
-			<z-m> -0.147 </z-m>
-		</offsets>
-	</model>-->
 	<!-- Warnings -->
 	<model>
 		<path>Instruments/annunciator-panel/annunciator-panel.xml</path>

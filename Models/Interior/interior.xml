@@ -46,6 +46,18 @@
 			<z-m>  0.39 </z-m>
 		</offsets>
 	</model>
+	<!-- Hobbs -->
+	<model>
+		<path>Panel/Instruments/hobbs/hobbs.xml</path>
+		<offsets>
+			<x-m> -1.602 </x-m>
+			<y-m> -0.004 </y-m>
+			<z-m>  0.045 </z-m>
+			<pitch-deg>270</pitch-deg>
+			<heading-deg>270</heading-deg>
+			<roll-deg>0</roll-deg>
+		</offsets>
+	</model>
 	<!-- Canopy Front -->
 	<animation>
 		<type>rotate</type>
