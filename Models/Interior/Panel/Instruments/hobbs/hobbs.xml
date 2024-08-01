@@ -35,8 +35,8 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>hours.01</object-name>
-		<property>engines/engine[0]/hobbs</property>
-		<factor>360</factor>
+		<property>instrumentation/hobbs-meter/digits0</property>
+		<factor>36</factor>
 		<axis>
 			<x>  0 </x>
 			<y>  1 </y>
@@ -47,7 +47,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>hours.1</object-name>
-		<property>engines/engine[0]/hobbs</property>
+		<property>instrumentation/hobbs-meter/digits1</property>
 		<factor>36</factor>
 		<axis>
 			<x>  0 </x>
@@ -59,8 +59,8 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>hours.10</object-name>
-		<property>engines/engine[0]/hobbs</property>
-		<factor>3.6</factor>
+		<property>instrumentation/hobbs-meter/digits2</property>
+		<factor>36</factor>
 		<axis>
 			<x>  0 </x>
 			<y>  1 </y>
@@ -71,8 +71,8 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>hours.100</object-name>
-		<property>engines/engine[0]/hobbs</property>
-		<factor>0.36</factor>
+		<property>instrumentation/hobbs-meter/digits3</property>
+		<factor>36</factor>
 		<axis>
 			<x>  0 </x>
 			<y>  1 </y>
@@ -83,8 +83,8 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>hours.1000</object-name>
-		<property>engines/engine[0]/hobbs</property>
-		<factor>0.036</factor>
+		<property>instrumentation/hobbs-meter/digits4</property>
+		<factor>36</factor>
 		<axis>
 			<x>  0 </x>
 			<y>  1 </y>
