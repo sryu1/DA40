@@ -52,7 +52,7 @@
 	<mass_balance>
 		<ixx unit="SLUG*FT2">   900 </ixx>
 		<iyy unit="SLUG*FT2">   1200 </iyy>
-		<izz unit="SLUG*FT2">   1500 </izz>
+		<izz unit="SLUG*FT2">   5000 </izz>	<!-- bigger value improves taxi steering, source needed for real value -->
 		<emptywt unit="KG">   900 </emptywt>	<!-- ref. 1, p. 6-9 (example) -->
 		<location name="CG" unit="M">
 			<!--	ref. 1, p. 6-9 (example):
@@ -118,7 +118,7 @@
 				<orient unit="DEG">
 					<pitch> 0.0 </pitch>
 					<roll>  0.0 </roll>
-					<yaw>   0.0 </yaw>
+					<yaw>   2.0 </yaw>	<!-- 2.0 best value to stay straight on takeoff -->
 				</orient>
 			</thruster>
 		</engine>
