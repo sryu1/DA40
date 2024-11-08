@@ -1166,7 +1166,7 @@
 		<object-name>led.ft.l.2</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/consumables/fuel/tank[0]/temperature-degc</property>
+				<property>/consumables/fuel/tank[0]/temperature_degC</property>
 				<value>-25</value>
 			</greater-than-equals>
 		</condition>
@@ -1176,7 +1176,7 @@
 		<object-name>led.ft.l.3</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/consumables/fuel/tank[0]/temperature-degc</property>
+				<property>/consumables/fuel/tank[0]/temperature_degC</property>
 				<value>-20</value>
 			</greater-than-equals>
 		</condition>
@@ -1186,7 +1186,7 @@
 		<object-name>led.ft.l.4</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/consumables/fuel/tank[0]/temperature-degc</property>
+				<property>/consumables/fuel/tank[0]/temperature_degC</property>
 				<value>-8</value>
 			</greater-than-equals>
 		</condition>
@@ -1196,7 +1196,7 @@
 		<object-name>led.ft.l.5</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/consumables/fuel/tank[0]/temperature-degc</property>
+				<property>/consumables/fuel/tank[0]/temperature_degC</property>
 				<value>4</value>
 			</greater-than-equals>
 		</condition>
@@ -1206,7 +1206,7 @@
 		<object-name>led.ft.l.6</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/consumables/fuel/tank[0]/temperature-degc</property>
+				<property>/consumables/fuel/tank[0]/temperature_degC</property>
 				<value>16</value>
 			</greater-than-equals>
 		</condition>
@@ -1216,7 +1216,7 @@
 		<object-name>led.ft.l.7</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/consumables/fuel/tank[0]/temperature-degc</property>
+				<property>/consumables/fuel/tank[0]/temperature_degC</property>
 				<value>28</value>
 			</greater-than-equals>
 		</condition>
@@ -1226,7 +1226,7 @@
 		<object-name>led.ft.l.8</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/consumables/fuel/tank[0]/temperature-degc</property>
+				<property>/consumables/fuel/tank[0]/temperature_degC</property>
 				<value>40</value>
 			</greater-than-equals>
 		</condition>
@@ -1236,7 +1236,7 @@
 		<object-name>led.ft.l.9</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/consumables/fuel/tank[0]/temperature-degc</property>
+				<property>/consumables/fuel/tank[0]/temperature_degC</property>
 				<value>55</value>
 			</greater-than-equals>
 		</condition>
@@ -1246,7 +1246,7 @@
 		<object-name>led.ft.l.10</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/consumables/fuel/tank[0]/temperature-degc</property>
+				<property>/consumables/fuel/tank[0]/temperature_degC</property>
 				<value>60</value>
 			</greater-than-equals>
 		</condition>
@@ -1258,7 +1258,7 @@
 		<object-name>led.ft.r.2</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/consumables/fuel/tank[1]/temperature-degc</property>
+				<property>/consumables/fuel/tank[1]/temperature_degC</property>
 				<value>-25</value>
 			</greater-than-equals>
 		</condition>
@@ -1268,7 +1268,7 @@
 		<object-name>led.ft.r.3</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/consumables/fuel/tank[1]/temperature-degc</property>
+				<property>/consumables/fuel/tank[1]/temperature_degC</property>
 				<value>-20</value>
 			</greater-than-equals>
 		</condition>
@@ -1278,7 +1278,7 @@
 		<object-name>led.ft.r.4</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/consumables/fuel/tank[1]/temperature-degc</property>
+				<property>/consumables/fuel/tank[1]/temperature_degC</property>
 				<value>-8</value>
 			</greater-than-equals>
 		</condition>
@@ -1288,7 +1288,7 @@
 		<object-name>led.ft.r.5</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/consumables/fuel/tank[1]/temperature-degc</property>
+				<property>/consumables/fuel/tank[1]/temperature_degC</property>
 				<value>4</value>
 			</greater-than-equals>
 		</condition>
@@ -1298,7 +1298,7 @@
 		<object-name>led.ft.r.6</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/consumables/fuel/tank[1]/temperature-degc</property>
+				<property>/consumables/fuel/tank[1]/temperature_degC</property>
 				<value>16</value>
 			</greater-than-equals>
 		</condition>
@@ -1308,7 +1308,7 @@
 		<object-name>led.ft.r.7</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/consumables/fuel/tank[1]/temperature-degc</property>
+				<property>/consumables/fuel/tank[1]/temperature_degC</property>
 				<value>28</value>
 			</greater-than-equals>
 		</condition>
@@ -1318,7 +1318,7 @@
 		<object-name>led.ft.r.8</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/consumables/fuel/tank[1]/temperature-degc</property>
+				<property>/consumables/fuel/tank[1]/temperature_degC</property>
 				<value>40</value>
 			</greater-than-equals>
 		</condition>
@@ -1328,7 +1328,7 @@
 		<object-name>led.ft.r.9</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/consumables/fuel/tank[1]/temperature-degc</property>
+				<property>/consumables/fuel/tank[1]/temperature_degC</property>
 				<value>55</value>
 			</greater-than-equals>
 		</condition>
@@ -1338,7 +1338,7 @@
 		<object-name>led.ft.r.10</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/consumables/fuel/tank[1]/temperature-degc</property>
+				<property>/consumables/fuel/tank[1]/temperature_degC</property>
 				<value>60</value>
 			</greater-than-equals>
 		</condition>
