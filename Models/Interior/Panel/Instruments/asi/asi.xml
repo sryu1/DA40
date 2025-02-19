@@ -37,7 +37,7 @@
 			<entry><ind>   0.00 </ind><dep>   0.0 </dep></entry>
 			<entry><ind>  40.00 </ind><dep>  30</dep></entry>
 			<entry><ind> 90 </ind><dep> 180 </dep></entry>
-			<entry><ind> 170 </ind><dep> 330 </dep></entry>
+			<entry><ind> 180 </ind><dep> 330 </dep></entry>
 		</interpolation>
 		<axis>
 			<x> -1 </x>
