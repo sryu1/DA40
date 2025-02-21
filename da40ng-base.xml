@@ -139,7 +139,7 @@
 				<int n="0" alias="/engines/engine[0]/cranking"/>
 				<int n="1" alias="/sim/model/lights/landing-light"/>
 				<int n="2" alias="/sim/model/lights/taxi-light"/>
-				<int n="3" alias="/sim/model/lights/nav-light"/>
+				<int n="3" alias="/sim/model/lights/nav-lights"/>
 				<int n="4" alias="/sim/model/lights/strobe/state"/>
 				<int n="5" alias="/engines/engine[0]/running"/>
 				<int n="6" alias="/gear/gear[0]/wow"/>
