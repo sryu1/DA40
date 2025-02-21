@@ -9,12 +9,12 @@
 		<texture n="3">
 			<type>cubemap</type>
 			<images>
-				<positive-x>Aircraft/DA40/Models/Effects/cubemaps/interior_reflection/0004.png</positive-x>
-				<negative-x>Aircraft/DA40/Models/Effects/cubemaps/interior_reflection/0002.png</negative-x>
-				<positive-y>Aircraft/DA40/Models/Effects/cubemaps/interior_reflection/0001.png</positive-y>
-				<negative-y>Aircraft/DA40/Models/Effects/cubemaps/interior_reflection/0003.png</negative-y>
-				<positive-z>Aircraft/DA40/Models/Effects/cubemaps/interior_reflection/0006.png</positive-z>
-				<negative-z>Aircraft/DA40/Models/Effects/cubemaps/interior_reflection/0005.png</negative-z>
+				<positive-x>Models/Effects/cubemaps/interior_reflection/0004.png</positive-x>
+				<negative-x>Models/Effects/cubemaps/interior_reflection/0002.png</negative-x>
+				<positive-y>Models/Effects/cubemaps/interior_reflection/0001.png</positive-y>
+				<negative-y>Models/Effects/cubemaps/interior_reflection/0003.png</negative-y>
+				<positive-z>Models/Effects/cubemaps/interior_reflection/0006.png</positive-z>
+				<negative-z>Models/Effects/cubemaps/interior_reflection/0005.png</negative-z>
 			</images>
 		</texture>
 		<use-reflection type="int">1</use-reflection>

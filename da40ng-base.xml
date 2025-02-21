@@ -95,9 +95,9 @@
 			</preview>
 		</previews>
 		<instrumentation>
-			<path>Aircraft/DA40/Systems/da40-instrumentation.xml</path>
+			<path>Systems/da40-instrumentation.xml</path>
 		</instrumentation>
-		<menubar include="Aircraft/DA40/gui/dialogs/da40-menu.xml" />
+		<menubar include="gui/dialogs/da40-menu.xml" />
 		<sound>
 			<path archive="y">Sounds/da40-sound.xml</path>
 		</sound>
@@ -111,7 +111,7 @@
 			<!--	102 used for KI206 Rules	-->
 		</systems>
 		<model>
-			<path archive="y">Aircraft/DA40/Models/da40ng.xml</path>
+			<path archive="y">Aircraft/DA40/Models/da40ng.xml</path> <!-- needs to be a long path for MP, see wiki -->
 			<livery>
 				<file type="string">default</file>
 			</livery>
@@ -267,24 +267,24 @@
 	</systems>
 	<nasal>
 		<controls>
-			<file>Aircraft/DA40/Nasal/controls_override.nas</file>
+			<file>Nasal/controls_override.nas</file>
 		</controls>
 		<da40>
-			<file>Aircraft/DA40/Nasal/da40.nas</file>
-			<file>Aircraft/DA40/Nasal/electrical.nas</file>
-			<file>Aircraft/DA40/Nasal/hobbs.nas</file>
+			<file>Nasal/da40.nas</file>
+			<file>Nasal/electrical.nas</file>
+			<file>Nasal/hobbs.nas</file>
 		</da40>
 		<m803>
-			<file>Aircraft/DA40/Models/Interior/Panel/Instruments/M803/davtron803.nas</file>
+			<file>Models/Interior/Panel/Instruments/M803/davtron803.nas</file>
 		</m803>
 		<gtx327>
-			<file>Aircraft/DA40/Models/Interior/Panel/Instruments/gtx-327/gtx-327.nas</file>
+			<file>Models/Interior/Panel/Instruments/gtx-327/gtx-327.nas</file>
 		</gtx327>
 		<kap140>
 			<file>Aircraft/Generic/kap140.nas</file>
 		</kap140>
 		<autostart>
-			<file>Aircraft/DA40/Nasal/autostart.nas</file>
+			<file>Nasal/autostart.nas</file>
 		</autostart>
 	</nasal>
 </PropertyList>

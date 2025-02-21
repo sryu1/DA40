@@ -6,7 +6,7 @@
 	
 	
 	<effect>
-		<inherits-from>Aircraft/DA40/Models/Lights/ALS_Lights/navlight</inherits-from>
+		<inherits-from>Models/Lights/ALS_Lights/navlight</inherits-from>
 		<parameters>
 			<light_color_base_r type="float">0.71</light_color_base_r>
 			<light_color_base_g type="float">0.71</light_color_base_g>
@@ -21,7 +21,7 @@
 	</effect>
 	
 	<effect>
-		<inherits-from>Aircraft/DA40/Models/Lights/ALS_Lights/navlight</inherits-from>
+		<inherits-from>Models/Lights/ALS_Lights/navlight</inherits-from>
 		<parameters>
 			<light_color_base_r type="float">0.71</light_color_base_r>
 			<light_color_base_g type="float">0.71</light_color_base_g>

@@ -5,7 +5,7 @@
 	<nopreview/>
 	
 	<effect>
-		<inherits-from>Aircraft/DA40/Models/Lights/ALS_lights/strobe</inherits-from>
+		<inherits-from>Models/Lights/ALS_lights/strobe</inherits-from>
 		<parameters>
 			<pointing_y type="float"> 0.70710678</pointing_y>
 		</parameters>

@@ -5,7 +5,7 @@
 	<nopreview/>
 	
 	<effect>
-		<inherits-from>Aircraft/DA40/Models/Lights/ALS_lights/navlight</inherits-from>
+		<inherits-from>Models/Lights/ALS_lights/navlight</inherits-from>
 		<parameters>
 			<light_color_base_r type="float">0.5</light_color_base_r>
 			<light_color_base_g type="float">0.0</light_color_base_g>
