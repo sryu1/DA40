@@ -113,7 +113,7 @@
 		<model>
 			<path archive="y">Aircraft/DA40/Models/da40ng.xml</path> <!-- needs to be a long path for MP, see wiki -->
 			<livery>
-				<file type="string">default</file>
+				<file type="string">OE-DWS</file>
 			</livery>
 			<rendering>
 				<rain-enabled type="int">2</rain-enabled>
