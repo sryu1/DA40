@@ -74,6 +74,16 @@
 		</dim-factor>
 	</light>
 	
+	<animation>
+		<type>select</type>
+		<object-name>ll_std</object-name>
+		<object-name>ll_als</object-name>
+		<object-name>landinglight</object-name>
+		<condition>
+			<property>sim/model/lights/landing-light</property>
+		</condition>
+	</animation>
+
 	<!--	Taxi Light	-->
 	
 	<model>
@@ -138,6 +148,16 @@
 		</dim-factor>
 	</light>
 	
+	<animation>
+		<type>select</type>
+		<object-name>tl_std</object-name>
+		<object-name>tl_als</object-name>
+		<object-name>taxilight</object-name>
+		<condition>
+			<property>sim/model/lights/taxi-light</property>
+		</condition>
+	</animation>
+
 	<!--	Navigation Lights	-->
 	
 	<model>
@@ -385,6 +405,25 @@
 		</dim-factor>
 	</light>
 	
+	<animation>
+		<type>select</type>
+		<object-name>rednav_std</object-name>
+		<object-name>rednav_als</object-name>
+		<object-name>red-navlight</object-name>
+		<object-name>greennav_std</object-name>
+		<object-name>greennav_als</object-name>
+		<object-name>green-navlight</object-name>
+		<object-name>leftrearnav_std</object-name>
+		<object-name>leftrearnav_als</object-name>
+		<object-name>left-rear-navlight</object-name>
+		<object-name>rightrearnav_std</object-name>
+		<object-name>rightrearnav_als</object-name>
+		<object-name>right-rear-navlight</object-name>
+		<condition>
+			<property>sim/model/lights/nav-lights</property>
+		</condition>
+	</animation>
+
 	<!--	Strobe Lights	-->
 	
 	<model>
@@ -509,6 +548,20 @@
 			<property>sim/model/lights/strobe-lights</property>
 		</dim-factor>
 	</light>
+
+	<animation>
+		<type>select</type>
+		<object-name>leftstrobe_std</object-name>
+		<object-name>leftstrobe_als</object-name>
+		<object-name>left-strobe</object-name>
+		<object-name>rightstrobe_std</object-name>
+		<object-name>rightstrobe_als</object-name>
+		<object-name>right-strobe</object-name>
+		<condition>
+			<property>sim/model/lights/strobe-lights</property>
+		</condition>
+	</animation>
+
 	<!--Select Lights ALS/Standard-->
 	<animation>
 		<type>select</type>

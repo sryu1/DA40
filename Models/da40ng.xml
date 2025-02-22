@@ -6,13 +6,13 @@
 			var livery_update = aircraft.livery_update.new("Aircraft/DA40/Models/Liveries", 10);
 			
 			var rplayer = cmdarg();
-			
+
 			# Set up property aliases for animations
 			rplayer.getNode("engines/engine[0]/cranking",		1).alias(rplayer.getNode("sim/multiplay/generic/int[0]")	);
 			rplayer.getNode("sim/model/lights/landing-light",	1).alias(rplayer.getNode("sim/multiplay/generic/int[1]")	);
 			rplayer.getNode("sim/model/lights/taxi-light",		1).alias(rplayer.getNode("sim/multiplay/generic/int[2]")	);
 			rplayer.getNode("sim/model/lights/nav-lights",		1).alias(rplayer.getNode("sim/multiplay/generic/int[3]")	);
-			rplayer.getNode("sim/model/lights/strobe/state",	1).alias(rplayer.getNode("sim/multiplay/generic/int[4]")	);
+			rplayer.getNode("sim/model/lights/strobe-lights",	1).alias(rplayer.getNode("sim/multiplay/generic/int[4]")	);
 			rplayer.getNode("engines/engine[0]/running",		1).alias(rplayer.getNode("sim/multiplay/generic/int[5]")	);
 			rplayer.getNode("gear/gear[0]/wow",				1).alias(rplayer.getNode("sim/multiplay/generic/int[6]")	);
 			rplayer.getNode("gear/gear[1]/wow",				1).alias(rplayer.getNode("sim/multiplay/generic/int[7]")	);
@@ -27,7 +27,6 @@
 			rplayer.getNode("da40/door-left-norm",			1).alias(rplayer.getNode("sim/multiplay/generic/float[6]")	);
 			rplayer.getNode("engines/engine[0]/mp-osi",		1).alias(rplayer.getNode("sim/multiplay/generic/float[7]")	);
 			rplayer.getNode("velocities/groundspeed-kt",		1).alias(rplayer.getNode("sim/multiplay/generic/float[8]")	);
-			
 		</load>
 		<unload>
 			livery_update.stop();
