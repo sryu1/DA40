@@ -131,5 +131,8 @@
 		<whitewire_annun>
 			<file>Nasal/whitewire_annun.nas</file>
 		</whitewire_annun>
+		<m803>
+			<file>Models/Interior/Panel/Instruments/M803/davtron803.nas</file>
+		</m803>
 	</nasal>
 </PropertyList>
