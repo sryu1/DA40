@@ -137,5 +137,8 @@
 		<gtx327>
 			<file>Models/Interior/Panel/Instruments/gtx-327/gtx-327.nas</file>
 		</gtx327>
+		<kap140>
+			<file>Aircraft/Generic/kap140.nas</file>
+		</kap140>
 	</nasal>
 </PropertyList>

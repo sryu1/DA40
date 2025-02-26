@@ -274,9 +274,6 @@
 			<file>Nasal/electrical.nas</file>
 			<file>Nasal/hobbs.nas</file>
 		</da40>
-		<kap140>
-			<file>Aircraft/Generic/kap140.nas</file>
-		</kap140>
 		<autostart>
 			<file>Nasal/autostart.nas</file>
 		</autostart>
