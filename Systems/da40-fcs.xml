@@ -105,7 +105,7 @@
 			<function>
 				<sum>
 					<property>fcs/rudder-cmd-norm</property>
-					<value>0.038</value> <!--fixed-->
+					<value>-0.006</value> <!--fixed-->
 				</sum>
 			</function>
 		</fcs_function>
