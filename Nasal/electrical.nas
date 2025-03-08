@@ -574,6 +574,7 @@ if( g1000.getBoolValue() ){
 	
 } else {
 	append( avionic_bus.consumers, consumer.new( "gps", nil, 0.1, 2 ) );
+	append( avionic_bus.consumers, consumer.new( "dme", nil, 0.1, 2 ) );
 	append( avionic_bus.consumers, consumer.new( "comm[0]", nil, 5, 5 ) );
 	append( avionic_bus.consumers, consumer.new( "nav[0]", nil, 20, 5 ) );
 	append( avionic_bus.consumers, consumer.new( "nav[1]", nil, 20, 5 ) );

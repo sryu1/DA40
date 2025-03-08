@@ -118,7 +118,14 @@
 			<channel-mode-selector type="int">0</channel-mode-selector>
 		</comm>
 	</instrumentation>
-	
+
+	<controls>
+		<switches>
+			<kn-62a type="bool">1</kn-62a><!-- dme ON -->
+			<kn-62a-mode type="int">0</kn-62a-mode><!-- slaved to Nav1 -->
+		</switches>
+	</controls>
+
 	<options>
 		<g1000 type="bool">0</g1000>
 		<ifr-conventional type="bool">0</ifr-conventional>
@@ -140,5 +147,8 @@
 		<kap140>
 			<file>Aircraft/Generic/kap140.nas</file>
 		</kap140>
+		<kn62a>
+			<file>Models/Interior/Panel/Instruments/dme/kn62a.nas</file>
+		</kn62a>
 	</nasal>
 </PropertyList>

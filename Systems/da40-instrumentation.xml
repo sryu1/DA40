@@ -40,6 +40,11 @@
 		<eight-point-three>1</eight-point-three>
 	</comm-radio>
 	
+	<dme>
+		<name>dme</name>
+		<number>0</number>
+	</dme>
+
 	<heading-indicator-dg>
 		<name>heading-indicator</name>
 		<number>0</number>

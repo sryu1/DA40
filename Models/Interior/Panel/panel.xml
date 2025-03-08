@@ -244,6 +244,16 @@
 			<z-m>  0.067 </z-m>
 		</offsets>
 	</model>
+	<!-- KN62a DME instrument (by 'Buckaroo') -->
+	<model>
+		<name>DME</name>
+		<path>Instruments/dme/kn62a.xml</path>
+		<offsets>
+			<x-m>  0.003  </x-m>
+			<y-m> -0.0055 </y-m>
+			<z-m>  0.038  </z-m>
+		</offsets>
+	</model>
 	<!-- KAP140 by Sascha Reiszner -->
 	<model>
 		<path>Instruments/kap140/kap140.xml</path>
