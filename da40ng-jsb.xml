@@ -522,7 +522,7 @@
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>aero/cl-squared</property>
-					<value> 0.0 </value> <!-- 1/(pi*AR*e), AR=8.53, e=0.84, value=0.044 -->
+					<value> 0.04 </value> <!-- 1/(pi*AR*e), AR=8.53, e=0.84, value=0.044 -->
 				</product>
 			</function>
 			<function name="aero/force/Drag_mach">
