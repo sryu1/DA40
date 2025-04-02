@@ -582,6 +582,48 @@
 			<z-m> -0.145109</z-m>
 		</center>
 	</animation>
+	<!--	ELT	-->
+	<animation>
+		<type>pick</type>
+		<object-name>switch.elt</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-toggle</command>
+				<property>instrumentation/elt/on</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>switch.elt</object-name>
+		<property>instrumentation/elt/on</property>
+		<factor> -35 </factor>
+		<offset-deg> 17.5 </offset-deg>
+		<axis>
+			<y> 1 </y>
+		</axis>
+		<center>
+			<x-m> -0.014308 </x-m>
+			<z-m> -0.211452 </z-m>
+		</center>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>light.elt</object-name>
+		<ambient>
+			<red>1.0</red>
+			<green>0.5</green>
+			<blue>0.5</blue>
+			<factor-prop>instrumentation/elt/on</factor-prop>
+		</ambient>
+		<emission>
+			<red>1.0</red>
+			<green>0.5</green>
+			<blue>0.5</blue>
+			<factor-prop>instrumentation/elt/on</factor-prop>
+		</emission>
+	</animation>
 	<!-- Lights -->
 	<!-- Strobe -->
 	<animation>

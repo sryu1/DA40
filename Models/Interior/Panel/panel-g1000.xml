@@ -470,6 +470,48 @@
 			<z-m> -0.158179 </z-m>
 		</center>
 	</animation>
+	<!--	ELT	-->
+	<animation>
+		<type>pick</type>
+		<object-name>g1000_sw.elt</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-toggle</command>
+				<property>instrumentation/elt/on</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>g1000_sw.elt</object-name>
+		<property>instrumentation/elt/on</property>
+		<factor>-24</factor>
+		<offset-deg>12</offset-deg>
+		<axis>
+			<y> 1 </y>
+		</axis>
+		<center>
+			<x-m> 0.012601 </x-m>
+			<z-m> 0.120739 </z-m>
+		</center>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>g1000_lt.elt</object-name>
+		<ambient>
+			<red>1.0</red>
+			<green>0.5</green>
+			<blue>0.5</blue>
+			<factor-prop>instrumentation/elt/on</factor-prop>
+		</ambient>
+		<emission>
+			<red>1.0</red>
+			<green>0.5</green>
+			<blue>0.5</blue>
+			<factor-prop>instrumentation/elt/on</factor-prop>
+		</emission>
+	</animation>
 	<!-- 	Lights	 -->
 	<!-- Strobe -->
 	<animation>
