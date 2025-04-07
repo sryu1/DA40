@@ -20,6 +20,7 @@
 		<inherits-from>../Effects/interior/interior</inherits-from>
 		<object-name>interior</object-name>
 		<object-name>center_console</object-name>
+		<object-name>floor</object-name>
 	</effect>
 	<!--	MODELS	-->
 	<!--	Instrument Panel	-->
