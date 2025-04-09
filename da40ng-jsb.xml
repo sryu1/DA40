@@ -458,7 +458,7 @@
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>aero/function/kCDge</property>
-					<value>1.07</value>
+					<value>1.01</value>
 					<!-- Tuning factor -->
 					<table>
 						<independentVar lookup="row">aero/alpha-wing-deg</independentVar>
